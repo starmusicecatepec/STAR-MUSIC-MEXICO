@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" href="logo-starmusic.jpg" type="image/jpeg">
+    <meta charset="UTF-8">
+    <meta name="description" content="Star Music Record Studio en Ecatepec. Especialistas en Trap, Hip Hop, Rap y R&B. Grabación, mezcla, masterización y beats exclusivos en San Benjamin.">
+<meta name="keywords" content="Estudio de grabacion Ecatepec, Star Music, Produccion musical Trap, Beats exclusivos Hip Hop, Grabacion de Rap Mexico, Masterizacion profesional, Microfonia Sennheiser, Beats Rap Ecatepec">
+<meta name="author" content="Star Music">
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="Star Music | Record Studio & Beats | Ecatepec">
+<meta property="og:description" content="Tu talento, nuestro sonido. Grabación pro de Trap, Hip Hop y Rap en Ecatepec.">
+<meta property="og:image" content="logo-starmusic.jpg">
+<meta property="og:url" content="https://tu-pagina-aqui.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Music | Record Studio & Beats | Ecatepec</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    
+    <style>
+        :root {
+            --rojo-studio: #ff003c;
+            --verde-whatsapp: #25d366;
+            --negro-profundo: #0a0a0a;
+            --gris-oscuro: #161616;
+            --rojo-glow: rgba(255, 0, 60, 0.5);
+            --glass: rgba(10, 10, 10, 0.9);
+            --vu-verde: #2ecc71;
+            --vu-amarillo: #f1c40f;
+        }
+
+        body {
+            background-color: var(--negro-profundo);
+            font-family: 'Segoe UI', Helvetica, sans-serif;
+            color: white;
+            margin: 0;
+            overflow-x: hidden;
+            position: relative;
+            scroll-behavior: smooth;
+        }
+
+        /* --- PANTALLA DE CARGA --- */
+        #loader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--negro-profundo); z-index: 50000;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        .loader-text { font-family: 'Impact', sans-serif; letter-spacing: 5px; color: white; margin-bottom: 20px; font-size: 1.5rem; }
+        .progress-container { width: 250px; height: 4px; background: #222; border-radius: 10px; overflow: hidden; border: 1px solid #333; }
+        .progress-bar { width: 0%; height: 100%; background: var(--rojo-studio); box-shadow: 0 0 15px var(--rojo-studio); transition: width 0.1s linear; }
+
+        /* --- SESSION CLOCK --- */
+        .session-clock {
+            position: fixed; top: 90px; right: 110px; background: rgba(0,0,0,0.8);
+            padding: 10px 20px; border: 1px solid #333; border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace; color: var(--rojo-studio);
+            font-weight: bold; z-index: 9000; display: flex; align-items: center; gap: 10px;
+        }
+        .rec-dot { width: 10px; height: 10px; background: var(--rojo-studio); border-radius: 50%; animation: blink 1s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+
+        /* --- BARRA DE ESTADO --- */
+        .status-bar {
+            position: fixed; bottom: 0; width: 100%; height: 25px;
+            background: rgba(0,0,0,0.9); border-top: 1px solid #333;
+            z-index: 10001; display: flex; align-items: center; padding: 0 50px;
+            font-family: 'Courier New', monospace; font-size: 0.7rem; color: #555; gap: 20px; box-sizing: border-box;
+        }
+        .status-item span { color: var(--rojo-studio); }
+
+        /* --- RACKS LATERALES --- */
+        .lateral-rack {
+            position: fixed; top: 0; width: 40px; height: 100vh;
+            background: rgba(20, 20, 20, 0.8); display: flex; flex-direction: column;
+            align-items: center; justify-content: space-around; z-index: 5;
+            border-left: 1px solid #333; border-right: 1px solid #333;
+        }
+        .izquierdo { left: 0; } .derecho { right: 0; }
+        .jack-input { width: 20px; height: 20px; border-radius: 50%; background: radial-gradient(circle, #444 20%, #111 80%); border: 2px solid #555; }
+
+        /* --- VU METERS --- */
+        .vu-meter-container {
+            position: fixed; bottom: 60px; width: 15px; height: 200px;
+            background: #111; border: 1px solid #333; display: flex;
+            flex-direction: column-reverse; padding: 2px; z-index: 6;
+        }
+        .vu-izq { left: 45px; } .vu-der { right: 45px; }
+        .vu-bar { width: 100%; height: 5px; margin-bottom: 2px; background: #222; transition: 0.1s; }
+
+        /* --- NAVEGACIÓN --- */
+        nav {
+            position: fixed; top: 0; width: 100%; height: 80px;
+            background: var(--glass); backdrop-filter: blur(15px);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 100px; box-sizing: border-box; z-index: 10000;
+            border-bottom: 2px solid var(--rojo-studio);
+        }
+        .nav-logo-container { display: flex; align-items: center; gap: 15px; cursor: pointer; }
+        .img-logo-nav { height: 50px; border-radius: 5px; }
+        .nav-logo-text { font-family: 'Impact', sans-serif; font-size: 1.8rem; color: white; }
+        .nav-links button { background: none; border: none; color: white; cursor: pointer; font-weight: 600; text-transform: uppercase; margin-left: 20px; transition: 0.3s; }
+        .nav-links button:hover, .nav-links button.active { color: var(--rojo-studio); text-shadow: 0 0 10px var(--rojo-studio); transform: scale(1.1); }
+
+        /* --- SISTEMA PÁGINAS --- */
+        .seccion-pagina { display: none; opacity: 0; transition: opacity 0.5s ease; padding: 120px 100px 60px; min-height: 100vh; box-sizing: border-box; }
+        .seccion-pagina.activa { display: block; opacity: 1; }
+
+        /* --- TÍTULO CON GLITCH Y MOVIMIENTO --- */
+        .titulo-principal { 
+            font-size: 5em; font-family: 'Impact', sans-serif; letter-spacing: 8px; margin: 0; 
+            animation: floatTitle 4s ease-in-out infinite;
+        }
+        @keyframes floatTitle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+        .glitch { position: relative; display: inline-block; }
+        .glitch:hover::before, .glitch:hover::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--negro-profundo); }
+        .glitch:hover::before { left: 2px; text-shadow: -2px 0 #ff00c1; clip: rect(44px, 450px, 56px, 0); animation: glitch-anim 5s infinite linear alternate-reverse; }
+        .glitch:hover::after { left: -2px; text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1; clip: rect(100px, 450px, 120px, 0); animation: glitch-anim2 1s infinite linear alternate-reverse; }
+        @keyframes glitch-anim { 0% { clip: rect(31px, 9999px, 94px, 0); } 100% { clip: rect(70px, 9999px, 71px, 0); } }
+        @keyframes glitch-anim2 { 0% { clip: rect(65px, 9999px, 119px, 0); } 100% { clip: rect(10px, 9999px, 15px, 0); } }
+
+        /* --- HOME CONTENT --- */
+        .home-content { text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .logo-wrapper { position: relative; display: flex; justify-content: center; align-items: center; margin-bottom: 20px; }
+        .pulse-ring { position: absolute; width: 180px; height: 180px; border: 2px solid var(--rojo-studio); border-radius: 50%; opacity: 0; animation: pulseBeat 2s infinite; }
+        @keyframes pulseBeat { 0% { transform: scale(0.8); opacity: 0.5; } 100% { transform: scale(1.5); opacity: 0; } }
+        .main-logo-display { height: 180px; filter: drop-shadow(0 0 20px var(--rojo-studio)); z-index: 1; }
+
+        .generos-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 40px 0; max-width: 800px; }
+        .genero-tag { padding: 10px 25px; border: 1px solid rgba(255,255,255,0.2); border-radius: 5px; font-weight: 800; text-transform: uppercase; background: rgba(255,255,255,0.03); cursor: pointer; transition: 0.3s; }
+        .genero-tag:hover { border-color: var(--rojo-studio); color: var(--rojo-studio); box-shadow: 0 0 15px var(--rojo-glow); transform: translateY(-5px); }
+
+        .mision-block { margin: 60px 0; padding: 40px; border-left: 5px solid var(--rojo-studio); background: rgba(255,255,255,0.02); text-align: left; max-width: 900px; }
+        .mision-text { font-family: 'Impact', sans-serif; font-size: 3.5rem; line-height: 1; letter-spacing: 2px; text-transform: uppercase; }
+
+        .plugins-banner { display: flex; justify-content: center; gap: 30px; margin-top: 20px; opacity: 0.5; filter: grayscale(1); }
+        .plugin-name { font-family: 'Arial Black', sans-serif; font-size: 0.8rem; letter-spacing: 2px; }
+
+        .reproductores-stack { display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%; max-width: 660px; margin-top: 40px; }
+        .reproductores-stack iframe { width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+
+        .wave-container { width: 100%; max-width: 600px; height: 60px; display: flex; align-items: center; justify-content: center; gap: 3px; margin: 40px 0; }
+        .wave-bar { width: 4px; height: 10px; background: var(--rojo-studio); animation: waveAnim 1s ease-in-out infinite; }
+        @keyframes waveAnim { 0%, 100% { height: 10px; } 50% { height: 50px; } }
+
+        /* --- SERVICIOS CON EFECTO --- */
+        .tabla-contenedor { max-width: 900px; margin: 0 auto; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 20px; }
+        table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
+        tr { background: var(--gris-oscuro); transition: 0.4s; cursor: pointer; }
+        tr:hover { transform: scale(1.02) translateX(15px); box-shadow: -10px 0 20px var(--rojo-studio); background: #1a1a1a; }
+        td { padding: 20px; }
+        td:last-child { text-align: right; color: var(--rojo-studio); font-weight: bold; font-size: 1.2em; }
+        .badge-venda { background: gold; color: black; padding: 4px 8px; border-radius: 3px; font-size: 0.7em; font-weight: bold; }
+
+        /* --- ESTUDIO GRID --- */
+        .equipo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 40px auto; }
+        .equipo-card { background: var(--gris-oscuro); padding: 40px; border-radius: 15px; border: 1px solid #333; text-align: center; transform-style: preserve-3d; transition: 0.3s; }
+        .equipo-icon { font-size: 3.5em; color: var(--rojo-studio); margin-bottom: 20px; }
+
+        /* --- CONTACTO --- */
+        .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto; background: var(--glass); padding: 40px; border-radius: 20px; border: 1px solid #333; }
+        
+        /* --- RECUADRO REDES SOCIALES CON EFECTO TILT --- */
+        .redes-box { 
+            background: rgba(255,255,255,0.03); 
+            border: 1px solid rgba(255, 0, 60, 0.3); 
+            padding: 30px; border-radius: 20px; 
+            transform-style: preserve-3d; margin-top: 20px; 
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        .social-item { display: flex; align-items: center; gap: 15px; text-decoration: none; color: white; font-size: 1.6rem; margin-bottom: 20px; transition: 0.3s; }
+        .social-item:hover { color: var(--rojo-studio); transform: translateZ(20px); }
+        
+        /* --- DISTINTIVO PROXIMAMENTE EN ROJO --- */
+        .badge-prox { 
+            font-size: 0.5em; 
+            background: var(--rojo-studio); 
+            color: white; 
+            padding: 2px 8px; 
+            border-radius: 3px; 
+            vertical-align: middle; 
+            margin-left: 10px; 
+            font-weight: bold; 
+            box-shadow: 0 0 10px var(--rojo-studio);
+        }
+
+        .mapa-box { border-radius: 15px; overflow: hidden; border: 2px solid var(--rojo-studio); height: 400px; }
+
+        /* --- WHATSAPP RADAR --- */
+        .btn-flotante-whatsapp { 
+            position: fixed; bottom: 40px; right: 80px; background: var(--verde-whatsapp); color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 20000; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+        .btn-flotante-whatsapp::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--verde-whatsapp); border-radius: 50px; z-index: -1; animation: pulseRadarVerde 2s infinite; }
+        @keyframes pulseRadarVerde { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.4); opacity: 0; } }
+
+        /* --- RESPONSIVE IPHONE --- */
+        @media (max-width: 768px) {
+            .lateral-rack, .vu-meter-container, .session-clock, .status-bar { display: none !important; }
+            nav { padding: 0 20px; height: 70px; }
+            .nav-logo-text { font-size: 1.2rem; }
+            .nav-links button { margin-left: 10px; font-size: 0.7rem; }
+            .titulo-principal { font-size: 3em !important; }
+            .mision-text { font-size: 2.2rem !important; }
+            .contacto-grid { grid-template-columns: 1fr !important; }
+            .seccion-pagina { padding: 100px 20px 60px !important; }
+            .btn-flotante-whatsapp { right: 20px; bottom: 30px; padding: 10px 20px; }
+        }
+
+        #visualizer-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(255, 0, 60, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 0, 60, 0.05) 1px, transparent 1px); background-size: 50px 50px; z-index: -1; animation: moveGrid 20s linear infinite, vibeCheck 10s ease-in-out infinite; }
+        @keyframes moveGrid { 0% { background-position: 0 0; } 100% { background-position: 50px 50px; } }
+        @keyframes vibeCheck { 0%, 100% { filter: hue-rotate(0deg); opacity: 0.7; } 50% { filter: hue-rotate(280deg); opacity: 0.4; } }
+        #fondo-parallax { position: fixed; top: -5%; left: -5%; width: 110%; height: 110%; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('fondo.jpg'); background-size: cover; z-index: -2; transition: transform 0.1s ease-out; }
+    </style>
+</head>
+<body>
+
+<div id="loader">
+    <div class="loader-text">PREPARANDO SESIÓN...</div>
+    <div class="progress-container"><div class="progress-bar" id="p-bar"></div></div>
+</div>
+
+<div class="session-clock"><div class="rec-dot"></div><div id="clock-display">00:00:00</div></div>
+<div class="status-bar">
+    <div class="status-item">LATENCY: <span>1.2ms</span></div>
+    <div class="status-item">BUFFER: <span>512 SAMPLES</span></div>
+    <div class="status-item">ENGINE: <span>STAR-DRIVE v5.0</span></div>
+</div>
+
+<div id="visualizer-bg"></div>
+<div id="fondo-parallax"></div>
+
+<div class="lateral-rack izquierdo"><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div></div>
+<div class="lateral-rack derecho"><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div></div>
+
+<div class="vu-meter-container vu-izq" id="vu-izq"></div>
+<div class="vu-meter-container vu-der" id="vu-der"></div>
+
+<a href="https://wa.me/525664055379" class="btn-flotante-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> AGENDAR SESIÓN</a>
+
+<nav>
+    <div class="nav-logo-container" onclick="mostrarPagina('inicio')" style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+        <img src="logo-starmusic.jpg" alt="Logo" class="img-logo-nav" style="height:50px;">
+        <span class="nav-logo-text">STAR MUSIC</span>
+    </div>
+    <div class="nav-links">
+        <button onclick="mostrarPagina('inicio')" class="nav-btn active" id="btn-inicio">Inicio</button>
+        <button onclick="mostrarPagina('servicios')" class="nav-btn" id="btn-servicios">Servicios</button>
+        <button onclick="mostrarPagina('equipo')" class="nav-btn" id="btn-equipo">Estudio</button>
+        <button onclick="mostrarPagina('contacto')" class="nav-btn" id="btn-contacto">Contacto</button>
+    </div>
+</nav>
+
+<div id="inicio" class="seccion-pagina activa">
+    <div class="home-content">
+        <div class="logo-wrapper">
+            <div class="pulse-ring"></div><div class="pulse-ring"></div>
+            <img src="logo-starmusic.jpg" alt="Logo" class="main-logo-display">
+        </div>
+        <h1 class="titulo-principal glitch" data-text="STAR MUSIC">STAR MUSIC</h1>
+        <p style="color:var(--rojo-studio); letter-spacing:5px; text-transform:uppercase; font-weight:bold; margin-top:15px;">Record Studio & Producción Musical</p>
+
+        <div class="generos-container">
+            <div class="genero-tag" onmouseover="playHoverSound()">Trap</div><div class="genero-tag" onmouseover="playHoverSound()">Hip Hop</div><div class="genero-tag" onmouseover="playHoverSound()">Boom Bap</div><div class="genero-tag" onmouseover="playHoverSound()">R&B</div><div class="genero-tag" onmouseover="playHoverSound()">Rap</div><div class="genero-tag" onmouseover="playHoverSound()">Pop</div>
+        </div>
+
+        <div class="mision-block">
+            <div class="mision-text">De la calle para el mundo. <br><span style="color:var(--rojo-studio);">Tu talento, nuestro sonido.</span></div>
+            <div class="plugins-banner">
+                <span class="plugin-name">WAVES</span><span class="plugin-name">ANTARES</span><span class="plugin-name">FABFILTER</span><span class="plugin-name">KONTAKT</span>
+            </div>
+        </div>
+
+        <div class="reproductores-stack">
+            <iframe allow="autoplay" frameborder="0" height="150" src="https://embed.music.apple.com/mx/album/no-te-pude-encontrar/1753496189?i=1753496190"></iframe>
+            <iframe allow="autoplay" frameborder="0" height="150" src="https://embed.music.apple.com/mx/album/haciendo-ruido/1795744188?i=1795744401"></iframe>
+        </div>
+
+        <div class="wave-container">
+            <div class="wave-bar" style="animation-delay:0.1s"></div><div class="wave-bar" style="animation-delay:0.3s"></div><div class="wave-bar" style="animation-delay:0.5s"></div><div class="wave-bar" style="animation-delay:0.2s"></div><div class="wave-bar" style="animation-delay:0.4s"></div><div class="wave-bar" style="animation-delay:0.1s"></div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05); padding:25px; border-radius:15px; border-top:3px solid var(--rojo-studio); font-style:italic; text-align:center;">"La mejor calidad de sonido en Ecatepec. El trato es otro nivel. Recomendado 100%."</div>
+    </div>
+</div>
+
+<div id="servicios" class="seccion-pagina">
+    <div class="tabla-contenedor">
+        <h2 style="text-align:center; color:var(--rojo-studio); letter-spacing:5px; margin-bottom:30px;">SERVICIOS Y COSTOS</h2>
+        <table>
+            <tbody>
+                <tr onclick="mostrarInfo('★ MÁS VENDIDO', 'Beat exclusivo, grabación de voces y masterización profesional para plataformas digitales.')">
+                    <td><span class="badge-venda">★ MÁS VENDIDO</span><br>Beat Exclusivo + Grabación + Master</td><td>$500.00</td>
+                </tr>
+                <tr onclick="mostrarInfo('BEAT LIMITADO', 'Beat limitado (20k repros), grabación completa y masterización profesional.')"><td>Beat Limitado + Grabación + Master</td><td>$450.00</td></tr>
+                <tr onclick="mostrarInfo('EXCLUSIVA GRABACIÓN', 'Composición original desde cero y transferencia total de derechos, sin masterizar.')"><td>Beat Exclusivo + Grabación (Sin Master)</td><td>$400.00</td></tr>
+                <tr onclick="mostrarInfo('EXCLUSIVA MASTER', 'Composición original desde cero, mezcla de stems y transferencia total de derechos.')"><td>Beat Exclusivo + Masterización</td><td>$350.00</td></tr>
+                <tr onclick="mostrarInfo('LICENCIA EXCLUSIVA', 'Composición original desde cero y contrato de transferencia total de derechos.')"><td>Beat Licencia Exclusiva</td><td>$300.00</td></tr>
+                <tr onclick="mostrarInfo('LIMITADA MASTER', 'Composición desde cero, mezcla de stems y transferencia limitada a 20,000 reproducciones.')"><td>Beat Licencia Limitada + Master</td><td>$250.00</td></tr>
+                <tr onclick="mostrarInfo('LICENCIA LIMITADA', 'Composición desde cero y contrato de transferencia limitada a 15,000 reproducciones.')"><td>Beat Licencia Limitada</td><td>$200.00</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="equipo" class="seccion-pagina">
+    <h2 style="text-align: center; color: var(--rojo-studio); font-family: 'Impact'; letter-spacing: 3px;">EXPERIENCIA STAR MUSIC</h2>
+    <div class="equipo-grid">
+        <div class="equipo-card" data-tilt><i class="fas fa-headphones equipo-icon"></i><h3>MONITOREO</h3><p style="color:#aaa;">Microfonía <b>Sennheiser</b> y audífonos <b>Shure</b> de alta fidelidad para una referencia perfecta.</p></div>
+        <div class="equipo-card" data-tilt><i class="fas fa-wave-square equipo-icon"></i><h3>INTERFAZ</h3><p style="color:#aaa;"><b>Scarlett Focusrite</b> & <b>MacBook Air</b> para procesamiento ultra rápido sin interrupciones.</p></div>
+        <div class="equipo-card" data-tilt><i class="fas fa-desktop equipo-icon"></i><h3>SOFTWARE</h3><p style="color:#aaa;"><b>FL Studio Pro</b>, Suite <b>Antares</b> (Auto-Tune) y <b>FabFilter</b> para un sonido competitivo.</p></div>
+        <div class="equipo-card" data-tilt><i class="fas fa-couch equipo-icon"></i><h3>VIBE & COMFORT</h3><p style="color:#aaa;">Espacio climatizado y trato personal diseñado para que el artista fluya al 100%.</p></div>
+        <div class="equipo-card" data-tilt><i class="fas fa-door-open equipo-icon"></i><h3>ACÚSTICA CONTROLADA</h3><p style="color:#aaa;">Cabina de grabación tratada profesionalmente para capturas de voces limpias y nítidas.</p></div>
+        <div class="equipo-card" data-tilt><i class="fas fa-plug equipo-icon"></i><h3>CABLEADO ELITE</h3><p style="color:#aaa;">Nivel de señal purificado con cableado <b>Mogami</b> y conectores <b>Neutrik</b> para Zero Ruido.</p></div>
+    </div>
+</div>
+
+<div id="contacto" class="seccion-pagina">
+    <div class="contacto-grid">
+        <div>
+            <h2>SÍGUENOS</h2>
+            <div class="redes-box" data-tilt>
+                <a href="https://www.facebook.com/share/1Eeg61VFA5/?mibextid=wwXIfr" target="_blank" class="social-item"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="https://www.instagram.com/jhonwayne.mp3?igsh=d2ttMjM1ZmczOTFw&utm_source=qr" target="_blank" class="social-item"><i class="fab fa-instagram"></i> Instagram</a>
+                <div class="social-item" style="opacity:0.9; cursor: default;"><i class="fab fa-tiktok"></i> TikTok <span class="badge-prox">PRÓXIMAMENTE</span></div>
+            </div>
+            <p style="margin-top:20px;">Benito Juárez Nte 9, San Benjamin, Ecatepec.<br>WhatsApp: 56 6405 5379</p>
+        </div>
+        <div class="mapa-box"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3759.1837072462316!2d-99.043542!3d19.60533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDM2JzE5LjIiTiA5OcKwMDInMzYuNyJX!5e0!3m2!1ses!2smx!4v1650000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
+    </div>
+</div>
+
+<footer style="text-align:center; padding:40px; color:#444; font-size:0.8rem;">© 2026 Star Music Record Studio - Haciendo Ruido</footer>
+
+<div id="miModal" class="modal">
+    <div class="modal-contenido">
+        <span onclick="cerrarModal()" style="cursor:pointer; position:absolute; right:20px; top:10px; font-size:30px;">×</span>
+        <h2 id="modal-titulo" style="color: var(--rojo-studio);"></h2>
+        <p id="modal-descripcion" style="margin:20px 0; line-height:1.6;"></p>
+    </div>
+</div>
+
+<script>
+    function updateClock() { const now = new Date(); document.getElementById('clock-display').innerText = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0') + ":" + now.getSeconds().toString().padStart(2, '0'); }
+    setInterval(updateClock, 1000); updateClock();
+
+    window.onload = () => {
+        let bar = document.getElementById('p-bar'); let width = 0;
+        let interval = setInterval(() => {
+            if (width >= 100) { clearInterval(interval); setTimeout(() => { document.getElementById('loader').style.display='none'; document.body.style.overflow='auto'; }, 500); }
+            else { width += 10; bar.style.width = width + '%'; }
+        }, 50);
+    };
+
+    function playHoverSound() {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioCtx.createOscillator(); const gainNode = audioCtx.createGain();
+        oscillator.connect(gainNode); gainNode.connect(audioCtx.destination);
+        oscillator.type = 'sine'; oscillator.frequency.setValueAtTime(800, audioCtx.currentTime);
+        gainNode.gain.setValueAtTime(0.02, audioCtx.currentTime);
+        oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.05);
+    }
+
+    function mostrarPagina(id) {
+        document.querySelectorAll('.seccion-pagina').forEach(p => p.classList.remove('activa'));
+        document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+        document.getElementById(id).classList.add('activa');
+        if(document.getElementById('btn-' + id)) document.getElementById('btn-' + id).classList.add('active');
+        window.scrollTo(0,0);
+    }
+
+    function crearVU(id) { const container = document.getElementById(id); if(!container) return; for(let i=0; i<18; i++) { const bar = document.createElement('div'); bar.className = 'vu-bar'; container.appendChild(bar); } }
+    crearVU('vu-izq'); crearVU('vu-der');
+    
+    function animarVU() {
+        const barsIzq = document.querySelectorAll('#vu-izq .vu-bar'); const barsDer = document.querySelectorAll('#vu-der .vu-bar');
+        const level = Math.floor(Math.random() * 18);
+        barsIzq.forEach((b, i) => { b.style.background = i < level ? (i < 10 ? 'var(--vu-verde)' : i < 15 ? 'var(--vu-amarillo)' : 'var(--rojo-studio)') : '#222'; });
+        barsDer.forEach((b, i) => { b.style.background = i < (level*0.9) ? (i < 10 ? 'var(--vu-verde)' : i < 15 ? 'var(--vu-amarillo)' : 'var(--rojo-studio)') : '#222'; });
+    }
+    setInterval(animarVU, 150);
+
+    function mostrarInfo(t, d) { 
+        document.getElementById("modal-titulo").innerText = t; 
+        document.getElementById("modal-descripcion").innerText = d; 
+        document.getElementById("miModal").style.display = "flex"; 
+    }
+    function cerrarModal() { document.getElementById("miModal").style.display = "none"; }
+    
+    // INICIALIZACIÓN DE TILT PARA EQUIPO Y REDES
+    VanillaTilt.init(document.querySelectorAll(".equipo-card, .redes-box"), { max: 10, speed: 400 });
+</script>
+</body>
+</html>
