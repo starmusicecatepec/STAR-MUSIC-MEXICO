@@ -274,10 +274,10 @@
         .vu-izq { left: 45px; } .vu-der { right: 45px; }
         .vu-bar { width: 100%; height: 5px; margin-bottom: 2px; background: #222; transition: 0.1s; }
 
-        /* --- NAVEGACIÓN LIQUID GLASS --- */
+        /* --- NAVEGACIÓN LIQUID GLASS & MENÚ MÓVIL DESPLEGABLE --- */
         nav {
             position: fixed; top: 0; width: 100%; height: 80px;
-            background: rgba(10, 10, 10, 0.25);
+            background: rgba(10, 10, 10, 0.35);
             backdrop-filter: blur(35px) saturate(280%);
             -webkit-backdrop-filter: blur(35px) saturate(280%);
             display: flex; justify-content: space-between; align-items: center;
@@ -289,9 +289,23 @@
         .nav-logo-container { display: flex; align-items: center; gap: 15px; cursor: pointer; }
         .img-logo-nav { height: 50px; border-radius: 5px; }
         .nav-logo-text { font-family: 'Impact', sans-serif; font-size: 1.8rem; color: white; }
+        
         .nav-links { display: flex; align-items: center; }
         .nav-links button { background: none; border: none; color: white; cursor: pointer; font-weight: 600; text-transform: uppercase; margin-left: 15px; transition: 0.3s; font-size: 0.85rem; }
         .nav-links button:hover, .nav-links button.active { color: var(--rojo-studio); text-shadow: 0 0 10px var(--rojo-studio); transform: scale(1.1); }
+
+        /* Botón hamburguesa para móvil (oculto en escritorio) */
+        .menu-hamburguesa-btn {
+            display: none;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: white;
+            font-size: 1.4rem;
+            padding: 8px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            backdrop-filter: blur(12px);
+        }
 
         /* --- SISTEMA PÁGINAS CON TRANSICIONES --- */
         .seccion-pagina { display: none; opacity: 0; transform: translateY(12px); transition: opacity 0.4s ease, transform 0.4s ease; padding: 120px 80px 80px; min-height: 100vh; box-sizing: border-box; }
@@ -548,7 +562,7 @@
             position: relative;
         }
 
-        /* --- CORRECCIÓN RESPONSIVE PARA CONTACTO (MÓVIL PERFECTO) --- */
+        /* --- CONTACTO --- */
         .contacto-grid { 
             display: grid; 
             grid-template-columns: 1fr 1fr; 
@@ -574,7 +588,7 @@
         .qr-card-info h4 { margin: 0 0 6px; font-size: 1.1rem; color: var(--rojo-studio); font-family: 'Impact', sans-serif; letter-spacing: 1px; }
         .qr-card-info p { margin: 0 0 10px; font-size: 0.85rem; color: #ffffff; line-height: 1.4; }
 
-        .mapa-box { border-radius: 15px; overflow: hidden; border: 2px solid var(--rojo-studio); height: 320px; width: 100%; }
+        .mapa-box { border-radius: 15px; overflow: hidden; border: 2px solid var(--rojo-studio); height: 320px; width: 100%; box-sizing: border-box; }
         .mapa-box iframe { width: 100%; height: 100%; }
 
         .rutas-box { border-radius: 15px; padding: 20px; width: 100%; box-sizing: border-box; }
@@ -654,18 +668,60 @@
             .pdf-footer { display: flex; justify-content: space-between; align-items: center; border-top: 2px solid #ccc; padding-top: 8px; font-size: 0.8rem; color: #555; }
         }
 
+        /* --- ADAPTACIÓN MÓVIL OPTIMIZADA CON MENÚ DESPLEGABLE TÁCTICO --- */
         @media (max-width: 768px) {
             .lateral-rack, .vu-meter-container, .session-clock, .status-bar { display: none !important; }
-            nav { padding: 0 15px; height: 70px; }
-            .nav-logo-text { font-size: 1rem; }
-            .nav-links button { margin-left: 4px; font-size: 0.55rem; padding: 0; }
-            .led-switcher { padding: 3px 6px; }
-            .led-dot { width: 10px; height: 10px; }
+            
+            nav { 
+                padding: 0 20px; 
+                height: 70px; 
+            }
+            .nav-logo-text { font-size: 1.2rem; }
+            
+            /* Mostrar botón hamburguesa y ocultar links por defecto */
+            .menu-hamburguesa-btn { display: block; }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 10, 10, 0.95);
+                backdrop-filter: blur(25px);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                border-bottom: 2px solid var(--rojo-studio);
+                box-shadow: 0 15px 30px rgba(0,0,0,0.8);
+                z-index: 9999;
+            }
+            .nav-links.abierto {
+                display: flex;
+            }
+            .nav-links button {
+                margin: 10px 0;
+                font-size: 1rem;
+                padding: 10px;
+                width: 80%;
+                text-align: center;
+                background: rgba(255,255,255,0.03);
+                border-radius: 8px;
+            }
+            .header-controls {
+                margin-top: 15px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 80%;
+                align-items: center;
+            }
+
             .titulo-principal { font-size: 2.5em !important; }
             .lema-badge { font-size: 0.95rem; padding: 8px 15px; text-align: center; }
             .mision-text { font-size: 1.8rem !important; }
             
-            /* CORRECCIÓN MÓVIL ABSOLUTA PARA CONTACTO (1 SOLA COLUMNA SIN DESCUADRE) */
+            /* CORRECCIÓN ABSOLUTA PARA CONTACTO (1 SOLA COLUMNA, SIN DESBORDES) */
             .contacto-grid { 
                 grid-template-columns: 1fr !important; 
                 padding: 15px !important; 
@@ -684,7 +740,8 @@
             .loyalty-steps { justify-content: center; }
             .assistant-box { padding: 20px 15px; }
             .signal-steps-grid { grid-template-columns: 1fr; }
-            .mapa-box { height: 250px !important; }
+            .mapa-box { height: 250px !important; width: 100% !important; }
+            .rutas-box { width: 100% !important; box-sizing: border-box; }
         }
 
         #visualizer-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(176, 0, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(176, 0, 255, 0.05) 1px, transparent 1px); background-size: 50px 50px; z-index: -1; animation: moveGrid 20s linear infinite; }
@@ -728,12 +785,17 @@
         <span class="nav-logo-text">STAR MUSIC</span>
     </div>
     
-    <div class="nav-links">
-        <button onclick="mostrarPagina('inicio')" class="nav-btn active" id="btn-inicio">Inicio</button>
-        <button onclick="mostrarPagina('servicios')" class="nav-btn" id="btn-servicios">Servicios</button>
-        <button onclick="mostrarPagina('reglas')" class="nav-btn" id="btn-reglas">Reglas / FAQ</button>
-        <button onclick="mostrarPagina('equipo')" class="nav-btn" id="btn-equipo">Estudio</button>
-        <button onclick="mostrarPagina('contacto')" class="nav-btn" id="btn-contacto">Contacto</button>
+    <!-- Botón Hamburguesa para Móvil -->
+    <button class="menu-hamburguesa-btn" onclick="toggleMenuMovil()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="nav-links" id="nav-links-menu">
+        <button onclick="mostrarPagina('inicio'); cerrarMenuMovil();" class="nav-btn active" id="btn-inicio">Inicio</button>
+        <button onclick="mostrarPagina('servicios'); cerrarMenuMovil();" class="nav-btn" id="btn-servicios">Servicios</button>
+        <button onclick="mostrarPagina('reglas'); cerrarMenuMovil();" class="nav-btn" id="btn-reglas">Reglas / FAQ</button>
+        <button onclick="mostrarPagina('equipo'); cerrarMenuMovil();" class="nav-btn" id="btn-equipo">Estudio</button>
+        <button onclick="mostrarPagina('contacto'); cerrarMenuMovil();" class="nav-btn" id="btn-contacto">Contacto</button>
 
         <!-- Controles de Cabina (Modo Pro y Luces LED) -->
         <div class="header-controls">
@@ -1276,7 +1338,7 @@
     </div>
 </div>
 
-<!-- PLANTILLA FORMAL DE IMPRESIÓN (OCUPA EL 100% DE LA HOJA CARTA) -->
+<!-- PLANTILLA FORMAL DE IMPRESIÓN: 1 HOJA CARTA COMPLETA (SIN MANCHAS) -->
 <div id="print-sheet">
     <div class="pdf-header">
         <div class="pdf-title">
@@ -1465,6 +1527,16 @@
     }
 
     function descargarFichaPDF() { window.print(); }
+
+    /* --- CONTROL MENÚ MÓVIL DESPLEGABLE --- */
+    function toggleMenuMovil() {
+        const menu = document.getElementById('nav-links-menu');
+        menu.classList.toggle('abierto');
+    }
+    function cerrarMenuMovil() {
+        const menu = document.getElementById('nav-links-menu');
+        menu.classList.remove('abierto');
+    }
 
     /* --- CONTROL MODO CABINA PRO (DARK MODE NOCTURNO EXTREMO) --- */
     function alternarModoCabinaPro() {
