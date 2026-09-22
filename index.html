@@ -4,14 +4,14 @@
     <link rel="icon" href="logo-starmusic.jpg" type="image/jpeg">
     <meta charset="UTF-8">
     <meta name="description" content="Star Music Record Studio en Ecatepec. Especialistas en Trap, Hip Hop, Rap y R&B. Grabación, mezcla, masterización y beats exclusivos en San Benjamin.">
-<meta name="keywords" content="Estudio de grabacion Ecatepec, Star Music, Produccion musical Trap, Beats exclusivos Hip Hop, Grabacion de Rap Mexico, Masterizacion profesional, Microfonia Sennheiser, Beats Rap Ecatepec">
-<meta name="author" content="Star Music">
-<meta name="robots" content="index, follow">
+    <meta name="keywords" content="Estudio de grabacion Ecatepec, Star Music, Produccion musical Trap, Beats exclusivos Hip Hop, Grabacion de Rap Mexico, Masterizacion profesional, Microfonia Sennheiser, Beats Rap Ecatepec">
+    <meta name="author" content="Star Music">
+    <meta name="robots" content="index, follow">
 
-<meta property="og:title" content="Star Music | Record Studio & Beats | Ecatepec">
-<meta property="og:description" content="Tu talento, nuestro sonido. Grabación pro de Trap, Hip Hop y Rap en Ecatepec.">
-<meta property="og:image" content="logo-starmusic.jpg">
-<meta property="og:url" content="https://tu-pagina-aqui.com">
+    <meta property="og:title" content="Star Music | Record Studio & Beats | Ecatepec">
+    <meta property="og:description" content="Tu talento, nuestro sonido. Haz tu canción por $500 pesos en Ecatepec.">
+    <meta property="og:image" content="logo-starmusic.jpg">
+    <meta property="og:url" content="https://tu-pagina-aqui.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Star Music | Record Studio & Beats | Ecatepec</title>
     
@@ -20,14 +20,182 @@
     
     <style>
         :root {
-            --rojo-studio: #ff003c;
+            --rojo-studio: #b000ff;
             --verde-whatsapp: #25d366;
             --negro-profundo: #0a0a0a;
             --gris-oscuro: #161616;
-            --rojo-glow: rgba(255, 0, 60, 0.5);
-            --glass: rgba(10, 10, 10, 0.9);
+            --gris-tarjeta: #1a1a1a;
+            --rojo-glow: rgba(176, 0, 255, 0.4);
+            /* Liquid Glass 100% Cristalino y Transparente estilo iOS */
+            --glass-bg: rgba(255, 255, 255, 0.004);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
             --vu-verde: #2ecc71;
             --vu-amarillo: #f1c40f;
+        }
+
+        body.theme-red {
+            --rojo-studio: #ff003c;
+            --rojo-glow: rgba(255, 0, 60, 0.4);
+        }
+        body.theme-green {
+            --rojo-studio: #00ff66;
+            --rojo-glow: rgba(0, 255, 102, 0.4);
+        }
+
+        /* --- MODO CABINA PRO (ATMÓSFERA NOCTURNA EXTREMA) --- */
+        body.modo-cabina-pro {
+            --negro-profundo: #000000 !important;
+            --gris-oscuro: #060606 !important;
+            --gris-tarjeta: #080808 !important;
+            --rojo-glow: rgba(176, 0, 255, 0.9) !important;
+            --glass-bg: rgba(176, 0, 255, 0.01) !important;
+            --glass-border: rgba(176, 0, 255, 0.4) !important;
+        }
+        body.modo-cabina-pro::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            box-shadow: inset 0 0 140px rgba(0, 0, 0, 0.98), inset 0 0 60px rgba(176, 0, 255, 0.25);
+            pointer-events: none;
+            z-index: 40000;
+        }
+        body.modo-cabina-pro #visualizer-bg {
+            opacity: 0.8;
+            filter: invert(1) brightness(0.5) hue-rotate(45deg);
+        }
+
+        /* --- EFECTO LIQUID GLASS ULTRA CRISTALINO --- */
+        .ep-card, 
+        .mvo-card, 
+        .rule-card, 
+        .equipo-card, 
+        .calc-wrapper, 
+        .assistant-box,
+        .tabla-contenedor,
+        .loyalty-banner,
+        .redes-box,
+        .rutas-box,
+        .consola-box {
+            background: var(--glass-bg) !important;
+            backdrop-filter: blur(30px) saturate(260%);
+            -webkit-backdrop-filter: blur(30px) saturate(260%);
+            border: 1px solid var(--glass-border) !important;
+            box-shadow: var(--glass-shadow) !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Contenedor de los pasos del flujo de audio */
+        .signal-step {
+            background: var(--glass-bg) !important;
+            backdrop-filter: blur(30px) saturate(260%);
+            -webkit-backdrop-filter: blur(30px) saturate(260%);
+            border: 1px solid var(--glass-border) !important;
+            box-shadow: var(--glass-shadow) !important;
+            position: relative;
+            overflow: visible !important;
+            margin-top: 15px;
+        }
+
+        /* Badge del paso en morado neón con texto blanco */
+        .signal-step-num {
+            position: absolute;
+            top: -14px;
+            left: 20px;
+            background: var(--rojo-studio) !important;
+            color: white !important;
+            font-weight: 900;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            box-shadow: 0 0 10px var(--rojo-glow);
+            letter-spacing: 1px;
+            z-index: 5;
+        }
+
+        /* Textos en blanco nítido */
+        .signal-step p, .ep-card p, .mvo-card p, .rule-card p, .equipo-card p, .loyalty-info p, .ruta-item, .faq-answer {
+            color: #ffffff !important;
+        }
+
+        /* Reflejo de luz especular superior tipo cristal puro */
+        .ep-card::before, .mvo-card::before, .rule-card::before, .equipo-card::before, .calc-wrapper::before, .assistant-box::before, .signal-step::before, .consola-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1.5px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85), transparent);
+            pointer-events: none;
+        }
+
+        /* --- SPOTLIGHT AMBIENTAL (HAZ DE LUZ QUE SIGUE EL MOUSE) --- */
+        #spotlight {
+            position: fixed;
+            top: 0; left: 0;
+            width: 450px; height: 450px;
+            background: radial-gradient(circle, rgba(176, 0, 255, 0.15) 0%, rgba(10, 10, 10, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            transition: width 0.3s, height 0.3s;
+        }
+
+        /* --- CONSOLA ANALÓGICA INTERACTIVA --- */
+        .consola-box {
+            max-width: 900px;
+            margin: 40px auto;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+        }
+        .consola-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .fader-control {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+        .fader-control label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--rojo-studio);
+            letter-spacing: 1px;
+        }
+        .fader-control input[type="range"] {
+            width: 100%;
+            accent-color: var(--rojo-studio);
+            cursor: pointer;
+        }
+
+        /* --- EFECTO RIPPLE (ONDA AL HACER CLIC) --- */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(176, 0, 255, 0.6);
+            transform: scale(0);
+            animation: rippleAnim 0.6s linear;
+            pointer-events: none;
+        }
+        @keyframes rippleAnim {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* --- CURSOR: MIRA TÁCTICA (CROSSHAIR FINO Y CHICO) --- */
+        body, button, input, a {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23b000ff" stroke-width="2"><circle cx="12" cy="12" r="7"/><path d="M12 2v3"/><path d="M12 19v3"/><path d="M2 12h3"/><path d="M19 12h3"/><circle cx="12" cy="12" r="1" fill="%23b000ff"/></svg>') 9 9, auto !important;
         }
 
         body {
@@ -38,7 +206,59 @@
             overflow-x: hidden;
             position: relative;
             scroll-behavior: smooth;
+            transition: background-color 0.4s, color 0.3s;
         }
+
+        /* --- INTERRUPTOR MODO CABINA PRO & LEDS --- */
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .btn-modo-nocturno {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            color: #aaa;
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.3s;
+        }
+        .btn-modo-nocturno:hover, .btn-modo-nocturno.activo {
+            background: var(--rojo-studio);
+            color: white;
+            border-color: var(--rojo-studio);
+            box-shadow: 0 0 15px var(--rojo-glow);
+        }
+
+        .led-switcher {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+        }
+        .led-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .led-dot:hover { transform: scale(1.2); }
+        .led-purple { background: #b000ff; box-shadow: 0 0 8px #b000ff; }
+        .led-red { background: #ff003c; box-shadow: 0 0 8px #ff003c; }
+        .led-green { background: #00ff66; box-shadow: 0 0 8px #00ff66; }
 
         /* --- PANTALLA DE CARGA --- */
         #loader {
@@ -52,8 +272,9 @@
 
         /* --- SESSION CLOCK --- */
         .session-clock {
-            position: fixed; top: 90px; right: 110px; background: rgba(0,0,0,0.8);
-            padding: 10px 20px; border: 1px solid #333; border-radius: 5px;
+            position: fixed; top: 90px; right: 110px; background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(15px);
+            padding: 10px 20px; border: 1px solid var(--glass-border); border-radius: 5px;
             font-family: 'Courier New', Courier, monospace; color: var(--rojo-studio);
             font-weight: bold; z-index: 9000; display: flex; align-items: center; gap: 10px;
         }
@@ -63,7 +284,7 @@
         /* --- BARRA DE ESTADO --- */
         .status-bar {
             position: fixed; bottom: 0; width: 100%; height: 25px;
-            background: rgba(0,0,0,0.9); border-top: 1px solid #333;
+            background: rgba(0,0,0,0.7); backdrop-filter: blur(15px); border-top: 1px solid var(--glass-border);
             z-index: 10001; display: flex; align-items: center; padding: 0 50px;
             font-family: 'Courier New', monospace; font-size: 0.7rem; color: #555; gap: 20px; box-sizing: border-box;
         }
@@ -88,23 +309,28 @@
         .vu-izq { left: 45px; } .vu-der { right: 45px; }
         .vu-bar { width: 100%; height: 5px; margin-bottom: 2px; background: #222; transition: 0.1s; }
 
-        /* --- NAVEGACIÓN --- */
+        /* --- NAVEGACIÓN LIQUID GLASS --- */
         nav {
             position: fixed; top: 0; width: 100%; height: 80px;
-            background: var(--glass); backdrop-filter: blur(15px);
+            background: rgba(10, 10, 10, 0.25);
+            backdrop-filter: blur(35px) saturate(280%);
+            -webkit-backdrop-filter: blur(35px) saturate(280%);
             display: flex; justify-content: space-between; align-items: center;
-            padding: 0 100px; box-sizing: border-box; z-index: 10000;
-            border-bottom: 2px solid var(--rojo-studio);
+            padding: 0 40px; box-sizing: border-box; z-index: 10000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+            transition: border-color 0.3s;
         }
         .nav-logo-container { display: flex; align-items: center; gap: 15px; cursor: pointer; }
         .img-logo-nav { height: 50px; border-radius: 5px; }
         .nav-logo-text { font-family: 'Impact', sans-serif; font-size: 1.8rem; color: white; }
-        .nav-links button { background: none; border: none; color: white; cursor: pointer; font-weight: 600; text-transform: uppercase; margin-left: 20px; transition: 0.3s; }
+        .nav-links { display: flex; align-items: center; }
+        .nav-links button { background: none; border: none; color: white; cursor: pointer; font-weight: 600; text-transform: uppercase; margin-left: 15px; transition: 0.3s; font-size: 0.85rem; }
         .nav-links button:hover, .nav-links button.active { color: var(--rojo-studio); text-shadow: 0 0 10px var(--rojo-studio); transform: scale(1.1); }
 
-        /* --- SISTEMA PÁGINAS --- */
-        .seccion-pagina { display: none; opacity: 0; transition: opacity 0.5s ease; padding: 120px 100px 60px; min-height: 100vh; box-sizing: border-box; }
-        .seccion-pagina.activa { display: block; opacity: 1; }
+        /* --- SISTEMA PÁGINAS CON TRANSICIONES --- */
+        .seccion-pagina { display: none; opacity: 0; transform: translateY(12px); transition: opacity 0.4s ease, transform 0.4s ease; padding: 120px 80px 80px; min-height: 100vh; box-sizing: border-box; }
+        .seccion-pagina.activa { display: block; opacity: 1; transform: translateY(0); }
 
         /* --- TÍTULO CON GLITCH Y MOVIMIENTO --- */
         .titulo-principal { 
@@ -120,6 +346,23 @@
         @keyframes glitch-anim { 0% { clip: rect(31px, 9999px, 94px, 0); } 100% { clip: rect(70px, 9999px, 71px, 0); } }
         @keyframes glitch-anim2 { 0% { clip: rect(65px, 9999px, 119px, 0); } 100% { clip: rect(10px, 9999px, 15px, 0); } }
 
+        /* --- BANNER LEMA $500 --- */
+        .lema-badge {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--rojo-studio);
+            box-shadow: 0 0 25px var(--rojo-glow);
+            padding: 12px 30px;
+            border-radius: 50px;
+            margin-top: 20px;
+            font-family: 'Impact', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: white;
+            display: inline-block;
+            animation: pulseBeat 2.5s infinite;
+        }
+
         /* --- HOME CONTENT --- */
         .home-content { text-align: center; display: flex; flex-direction: column; align-items: center; }
         .logo-wrapper { position: relative; display: flex; justify-content: center; align-items: center; margin-bottom: 20px; }
@@ -127,12 +370,55 @@
         @keyframes pulseBeat { 0% { transform: scale(0.8); opacity: 0.5; } 100% { transform: scale(1.5); opacity: 0; } }
         .main-logo-display { height: 180px; filter: drop-shadow(0 0 20px var(--rojo-studio)); z-index: 1; }
 
-        .generos-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 40px 0; max-width: 800px; }
-        .genero-tag { padding: 10px 25px; border: 1px solid rgba(255,255,255,0.2); border-radius: 5px; font-weight: 800; text-transform: uppercase; background: rgba(255,255,255,0.03); cursor: pointer; transition: 0.3s; }
+        .generos-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 30px 0; max-width: 800px; }
+        .genero-tag { padding: 10px 25px; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; font-weight: 800; text-transform: uppercase; background: var(--glass-bg); backdrop-filter: blur(15px); cursor: pointer; transition: 0.3s; }
         .genero-tag:hover { border-color: var(--rojo-studio); color: var(--rojo-studio); box-shadow: 0 0 15px var(--rojo-glow); transform: translateY(-5px); }
 
-        .mision-block { margin: 60px 0; padding: 40px; border-left: 5px solid var(--rojo-studio); background: rgba(255,255,255,0.02); text-align: left; max-width: 900px; }
-        .mision-text { font-family: 'Impact', sans-serif; font-size: 3.5rem; line-height: 1; letter-spacing: 2px; text-transform: uppercase; }
+        /* --- SECCIÓN MISION, VISION Y OBJETIVOS --- */
+        .mvo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            width: 100%;
+            margin: 40px 0;
+            text-align: left;
+        }
+        .mvo-card {
+            border-top: 4px solid var(--rojo-studio);
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .mvo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px var(--rojo-glow) !important;
+            border-color: var(--rojo-studio);
+        }
+        .mvo-card i {
+            font-size: 2.2rem;
+            color: var(--rojo-studio);
+            margin-bottom: 15px;
+        }
+        .mvo-card h3 {
+            font-family: 'Impact', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 1.5px;
+            margin: 0 0 12px;
+            color: white;
+        }
+        .mvo-card p {
+            color: #ffffff !important;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .mision-block { margin: 40px 0; padding: 40px; border-left: 5px solid var(--rojo-studio); background: var(--glass-bg); backdrop-filter: blur(20px); border-radius: 0 15px 15px 0; text-align: left; max-width: 900px; }
+        .mision-text { font-family: 'Impact', sans-serif; font-size: 3rem; line-height: 1; letter-spacing: 2px; text-transform: uppercase; }
 
         .plugins-banner { display: flex; justify-content: center; gap: 30px; margin-top: 20px; opacity: 0.5; filter: grayscale(1); }
         .plugin-name { font-family: 'Arial Black', sans-serif; font-size: 0.8rem; letter-spacing: 2px; }
@@ -144,76 +430,284 @@
         .wave-bar { width: 4px; height: 10px; background: var(--rojo-studio); animation: waveAnim 1s ease-in-out infinite; }
         @keyframes waveAnim { 0%, 100% { height: 10px; } 50% { height: 50px; } }
 
-        /* --- SERVICIOS CON EFECTO --- */
-        .tabla-contenedor { max-width: 900px; margin: 0 auto; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 20px; }
+        /* --- TABLA DE SERVICIOS --- */
+        .tabla-contenedor { max-width: 900px; margin: 0 auto; padding: 25px; border-radius: 20px; }
         table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
-        tr { background: var(--gris-oscuro); transition: 0.4s; cursor: pointer; }
-        tr:hover { transform: scale(1.02) translateX(15px); box-shadow: -10px 0 20px var(--rojo-studio); background: #1a1a1a; }
+        tr { background: var(--glass-bg); backdrop-filter: blur(15px); transition: 0.4s; cursor: pointer; border: 1px solid var(--glass-border); }
+        tr:hover { transform: scale(1.02) translateX(15px); box-shadow: -10px 0 20px var(--rojo-studio); background: rgba(176, 0, 255, 0.15); }
         td { padding: 20px; }
         td:last-child { text-align: right; color: var(--rojo-studio); font-weight: bold; font-size: 1.2em; }
-        .badge-venda { background: gold; color: black; padding: 4px 8px; border-radius: 3px; font-size: 0.7em; font-weight: bold; }
+        .badge-venda-morado { background: var(--rojo-studio); color: white; padding: 4px 8px; border-radius: 3px; font-size: 0.7em; font-weight: bold; box-shadow: 0 0 10px var(--rojo-glow); }
+        .subtext-tabla { font-size: 0.78rem; color: #aaa; margin-top: 5px; }
 
-        /* --- ESTUDIO GRID --- */
+        /* --- PAQUETES DE ÁLBUM / EP --- */
+        .ep-container { max-width: 900px; margin: 50px auto 0; }
+        .ep-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }
+        .ep-card {
+            border-radius: 18px; padding: 30px;
+            position: relative; overflow: hidden; display: flex; flex-direction: column;
+            justify-content: space-between; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+        .ep-card:hover { transform: translateY(-8px); border-color: var(--rojo-studio); box-shadow: 0 10px 30px var(--rojo-glow) !important; }
+        .ep-tag { position: absolute; top: 15px; right: 15px; background: var(--rojo-studio); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; letter-spacing: 1px; }
+        .ep-card h3 { font-family: 'Impact', sans-serif; font-size: 1.8rem; margin: 0 0 10px; letter-spacing: 1px; }
+        .ep-price { font-size: 2.3rem; font-weight: 900; color: var(--rojo-studio); margin-bottom: 5px; }
+        .ep-savings { color: #2ecc71; font-size: 0.85rem; font-weight: bold; margin-bottom: 20px; }
+        .ep-features { list-style: none; padding: 0; margin: 0 0 25px; color: #ffffff; font-size: 0.9rem; line-height: 1.8; }
+        .ep-features li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+        .ep-features li i { color: var(--rojo-studio); margin-top: 4px; }
+        .btn-ep-wa {
+            background: transparent; border: 2px solid var(--rojo-studio); color: white;
+            text-align: center; padding: 12px; border-radius: 50px; font-weight: bold;
+            text-decoration: none; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .btn-ep-wa:hover { background: var(--rojo-studio); color: white; box-shadow: 0 0 20px var(--rojo-glow); }
+
+        /* --- ASISTENTE INTERACTIVO DE RECOMENDACIÓN --- */
+        .assistant-box {
+            max-width: 900px; margin: 50px auto 0;
+            border-radius: 20px; padding: 35px 30px;
+            text-align: center;
+        }
+        .assistant-title { font-family: 'Impact', sans-serif; font-size: 2.2rem; color: var(--rojo-studio); letter-spacing: 2px; margin: 0 0 5px; }
+        .assistant-subtitle { color: #aaa; font-size: 0.95rem; margin: 0 0 30px; }
+        .assistant-step-card { background: rgba(255, 255, 255, 0.02); border: 1px solid #333; border-radius: 15px; padding: 25px; margin-bottom: 20px; text-align: left; }
+        .assistant-step-title { font-weight: bold; font-size: 1.05rem; color: white; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .assistant-step-title i { color: var(--rojo-studio); }
+        .assistant-options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+        .assistant-btn-option {
+            background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: #ddd; padding: 12px 16px; border-radius: 10px;
+            cursor: pointer; text-align: left; font-size: 0.9rem; transition: 0.25s; display: flex; align-items: center; gap: 10px; user-select: none;
+        }
+        .assistant-btn-option:hover { border-color: var(--rojo-studio); background: rgba(176, 0, 255, 0.2); color: white; }
+        .assistant-btn-option.selected { border-color: var(--rojo-studio); background: rgba(176, 0, 255, 0.4); color: white; box-shadow: 0 0 15px var(--rojo-glow); }
+        .assistant-result-box {
+            display: none; margin-top: 30px; background: rgba(5,5,5,0.7); backdrop-filter: blur(25px); border: 2px solid var(--rojo-studio); border-radius: 15px;
+            padding: 25px; box-shadow: 0 0 25px var(--rojo-glow); text-align: center; animation: modalPop 0.3s ease;
+        }
+        .assistant-result-box h4 { font-family: 'Impact', sans-serif; font-size: 1.8rem; margin: 0 0 8px; color: white; letter-spacing: 1px; }
+        .assistant-result-box p { color: #ccc; font-size: 0.95rem; margin: 0 0 20px; line-height: 1.5; }
+        .assistant-price-tag { font-family: 'Impact', sans-serif; font-size: 2.2rem; color: var(--rojo-studio); margin-bottom: 20px; }
+
+        /* --- TARJETA DE FIDELIDAD VIRTUAL --- */
+        .loyalty-banner {
+            max-width: 900px; margin: 40px auto 0;
+            border-radius: 20px; padding: 30px;
+            display: flex; align-items: center; justify-content: space-between; gap: 25px; position: relative; overflow: hidden;
+        }
+        .loyalty-info h3 { font-family: 'Impact', sans-serif; font-size: 1.8rem; letter-spacing: 2px; margin: 0 0 8px; color: white; }
+        .loyalty-info h3 span { color: var(--rojo-studio); }
+        .loyalty-info p { margin: 0 0 15px; color: #ffffff; font-size: 0.95rem; line-height: 1.5; }
+        .loyalty-steps { display: flex; gap: 8px; align-items: center; }
+        .loyalty-dot {
+            width: 38px; height: 38px; border-radius: 50%; background: rgba(0,0,0,0.4); border: 2px solid var(--rojo-studio);
+            display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85rem; color: white;
+        }
+        .loyalty-dot.reward { background: var(--rojo-studio); box-shadow: 0 0 15px var(--rojo-glow); color: white; font-size: 1rem; }
+        .btn-loyalty {
+            background: var(--rojo-studio); color: white; padding: 12px 24px; border-radius: 50px; font-weight: bold; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; transition: 0.3s; box-shadow: 0 0 15px var(--rojo-glow);
+        }
+        .btn-loyalty:hover { transform: scale(1.05); background: white; color: black; }
+
+        /* --- CALCULADORA DE PRESUPUESTO --- */
+        .calc-wrapper { max-width: 900px; margin: 60px auto 0; border-radius: 20px; padding: 40px; }
+        .calc-title { font-family: 'Impact', sans-serif; letter-spacing: 3px; color: var(--rojo-studio); text-align: center; font-size: 2rem; margin-top: 0; }
+        .calc-step { margin-bottom: 25px; background: rgba(255,255,255,0.01); padding: 20px; border-radius: 12px; border-left: 4px solid var(--rojo-studio); border: 1px solid var(--glass-border); }
+        .calc-step-title { font-weight: bold; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.95rem; color: #eee; }
+        .calc-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+        .calc-option {
+            background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); padding: 12px 15px; border-radius: 8px;
+            display: flex; align-items: center; gap: 10px; cursor: pointer; transition: 0.2s; user-select: none; font-size: 0.9rem;
+        }
+        .calc-option:hover { border-color: var(--rojo-studio); }
+        .calc-option input[type="radio"], .calc-option input[type="checkbox"] { accent-color: var(--rojo-studio); transform: scale(1.2); }
+        .calc-total-box { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; margin-top: 30px; padding-top: 25px; border-top: 1px solid var(--glass-border); text-align: center; }
+        .calc-price { font-family: 'Impact', sans-serif; font-size: 3rem; color: var(--rojo-studio); letter-spacing: 2px; }
+        .btn-apartar-calc {
+            background: var(--verde-whatsapp); color: white; padding: 15px 35px; border-radius: 50px; font-weight: bold; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 10px;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); transition: 0.3s;
+        }
+        .btn-apartar-calc:hover { transform: scale(1.05); box-shadow: 0 5px 25px rgba(37, 211, 102, 0.6); }
+
+        /* --- REGLAS DE SESIÓN & FAQ --- */
+        .faq-container { max-width: 900px; margin: 0 auto; }
+        .rules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .rule-card { border-radius: 12px; padding: 25px; transition: 0.3s; border-top: 3px solid var(--rojo-studio); }
+        .rule-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px var(--rojo-glow) !important; }
+        .rule-card i { font-size: 2rem; color: var(--rojo-studio); margin-bottom: 15px; display: block; }
+        .rule-card h3 { margin: 0 0 10px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; }
+        .rule-card p { margin: 0; color: #ffffff; font-size: 0.9rem; line-height: 1.5; }
+
+        .btn-descargar-pdf {
+            background: rgba(176, 0, 255, 0.15); border: 2px solid var(--rojo-studio); color: white; padding: 12px 25px; border-radius: 50px;
+            font-weight: bold; font-size: 0.9rem; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; margin: 0 auto 50px; transition: 0.3s; box-shadow: 0 0 15px var(--rojo-glow);
+        }
+        .btn-descargar-pdf:hover { background: var(--rojo-studio); color: white; transform: scale(1.05); box-shadow: 0 0 25px var(--rojo-studio); }
+
+        .faq-accordion { display: flex; flex-direction: column; gap: 15px; }
+        .faq-item { background: var(--glass-bg); backdrop-filter: blur(15px); border: 1px solid var(--glass-border); border-radius: 10px; overflow: hidden; transition: border-color 0.3s; }
+        .faq-item:hover { border-color: var(--rojo-studio); }
+        .faq-question { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: bold; user-select: none; font-size: 1.05rem; }
+        .faq-question i { transition: transform 0.3s ease; color: var(--rojo-studio); }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; color: #ffffff; font-size: 0.95rem; line-height: 1.6; padding: 0 20px; background: rgba(0,0,0,0.2); }
+        .faq-item.active .faq-answer { max-height: 200px; padding: 15px 20px 20px; border-top: 1px solid var(--glass-border); }
+
+        /* --- ESTUDIO GRID Y MEJORAS --- */
         .equipo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 40px auto; }
-        .equipo-card { background: var(--gris-oscuro); padding: 40px; border-radius: 15px; border: 1px solid #333; text-align: center; transform-style: preserve-3d; transition: 0.3s; }
+        .equipo-card { padding: 40px; border-radius: 15px; text-align: center; transform-style: preserve-3d; transition: 0.3s; }
+        .equipo-card:hover { box-shadow: 0 10px 30px var(--rojo-glow) !important; border-color: var(--rojo-studio); }
+        .equipo-card p { color: #ffffff !important; }
         .equipo-icon { font-size: 3.5em; color: var(--rojo-studio); margin-bottom: 20px; }
 
-        /* --- CONTACTO --- */
-        .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto; background: var(--glass); padding: 40px; border-radius: 20px; border: 1px solid #333; }
-        
-        /* --- RECUADRO REDES SOCIALES CON EFECTO TILT --- */
-        .redes-box { 
-            background: rgba(255,255,255,0.03); 
-            border: 1px solid rgba(255, 0, 60, 0.3); 
-            padding: 30px; border-radius: 20px; 
-            transform-style: preserve-3d; margin-top: 20px; 
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        .signal-flow-box {
+            max-width: 1200px;
+            margin: 60px auto 40px;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
         }
+        .signal-flow-title {
+            font-family: 'Impact', sans-serif;
+            font-size: 2rem;
+            color: var(--rojo-studio);
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+        .signal-steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            position: relative;
+        }
+
+        .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto; border-radius: 20px; padding: 40px; }
+        .redes-box { padding: 30px; border-radius: 20px; transform-style: preserve-3d; margin-top: 20px; }
         .social-item { display: flex; align-items: center; gap: 15px; text-decoration: none; color: white; font-size: 1.6rem; margin-bottom: 20px; transition: 0.3s; }
         .social-item:hover { color: var(--rojo-studio); transform: translateZ(20px); }
+        .badge-prox { font-size: 0.5em; background: var(--rojo-studio); color: white; padding: 2px 8px; border-radius: 3px; vertical-align: middle; margin-left: 10px; font-weight: bold; box-shadow: 0 0 10px var(--rojo-studio); }
         
-        /* --- DISTINTIVO PROXIMAMENTE EN ROJO --- */
-        .badge-prox { 
-            font-size: 0.5em; 
-            background: var(--rojo-studio); 
-            color: white; 
-            padding: 2px 8px; 
-            border-radius: 3px; 
-            vertical-align: middle; 
-            margin-left: 10px; 
-            font-weight: bold; 
-            box-shadow: 0 0 10px var(--rojo-studio);
+        .qr-card-contact {
+            border-radius: 15px;
+            padding: 20px; text-align: center; margin-top: 25px; display: flex; align-items: center; justify-content: space-between; gap: 20px;
         }
+        .qr-card-img { width: 110px; height: 110px; background: white; padding: 6px; border-radius: 10px; box-shadow: 0 0 10px rgba(255,255,255,0.2); }
+        .qr-card-info { text-align: left; flex: 1; }
+        .qr-card-info h4 { margin: 0 0 6px; font-size: 1.1rem; color: var(--rojo-studio); font-family: 'Impact', sans-serif; letter-spacing: 1px; }
+        .qr-card-info p { margin: 0 0 10px; font-size: 0.85rem; color: #ffffff; line-height: 1.4; }
 
-        .mapa-box { border-radius: 15px; overflow: hidden; border: 2px solid var(--rojo-studio); height: 400px; }
+        .mapa-box { border-radius: 15px; overflow: hidden; border: 2px solid var(--rojo-studio); height: 320px; }
 
-        /* --- WHATSAPP RADAR --- */
+        .rutas-box { border-radius: 15px; padding: 20px; }
+        .rutas-box h4 { margin: 0 0 15px; font-family: 'Impact', sans-serif; color: var(--rojo-studio); letter-spacing: 1.5px; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; }
+        .ruta-item { background: rgba(0,0,0,0.3); border-left: 3px solid var(--rojo-studio); padding: 10px 14px; border-radius: 6px; margin-bottom: 10px; font-size: 0.85rem; color: #ffffff; line-height: 1.4; }
+        .ruta-item b { color: white; display: block; margin-bottom: 2px; }
+        .ruta-item:last-child { margin-bottom: 0; }
+
+        .btn-flotante-qr {
+            position: fixed; bottom: 110px; right: 80px; background: rgba(17, 17, 17, 0.6); backdrop-filter: blur(15px); color: var(--rojo-studio);
+            border: 2px solid var(--rojo-studio); box-shadow: 0 0 15px var(--rojo-glow); padding: 10px 20px; border-radius: 50px;
+            text-decoration: none; font-weight: bold; font-size: 0.85rem; letter-spacing: 1px; z-index: 20000; display: flex; align-items: center; gap: 8px; cursor: pointer; transition: 0.3s;
+        }
+        .btn-flotante-qr:hover { transform: scale(1.06); background: var(--rojo-studio); color: white; }
+
         .btn-flotante-whatsapp { 
             position: fixed; bottom: 40px; right: 80px; background: var(--verde-whatsapp); color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 20000; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.4);
         }
         .btn-flotante-whatsapp::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--verde-whatsapp); border-radius: 50px; z-index: -1; animation: pulseRadarVerde 2s infinite; }
         @keyframes pulseRadarVerde { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.4); opacity: 0; } }
 
-        /* --- RESPONSIVE IPHONE --- */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); backdrop-filter: blur(20px); z-index: 60000; align-items: center; justify-content: center; }
+        .modal-contenido {
+            background: rgba(10, 10, 10, 0.5); backdrop-filter: blur(35px); border: 2px solid var(--rojo-studio); box-shadow: 0 0 30px var(--rojo-glow);
+            padding: 35px 30px; border-radius: 15px; width: 90%; max-width: 500px; position: relative; color: white; text-align: center; animation: modalPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .modal-contenido h2 { font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.8rem; margin: 0; }
+        .modal-contenido p { font-size: 1.05rem; color: #ffffff; }
+        .btn-cerrar-modal { cursor: pointer; position: absolute; right: 20px; top: 10px; font-size: 30px; color: #888; transition: color 0.2s; }
+        .btn-cerrar-modal:hover { color: var(--rojo-studio); }
+        .btn-modal-wa {
+            display: inline-flex; align-items: center; gap: 10px; background: var(--verde-whatsapp); color: white; text-decoration: none;
+            padding: 12px 25px; border-radius: 50px; font-weight: bold; margin-top: 15px; transition: 0.3s;
+        }
+        .btn-modal-wa:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(37, 211, 102, 0.5); }
+
+        .qr-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; }
+        .qr-tab-btn { background: #222; color: #aaa; border: 1px solid #444; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 0.85rem; font-weight: bold; transition: 0.2s; }
+        .qr-tab-btn.active { background: var(--rojo-studio); color: white; border-color: var(--rojo-studio); box-shadow: 0 0 10px var(--rojo-glow); }
+        .qr-display-box { background: white; padding: 15px; border-radius: 12px; display: inline-block; margin: 10px 0; box-shadow: 0 0 25px rgba(255,255,255,0.2); }
+        .qr-display-box img { width: 200px; height: 200px; display: block; }
+
+        @keyframes modalPop { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
+
+        /* --- PLANTILLA IMPRIMIBLE: 1 HOJA CARTA COMPLETA --- */
+        #print-sheet { display: none; }
+
+        @page { size: letter portrait; margin: 8mm 10mm; }
+
+        @media print {
+            html, body { background: white !important; color: #111 !important; margin: 0 !important; padding: 0 !important; width: 100% !important; height: 100% !important; overflow: hidden !important; }
+            nav, .session-clock, .status-bar, .lateral-rack, .vu-meter-container, 
+            .btn-flotante-whatsapp, .btn-flotante-qr, #visualizer-bg, #fondo-parallax, 
+            #loader, .modal, .seccion-pagina, footer { display: none !important; }
+            #print-sheet {
+                display: flex !important; flex-direction: column; justify-content: space-between; height: 98vh;
+                box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; page-break-inside: avoid; break-inside: avoid;
+            }
+            .pdf-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid #b000ff; padding-bottom: 8px; }
+            .pdf-title h1 { margin: 0; font-family: 'Impact', sans-serif; font-size: 2.2rem; letter-spacing: 2px; color: #111; }
+            .pdf-title p { margin: 3px 0 0; font-size: 0.9rem; color: #444; }
+            .pdf-grid-columns { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 20px; flex: 1; margin: 12px 0; }
+            .pdf-col { display: flex; flex-direction: column; justify-content: space-between; }
+            .pdf-section-title { font-size: 1.05rem; font-weight: 800; text-transform: uppercase; border-bottom: 2px solid #b000ff; padding-bottom: 4px; margin-bottom: 10px; color: #b000ff; letter-spacing: 0.5px; }
+            .pdf-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; flex: 1; }
+            .pdf-table th, .pdf-table td { border: 1px solid #bbb; padding: 7px 8px; text-align: left; }
+            .pdf-table th { background: #f4f4f4; font-weight: bold; font-size: 0.85rem; }
+            .pdf-badge-morado { color: #b000ff; font-weight: 900; }
+            .pdf-rules-container { display: flex; flex-direction: column; justify-content: space-between; flex: 1; }
+            .pdf-rule-item { border: 1px solid #ddd; border-left: 3.5px solid #b000ff; padding: 7px 10px; margin-bottom: 6px; background: #fafafa; font-size: 0.8rem; line-height: 1.35; display: flex; align-items: flex-start; gap: 10px; }
+            .pdf-rule-item:last-child { margin-bottom: 0; }
+            .pdf-rule-item i { color: #b000ff; font-size: 1.15rem; margin-top: 2px; min-width: 18px; text-align: center; }
+            .pdf-rule-content b { color: #b000ff; }
+            .pdf-footer { display: flex; justify-content: space-between; align-items: center; border-top: 2px solid #ccc; padding-top: 8px; font-size: 0.8rem; color: #555; }
+        }
+
         @media (max-width: 768px) {
             .lateral-rack, .vu-meter-container, .session-clock, .status-bar { display: none !important; }
-            nav { padding: 0 20px; height: 70px; }
-            .nav-logo-text { font-size: 1.2rem; }
-            .nav-links button { margin-left: 10px; font-size: 0.7rem; }
+            nav { padding: 0 15px; height: 70px; }
+            .nav-logo-text { font-size: 1rem; }
+            .nav-links button { margin-left: 4px; font-size: 0.6rem; padding: 0; }
+            .led-switcher { padding: 3px 6px; }
+            .led-dot { width: 10px; height: 10px; }
             .titulo-principal { font-size: 3em !important; }
+            .lema-badge { font-size: 1.1rem; padding: 8px 18px; }
             .mision-text { font-size: 2.2rem !important; }
             .contacto-grid { grid-template-columns: 1fr !important; }
             .seccion-pagina { padding: 100px 20px 60px !important; }
             .btn-flotante-whatsapp { right: 20px; bottom: 30px; padding: 10px 20px; }
+            .btn-flotante-qr { right: 20px; bottom: 90px; padding: 8px 15px; font-size: 0.75rem; }
+            .calc-wrapper { padding: 20px; }
+            .calc-price { font-size: 2.3rem; }
+            .qr-card-contact { flex-direction: column; text-align: center; }
+            .qr-card-info { text-align: center; }
+            .loyalty-banner { flex-direction: column; text-align: center; }
+            .loyalty-steps { justify-content: center; }
+            .assistant-box { padding: 25px 15px; }
+            .mvo-grid { grid-template-columns: 1fr; }
+            .signal-steps-grid { grid-template-columns: 1fr; }
         }
 
-        #visualizer-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(255, 0, 60, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 0, 60, 0.05) 1px, transparent 1px); background-size: 50px 50px; z-index: -1; animation: moveGrid 20s linear infinite, vibeCheck 10s ease-in-out infinite; }
+        #visualizer-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(176, 0, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(176, 0, 255, 0.05) 1px, transparent 1px); background-size: 50px 50px; z-index: -1; animation: moveGrid 20s linear infinite; }
         @keyframes moveGrid { 0% { background-position: 0 0; } 100% { background-position: 50px 50px; } }
-        @keyframes vibeCheck { 0%, 100% { filter: hue-rotate(0deg); opacity: 0.7; } 50% { filter: hue-rotate(280deg); opacity: 0.4; } }
         #fondo-parallax { position: fixed; top: -5%; left: -5%; width: 110%; height: 110%; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('fondo.jpg'); background-size: cover; z-index: -2; transition: transform 0.1s ease-out; }
     </style>
 </head>
 <body>
+
+<!-- SPOTLIGHT AMBIENTAL (HAZ DE LUZ QUE SIGUE EL MOUSE) -->
+<div id="spotlight"></div>
 
 <div id="loader">
     <div class="loader-text">PREPARANDO SESIÓN...</div>
@@ -233,21 +727,37 @@
 <div class="lateral-rack izquierdo"><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div></div>
 <div class="lateral-rack derecho"><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div></div>
 
-<div class="vu-meter-container vu-izq" id="vu-izq"></div>
-<div class="vu-meter-container vu-der" id="vu-der"></div>
+<!-- BOTÓN FLOTANTE QR ESTUDIO -->
+<div class="btn-flotante-qr" onclick="abrirModalQR()">
+    <i class="fas fa-qrcode"></i> QR ESTUDIO
+</div>
 
 <a href="https://wa.me/525533167500" class="btn-flotante-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> AGENDAR SESIÓN</a>
 
 <nav>
-    <div class="nav-logo-container" onclick="mostrarPagina('inicio')" style="display:flex; align-items:center; gap:10px; cursor:pointer;">
-        <img src="logo-starmusic.jpg" alt="Logo" class="img-logo-nav" style="height:50px;">
+    <div class="nav-logo-container" onclick="mostrarPagina('inicio')">
+        <img src="logo-starmusic.jpg" alt="Logo" class="img-logo-nav">
         <span class="nav-logo-text">STAR MUSIC</span>
     </div>
+    
     <div class="nav-links">
         <button onclick="mostrarPagina('inicio')" class="nav-btn active" id="btn-inicio">Inicio</button>
         <button onclick="mostrarPagina('servicios')" class="nav-btn" id="btn-servicios">Servicios</button>
+        <button onclick="mostrarPagina('reglas')" class="nav-btn" id="btn-reglas">Reglas / FAQ</button>
         <button onclick="mostrarPagina('equipo')" class="nav-btn" id="btn-equipo">Estudio</button>
         <button onclick="mostrarPagina('contacto')" class="nav-btn" id="btn-contacto">Contacto</button>
+
+        <!-- Controles de Cabina (Modo Pro y Luces LED) -->
+        <div class="header-controls">
+            <button class="btn-modo-nocturno" id="btn-modo-pro" onclick="alternarModoCabinaPro()">
+                <i class="fas fa-moon"></i> Modo Cabina Pro
+            </button>
+            <div class="led-switcher" title="Cambiar luces de cabina">
+                <div class="led-dot led-purple" onclick="cambiarTema('purple')"></div>
+                <div class="led-dot led-red" onclick="cambiarTema('red')"></div>
+                <div class="led-dot led-green" onclick="cambiarTema('green')"></div>
+            </div>
+        </div>
     </div>
 </nav>
 
@@ -260,8 +770,39 @@
         <h1 class="titulo-principal glitch" data-text="STAR MUSIC">STAR MUSIC</h1>
         <p style="color:var(--rojo-studio); letter-spacing:5px; text-transform:uppercase; font-weight:bold; margin-top:15px;">Record Studio & Producción Musical</p>
 
+        <!-- Lema Oficial -->
+        <div class="lema-badge">
+            <i class="fas fa-fire"></i> HAZ TU CANCIÓN POR $500 PESOS
+        </div>
+
         <div class="generos-container">
-            <div class="genero-tag" onmouseover="playHoverSound()">Trap</div><div class="genero-tag" onmouseover="playHoverSound()">Hip Hop</div><div class="genero-tag" onmouseover="playHoverSound()">Boom Bap</div><div class="genero-tag" onmouseover="playHoverSound()">R&B</div><div class="genero-tag" onmouseover="playHoverSound()">Rap</div><div class="genero-tag" onmouseover="playHoverSound()">Pop</div>
+            <div class="genero-tag" onmouseover="playHoverSound()">Trap</div>
+            <div class="genero-tag" onmouseover="playHoverSound()">Hip Hop</div>
+            <div class="genero-tag" onmouseover="playHoverSound()">Boom Bap</div>
+            <div class="genero-tag" onmouseover="playHoverSound()">R&B</div>
+            <div class="genero-tag" onmouseover="playHoverSound()">Rap</div>
+            <div class="genero-tag" onmouseover="playHoverSound()">Pop</div>
+        </div>
+
+        <!-- SECCIÓN DE MISIÓN, VISIÓN Y OBJETIVOS -->
+        <div class="mvo-grid">
+            <div class="mvo-card" data-tilt>
+                <i class="fas fa-bullseye"></i>
+                <h3>NUESTRA MISIÓN</h3>
+                <p>Ser el estudio de grabación más barato, accesible y competitivo, permitiendo que cualquier artista independiente rompa barreras económicas y materialice sus canciones con estándar profesional sin gastar de más.</p>
+            </div>
+
+            <div class="mvo-card" data-tilt>
+                <i class="fas fa-eye"></i>
+                <h3>NUESTRA VISIÓN</h3>
+                <p>Convertirnos en el estudio referente indiscutible en todo Ecatepec, liderando la escena musical urbana local y expandiendo nuestras oportunidades para impulsar los talentos del municipio hacia las grandes ligas de la industria.</p>
+            </div>
+
+            <div class="mvo-card" data-tilt>
+                <i class="fas fa-rocket"></i>
+                <h3>NUESTROS OBJETIVOS</h3>
+                <p>Garantizar máxima calidad sonora al menor costo, democratizar la producción musical y crear una comunidad sólida de creadores independientes que hagan historia desde la calle para el mundo.</p>
+            </div>
         </div>
 
         <div class="mision-block">
@@ -277,65 +818,620 @@
         </div>
 
         <div class="wave-container">
-            <div class="wave-bar" style="animation-delay:0.1s"></div><div class="wave-bar" style="animation-delay:0.3s"></div><div class="wave-bar" style="animation-delay:0.5s"></div><div class="wave-bar" style="animation-delay:0.2s"></div><div class="wave-bar" style="animation-delay:0.4s"></div><div class="wave-bar" style="animation-delay:0.1s"></div>
+            <div class="wave-bar" style="animation-delay:0.1s"></div>
+            <div class="wave-bar" style="animation-delay:0.3s"></div>
+            <div class="wave-bar" style="animation-delay:0.5s"></div>
+            <div class="wave-bar" style="animation-delay:0.2s"></div>
+            <div class="wave-bar" style="animation-delay:0.4s"></div>
+            <div class="wave-bar" style="animation-delay:0.1s"></div>
         </div>
-        <div style="background:rgba(255,255,255,0.05); padding:25px; border-radius:15px; border-top:3px solid var(--rojo-studio); font-style:italic; text-align:center;">"La mejor calidad de sonido en Ecatepec. El trato es otro nivel. Recomendado 100%."</div>
+        <div style="background:var(--glass-bg); backdrop-filter:blur(20px); padding:25px; border-radius:15px; border-top:3px solid var(--rojo-studio); font-style:italic; text-align:center; color:#ffffff;">"La mejor calidad de sonido en Ecatepec. El trato es otro nivel. Recomendado 100%."</div>
     </div>
 </div>
 
 <div id="servicios" class="seccion-pagina">
     <div class="tabla-contenedor">
-        <h2 style="text-align:center; color:var(--rojo-studio); letter-spacing:5px; margin-bottom:30px;">SERVICIOS Y COSTOS</h2>
+        <h2 style="text-align:center; color:var(--rojo-studio); letter-spacing:5px; margin-bottom:10px;">SERVICIOS Y COSTOS</h2>
+        <p style="text-align:center; color:#aaa; font-size:0.9rem; margin-bottom:30px;">Sesión base: 1:30 hrs en cabina. Hora extra de grabación: +$200.00</p>
         <table>
             <tbody>
-                <tr onclick="mostrarInfo('★ MÁS VENDIDO', 'Beat exclusivo, grabación de voces y masterización profesional para plataformas digitales.')">
-                    <td><span class="badge-venda">★ MÁS VENDIDO</span><br>Beat Exclusivo + Grabación + Master</td><td>$500.00</td>
+                <tr onclick="mostrarInfo('★ MÁS VENDIDO', 'Beat exclusivo producido desde cero, cesión total de derechos de autor, 1:30 hrs de grabación en cabina acústica con microfonía Sennheiser y masterización profesional para Spotify y plataformas.', '$850.00')">
+                    <td>
+                        <span class="badge-venda-morado">★ MÁS VENDIDO</span><br>
+                        <b style="color:var(--rojo-studio);">Beat Exclusivo + Grabación (1:30 hrs) + Master</b>
+                        <div class="subtext-tabla">Composición original desde cero + sesión de voces + masterización completa</div>
+                    </td>
+                    <td>$850.00</td>
                 </tr>
-                <tr onclick="mostrarInfo('BEAT LIMITADO', 'Beat limitado (20k repros), grabación completa y masterización profesional.')"><td>Beat Limitado + Grabación + Master</td><td>$450.00</td></tr>
-                <tr onclick="mostrarInfo('EXCLUSIVA GRABACIÓN', 'Composición original desde cero y transferencia total de derechos, sin masterizar.')"><td>Beat Exclusivo + Grabación (Sin Master)</td><td>$400.00</td></tr>
-                <tr onclick="mostrarInfo('EXCLUSIVA MASTER', 'Composición original desde cero, mezcla de stems y transferencia total de derechos.')"><td>Beat Exclusivo + Masterización</td><td>$350.00</td></tr>
-                <tr onclick="mostrarInfo('LICENCIA EXCLUSIVA', 'Composición original desde cero y contrato de transferencia total de derechos.')"><td>Beat Licencia Exclusiva</td><td>$300.00</td></tr>
-                <tr onclick="mostrarInfo('LIMITADA MASTER', 'Composición desde cero, mezcla de stems y transferencia limitada a 20,000 reproducciones.')"><td>Beat Licencia Limitada + Master</td><td>$250.00</td></tr>
-                <tr onclick="mostrarInfo('LICENCIA LIMITADA', 'Composición desde cero y contrato de transferencia limitada a 15,000 reproducciones.')"><td>Beat Licencia Limitada</td><td>$200.00</td></tr>
+
+                <tr onclick="mostrarInfo('★ PAQUETE ESTRELLA ($500)', 'Tu canción completa por $500 pesos: Beat con Licencia Limitada (hasta 20k repros), 1:30 hrs de grabación de voces en cabina profesional y masterización final lista para plataformas.', '$500.00')">
+                    <td>
+                        <span class="badge-venda-morado">★ PAQUETE ESTRELLA</span><br>
+                        <b style="color:var(--rojo-studio);">Beat Limitado + Grabación (1:30 hrs) + Master</b>
+                        <div class="subtext-tabla">¡Haz tu canción completa por $500 pesos! Todo incluido listo para lanzar</div>
+                    </td>
+                    <td>$500.00</td>
+                </tr>
+
+                <tr onclick="mostrarInfo('EXCLUSIVA + GRABACIÓN', 'Composición original desde cero y transferencia total de derechos con 1:30 hrs de grabación en cabina (sin masterización).', '$700.00')">
+                    <td>
+                        Beat Exclusivo + Grabación (1:30 hrs) [Sin Master]
+                        <div class="subtext-tabla">Para artistas que tienen su propio ingeniero de mezcla</div>
+                    </td>
+                    <td>$700.00</td>
+                </tr>
+
+                <tr onclick="mostrarInfo('EXCLUSIVA + MASTER', 'Composición original desde cero, mezcla de stems y transferencia total de derechos comerciales.', '$650.00')">
+                    <td>Beat Exclusivo + Masterización</td><td>$650.00</td>
+                </tr>
+
+                <tr onclick="mostrarInfo('LICENCIA EXCLUSIVA', 'Composición de beat original y contrato con cesión total de derechos comerciales.', '$500.00')">
+                    <td>Beat Licencia Exclusiva</td><td>$500.00</td>
+                </tr>
+
+                <tr onclick="mostrarInfo('LIMITADA + MASTER', 'Composición desde cero, mezcla de stems y contrato de licencia hasta 20,000 reproducciones.', '$350.00')">
+                    <td>Beat Licencia Limitada + Master</td><td>$350.00</td>
+                </tr>
+
+                <tr onclick="mostrarInfo('LICENCIA LIMITADA', 'Composición instrumental original con contrato de licencia hasta 15,000 reproducciones.', '$200.00')">
+                    <td>Beat Licencia Limitada</td><td>$200.00</td>
+                </tr>
             </tbody>
         </table>
     </div>
+
+    <!-- PAQUETES DE ÁLBUMES Y EPS -->
+    <div class="ep-container">
+        <h2 style="text-align: center; color: var(--rojo-studio); font-family: 'Impact'; letter-spacing: 3px; font-size: 2.2rem; margin-bottom: 5px;">PAQUETES EP & ÁLBUM</h2>
+        <p style="text-align: center; color: #888; font-size: 0.95rem; margin-bottom: 30px;">Producción integral de nivel discográfico para proyectos serios</p>
+
+        <div class="ep-grid">
+            <div class="ep-card">
+                <span class="ep-tag">EP COMPLETO</span>
+                <div>
+                    <h3>PACK EP (3 TRACKS)</h3>
+                    <div class="ep-price">$1,999 MXN</div>
+                    <div class="ep-savings"><i class="fas fa-arrow-down"></i> Ahorro de $600 + Stems WAV incluidos</div>
+                    <ul class="ep-features">
+                        <li><i class="fas fa-check"></i> <span><b>3 Beats Exclusivos</b> producidos a medida (100% derechos)</span></li>
+                        <li><i class="fas fa-check"></i> <span><b>6 Horas de Cabina</b> (2 hrs por track para máxima soltura)</span></li>
+                        <li><i class="fas fa-check"></i> <span>Mezcla detallada por pistas y <b>Mastering comercial</b></span></li>
+                        <li><i class="fas fa-check"></i> <span>Afinación y procesado vocal con <b>Antares Auto-Tune Pro</b></span></li>
+                        <li><i class="fas fa-check"></i> <span>Entrega de <b>Stems multitrack en WAV</b> de regalo</span></li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/525533167500?text=Hola%20Star%20Music!%20Me%20interesa%20contratar%20el%20PACK%20EP%20de%203%20Canciones%20($1,999%20MXN)." target="_blank" class="btn-ep-wa">
+                    <i class="fab fa-whatsapp"></i> APARTAR PACK EP
+                </a>
+            </div>
+
+            <div class="ep-card">
+                <span class="ep-tag">ÁLBUM PRO</span>
+                <div>
+                    <h3>PACK ÁLBUM (5 TRACKS)</h3>
+                    <div class="ep-price">$3,499 MXN</div>
+                    <div class="ep-savings"><i class="fas fa-arrow-down"></i> Ahorro de $800 + Tratamiento sonoro élite</div>
+                    <ul class="ep-features">
+                        <li><i class="fas fa-check"></i> <span><b>5 Beats Exclusivos</b> desarrollados para el concepto de tu disco</span></li>
+                        <li><i class="fas fa-check"></i> <span><b>10 Horas de Cabina</b> repartidas en sesiones organizadas</span></li>
+                        <li><i class="fas fa-check"></i> <span>Cadena de mezcla analógica/digital y <b>Mastering para Spotify</b></span></li>
+                        <li><i class="fas fa-check"></i> <span>Limpieza profunda de tomas, armonías y segundas voces</span></li>
+                        <li><i class="fas fa-check"></i> <span><b>Stems WAV completos</b> y asesoría para subir a distribuidoras</span></li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/525533167500?text=Hola%20Star%20Music!%20Me%20interesa%20contratar%20el%20PACK%20ALBUM%20de%205%20Canciones%20($3,499%20MXN)." target="_blank" class="btn-ep-wa">
+                    <i class="fab fa-whatsapp"></i> APARTAR PACK ÁLBUM
+                </a>
+            </div>
+        </div>
+
+        <!-- ASISTENTE INTERACTIVO DE RECOMENDACIÓN -->
+        <div class="assistant-box">
+            <h3 class="assistant-title"><i class="fas fa-robot"></i> ASISTENTE STAR MUSIC</h3>
+            <p class="assistant-subtitle">Responde 3 preguntas y te diremos cuál es el paquete exacto para tu proyecto:</p>
+
+            <div class="assistant-step-card">
+                <div class="assistant-step-title"><i class="fas fa-compact-disc"></i> 1. ¿Cómo vas a trabajar la música / beat?</div>
+                <div class="assistant-options-grid">
+                    <button class="assistant-btn-option" data-step="1" data-val="propia" onclick="seleccionarOpcionAsistente(1, 'propia', this)">
+                        <i class="fas fa-file-audio"></i> Ya tengo mi pista (WAV / MP3)
+                    </button>
+                    <button class="assistant-btn-option" data-step="1" data-val="catalogo" onclick="seleccionarOpcionAsistente(1, 'catalogo', this)">
+                        <i class="fas fa-music"></i> Quiero un beat del catálogo ($500)
+                    </button>
+                    <button class="assistant-btn-option" data-step="1" data-val="exclusivo" onclick="seleccionarOpcionAsistente(1, 'exclusivo', this)">
+                        <i class="fas fa-crown"></i> Quiero un beat exclusivo desde cero
+                    </button>
+                </div>
+            </div>
+
+            <div class="assistant-step-card">
+                <div class="assistant-step-title"><i class="fas fa-bullhorn"></i> 2. ¿Cuál es el objetivo principal de este lanzamiento?</div>
+                <div class="assistant-options-grid">
+                    <button class="assistant-btn-option" data-step="2" data-val="demo" onclick="seleccionarOpcionAsistente(2, 'demo', this)">
+                        <i class="fas fa-microphone-alt"></i> Grabar un tema rápido / maqueta
+                    </button>
+                    <button class="assistant-btn-option" data-step="2" data-val="spotify" onclick="seleccionarOpcionAsistente(2, 'spotify', this)">
+                        <i class="fab fa-spotify"></i> Lanzamiento oficial en plataformas
+                    </button>
+                    <button class="assistant-btn-option" data-step="2" data-val="disco" onclick="seleccionarOpcionAsistente(2, 'disco', this)">
+                        <i class="fas fa-layer-group"></i> Proyecto de 3 o más canciones
+                    </button>
+                </div>
+            </div>
+
+            <div class="assistant-step-card">
+                <div class="assistant-step-title"><i class="fas fa-headphones"></i> 3. ¿Requieres grabar voces en cabina física en Ecatepec?</div>
+                <div class="assistant-options-grid">
+                    <button class="assistant-btn-option" data-step="3" data-val="si_grabar" onclick="seleccionarOpcionAsistente(3, 'si_grabar', this)">
+                        <i class="fas fa-check-circle"></i> Sí, quiero grabar mis voces en el estudio
+                    </button>
+                    <button class="assistant-btn-option" data-step="3" data-val="no_grabar" onclick="seleccionarOpcionAsistente(3, 'no_grabar', this)">
+                        <i class="fas fa-times-circle"></i> No, solo necesito el beat / mezcla de stems
+                    </button>
+                </div>
+            </div>
+
+            <div id="assistant-result" class="assistant-result-box">
+                <h4 id="assistant-paquete-nombre"></h4>
+                <div id="assistant-paquete-precio" class="assistant-price-tag"></div>
+                <p id="assistant-paquete-desc"></p>
+                <a href="#" id="assistant-wa-btn" target="_blank" class="btn-apartar-calc">
+                    <i class="fab fa-whatsapp"></i> APARTAR ESTE PAQUETE SUGERIDO
+                </a>
+            </div>
+        </div>
+
+        <!-- TARJETA DE FIDELIDAD VIRTUAL -->
+        <div class="loyalty-banner">
+            <div class="loyalty-info">
+                <h3>PROGRAMA VIP: <span>TU 6TA CANCIÓN CON 50% OFF</span></h3>
+                <p>En Star Music premiamos a los artistas constantes. Graba o produce 5 sencillos en el estudio y tu <b>6ta canción recibe el 50% de descuento directo</b> en tu paquete.</p>
+                <div class="loyalty-steps">
+                    <div class="loyalty-dot">1</div>
+                    <div class="loyalty-dot">2</div>
+                    <div class="loyalty-dot">3</div>
+                    <div class="loyalty-dot">4</div>
+                    <div class="loyalty-dot">5</div>
+                    <div class="loyalty-dot reward" title="50% OFF en tu 6ta canción"><i class="fas fa-gift"></i></div>
+                </div>
+            </div>
+            <a href="https://wa.me/525533167500?text=Hola%20Star%20Music!%20Quiero%20conocer%20mi%20registro%20de%20sesiones%20del%20Programa%20VIP%20de%20Fidelidad%20(Promoci%C3%B3n%206ta%20Canci%C3%B3n)." target="_blank" class="btn-loyalty">
+                <i class="fab fa-whatsapp"></i> CONSULTAR MI STATUS VIP
+            </a>
+        </div>
+    </div>
+
+    <!-- CALCULADORA DE PRESUPUESTO PERSONALIZADO -->
+    <div class="calc-wrapper">
+        <h3 class="calc-title"><i class="fas fa-sliders-h"></i> ARMA TU PROPIO PAQUETE</h3>
+        <p style="text-align: center; color: #888; margin-bottom: 30px; font-size: 0.95rem;">Selecciona los elementos y comprueba tu presupuesto en tiempo real</p>
+
+        <div class="calc-step">
+            <div class="calc-step-title">1. Elige tu Beat / Instrumental</div>
+            <div class="calc-options">
+                <label class="calc-option">
+                    <input type="radio" name="calc-beat" value="0" data-name="Sin Beat (Pista Propia)" checked onchange="calcularPresupuesto()">
+                    <span>Sin Beat / Pista Propia ($0)</span>
+                </label>
+                <label class="calc-option">
+                    <input type="radio" name="calc-beat" value="200" data-name="Beat Licencia Limitada" onchange="calcularPresupuesto()">
+                    <span>Licencia Limitada ($200)</span>
+                </label>
+                <label class="calc-option">
+                    <input type="radio" name="calc-beat" value="500" data-name="Beat Licencia Exclusiva" onchange="calcularPresupuesto()">
+                    <span>Licencia Exclusiva ($500)</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="calc-step">
+            <div class="calc-step-title">2. Grabación en Cabina Profesional ($200 base / hora extra)</div>
+            <div class="calc-options">
+                <label class="calc-option">
+                    <input type="radio" name="calc-rec" value="0" data-name="Sin Grabación" checked onchange="calcularPresupuesto()">
+                    <span>No requiero grabación ($0)</span>
+                </label>
+                <label class="calc-option">
+                    <input type="radio" name="calc-rec" value="200" data-name="1:30 hrs de Grabación en Cabina" onchange="calcularPresupuesto()">
+                    <span>Sesión Base (1 hora y media) ($200)</span>
+                </label>
+                <label class="calc-option">
+                    <input type="radio" name="calc-rec" value="400" data-name="2:30 hrs de Grabación en Cabina" onchange="calcularPresupuesto()">
+                    <span>2 horas y media (+1 hr) ($400)</span>
+                </label>
+                <label class="calc-option">
+                    <input type="radio" name="calc-rec" value="600" data-name="3:30 hrs de Grabación en Cabina" onchange="calcularPresupuesto()">
+                    <span>3 horas y media (+2 hrs) ($600)</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="calc-step">
+            <div class="calc-step-title">3. Ingeniería de Audio & Masterización</div>
+            <div class="calc-options">
+                <label class="calc-option">
+                    <input type="radio" name="calc-master" value="0" data-name="Sin Master" checked onchange="calcularPresupuesto()">
+                    <span>Sin Masterizar ($0)</span>
+                </label>
+                <label class="calc-option">
+                    <input type="radio" name="calc-master" value="100" data-name="Masterización Digital Profesional" onchange="calcularPresupuesto()">
+                    <span>Masterización Pro Digital ($100)</span>
+                </label>
+                <label class="calc-option">
+                    <input type="radio" name="calc-master" value="150" data-name="Mezcla de Stems + Master Exclusivo" onchange="calcularPresupuesto()">
+                    <span>Mezcla Stems + Master Exclusivo ($150)</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="calc-step">
+            <div class="calc-step-title">4. Servicios Adicionales (Opcional)</div>
+            <div class="calc-options">
+                <label class="calc-option">
+                    <input type="checkbox" name="calc-extra" value="100" data-name="Stems multitrack en WAV" onchange="calcularPresupuesto()">
+                    <span>Entrega de Stems WAV (+ $100)</span>
+                </label>
+                <label class="calc-option">
+                    <input type="checkbox" name="calc-extra" value="150" data-name="Entrega Express en 24h" onchange="calcularPresupuesto()">
+                    <span>Entrega Express 24h (+ $150)</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="calc-total-box">
+            <div>
+                <span style="color:#aaa; text-transform:uppercase; font-size:0.8rem; letter-spacing:2px;">TOTAL ESTIMADO</span>
+                <div class="calc-price" id="calc-total-display">$0.00 MXN</div>
+            </div>
+            <a href="#" id="btn-calc-whatsapp" target="_blank" class="btn-apartar-calc">
+                <i class="fab fa-whatsapp"></i> APARTAR CON ESTE PRESUPUESTO
+            </a>
+        </div>
+    </div>
 </div>
 
+<!-- SECCIÓN: REGLAS Y PREGUNTAS FRECUENTES -->
+<div id="reglas" class="seccion-pagina">
+    <div class="faq-container">
+        <h2 style="text-align: center; color: var(--rojo-studio); font-family: 'Impact'; letter-spacing: 3px; font-size: 2.3rem; margin-bottom: 10px;">REGLAS DE SESIÓN</h2>
+        <p style="text-align: center; color: #888; margin-bottom: 30px; font-size: 0.95rem;">Para mantener el mejor ambiente y la máxima calidad sonora, consulta nuestras 6 normas de estudio:</p>
+
+        <div class="rules-grid">
+            <div class="rule-card">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h3>1. Anticipo del 50%</h3>
+                <p>Las fechas y horarios se apartan con el <b>50% de anticipo</b> vía transferencia bancaria o depósito OXXO. El 50% restante se liquida al iniciar la sesión.</p>
+            </div>
+
+            <div class="rule-card">
+                <i class="fas fa-clock"></i>
+                <h3>2. Puntualidad</h3>
+                <p>Tu tiempo de cabina inicia exactamente a la hora agendada. Contamos con <b>15 minutos de tolerancia</b>; después de ese lapso, el tiempo transcurrido no es recuperable.</p>
+            </div>
+
+            <div class="rule-card">
+                <i class="fas fa-users-slash"></i>
+                <h3>3. Acompañantes</h3>
+                <p>Para cuidar la acústica y garantizar el enfoque del artista e ingeniero, se permite un <b>máximo de 2 acompañantes</b> por cada turno de grabación.</p>
+            </div>
+
+            <div class="rule-card">
+                <i class="fas fa-file-audio"></i>
+                <h3>4. Entrega de Pistas</h3>
+                <p>Si traes beat externo, envíalo previamente por WhatsApp/Drive o tráelo en USB en formato <b>WAV o MP3 a 320 kbps</b>. Traer tu letra estructurada agiliza tus tomas.</p>
+            </div>
+
+            <div class="rule-card">
+                <i class="fas fa-smoking-ban"></i>
+                <h3>5. Cuidado de Equipos</h3>
+                <p>Queda estrictamente prohibido introducir líquidos o alimentos destapados cerca de consolas e interfaces. <b>No fumar ni vapear</b> dentro de la cabina de voz.</p>
+            </div>
+
+            <div class="rule-card">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>6. Reagendas y Cambios</h3>
+                <p>Puedes cambiar tu fecha avisando con al menos <b>24 horas de anticipación</b> (válido por una ocasión). Cancelaciones el mismo día pierden el anticipo.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="btn-descargar-pdf" onclick="descargarFichaPDF()">
+                <i class="fas fa-file-pdf"></i> DESCARGAR FICHA TÉCNICA Y REGLAS (PDF)
+            </button>
+        </div>
+
+        <h2 style="text-align: center; color: var(--rojo-studio); font-family: 'Impact'; letter-spacing: 3px; font-size: 2.3rem; margin: 20px 0 20px;">PREGUNTAS FRECUENTES</h2>
+        
+        <div class="faq-accordion">
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>¿En qué consiste el paquete "Haz tu canción por $500 pesos"?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Es nuestro paquete estrella: te incluye un <b>beat con licencia limitada</b> de nuestro catálogo, <b>1:30 hrs de grabación</b> en cabina con microfonía Sennheiser y <b>masterización digital</b> lista para Spotify y plataformas.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>¿Con cuánto tiempo de anticipación debo agendar mi sesión?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Recomendamos apartar con un mínimo de <b>2 a 4 días de anticipación</b> para asegurar el día y horario que mejor te convenga, especialmente para fines de semana.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>¿En qué formatos y cuánto tiempo tardan en entregar el tema masterizado?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Se entrega en formato <b>WAV (24-bit alta fidelidad)</b> y <b>MP3 (320kbps)</b> listo para plataformas. El tiempo estándar de entrega es de <b>3 a 5 días hábiles</b>, o en menos de 24 horas si contratas Entrega Express.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>¿Cuál es la diferencia entre Licencia Limitada y Licencia Exclusiva de un beat?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Con la <b>Licencia Limitada</b> puedes monetizar tu canción hasta 20,000 reproducciones (el beat sigue disponible para otros). Con la <b>Licencia Exclusiva</b> la instrumental se retira por completo de la venta y adquieres el 100% de los derechos comerciales.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>¿Tienen afinación de voz tipo Auto-Tune durante la grabación?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    ¡Claro que sí! Contamos con la suite original de <b>Antares Auto-Tune Pro</b> y monitoreo en tiempo real para que te escuches afinado directamente en los audífonos mientras grabas tus tomas.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SECCIÓN ESTUDIO ACTUALIZADA CON INFOGRAFÍA DE FLUJO DE AUDIO -->
 <div id="equipo" class="seccion-pagina">
     <h2 style="text-align: center; color: var(--rojo-studio); font-family: 'Impact'; letter-spacing: 3px;">EXPERIENCIA STAR MUSIC</h2>
+    
+    <!-- INFOGRAFÍA TÉCNICA: EL VIAJE DE TU VOZ -->
+    <div class="signal-flow-box">
+        <h3 class="signal-flow-title"><i class="fas fa-wave-square"></i> EL VIAJE DE TU VOZ (FLUJO DE AUDIO PRO)</h3>
+        <div class="signal-steps-grid">
+            <div class="signal-step" data-tilt>
+                <div class="signal-step-num">PASO 01</div>
+                <i class="fas fa-microphone-alt"></i>
+                <h4 style="color:white; margin-top:10px;">Captura Sennheiser</h4>
+                <p>Micrófono de condensador con alta fidelidad para capturar cada matiz de tu voz sin ruido de fondo.</p>
+            </div>
+            <div class="signal-step" data-tilt>
+                <div class="signal-step-num">PASO 02</div>
+                <i class="fas fa-sliders-h"></i>
+                <h4 style="color:white; margin-top:10px;">Interfaz Focusrite</h4>
+                <p>Preamplificadores y conversión digital de ultra baja latencia para un monitoreo cristalino.</p>
+            </div>
+            <div class="signal-step" data-tilt>
+                <div class="signal-step-num">PASO 03</div>
+                <i class="fas fa-magic"></i>
+                <h4 style="color:white; margin-top:10px;">Antares Auto-Tune Pro</h4>
+                <p>Afinación profesional en tiempo real para que te escuches exactamente como esperas mientras interpretas.</p>
+            </div>
+            <div class="signal-step" data-tilt>
+                <div class="signal-step-num">PASO 04</div>
+                <i class="fas fa-headphones"></i>
+                <h4 style="color:white; margin-top:10px;">Mastering Final</h4>
+                <p>Procesamiento con FabFilter y Waves listo para competir en plataformas digitales (Spotify, Apple Music).</p>
+            </div>
+        </div>
+    </div>
+
     <div class="equipo-grid">
-        <div class="equipo-card" data-tilt><i class="fas fa-headphones equipo-icon"></i><h3>MONITOREO</h3><p style="color:#aaa;">Microfonía <b>Sennheiser</b> y audífonos <b>Shure</b> de alta fidelidad para una referencia perfecta.</p></div>
-        <div class="equipo-card" data-tilt><i class="fas fa-wave-square equipo-icon"></i><h3>INTERFAZ</h3><p style="color:#aaa;"><b>Scarlett Focusrite</b> & <b>MacBook Air</b> para procesamiento ultra rápido sin interrupciones.</p></div>
-        <div class="equipo-card" data-tilt><i class="fas fa-desktop equipo-icon"></i><h3>SOFTWARE</h3><p style="color:#aaa;"><b>FL Studio Pro</b>, Suite <b>Antares</b> (Auto-Tune) y <b>FabFilter</b> para un sonido competitivo.</p></div>
-        <div class="equipo-card" data-tilt><i class="fas fa-couch equipo-icon"></i><h3>VIBE & COMFORT</h3><p style="color:#aaa;">Espacio climatizado y trato personal diseñado para que el artista fluya al 100%.</p></div>
-        <div class="equipo-card" data-tilt><i class="fas fa-door-open equipo-icon"></i><h3>ACÚSTICA CONTROLADA</h3><p style="color:#aaa;">Cabina de grabación tratada profesionalmente para capturas de voces limpias y nítidas.</p></div>
-        <div class="equipo-card" data-tilt><i class="fas fa-plug equipo-icon"></i><h3>CABLEADO ELITE</h3><p style="color:#aaa;">Nivel de señal purificado con cableado <b>Mogami</b> y conectores <b>Neutrik</b> para Zero Ruido.</p></div>
+        <div class="equipo-card" data-tilt><i class="fas fa-headphones equipo-icon"></i><h3>MONITOREO</h3><p style="color:#ffffff;">Microfonía <b>Sennheiser</b> y audífonos <b>Shure</b> de alta fidelidad para una referencia perfecta.</p></div>
+        <div class="equipo-card" data-tilt><i class="fas fa-wave-square equipo-icon"></i><h3>INTERFAZ</h3><p style="color:#ffffff;"><b>Scarlett Focusrite</b> & <b>MacBook Air</b> para procesamiento ultra rápido sin interrupciones.</p></div>
+        <div class="equipo-card" data-tilt><i class="fas fa-desktop equipo-icon"></i><h3>SOFTWARE</h3><p style="color:#ffffff;"><b>FL Studio Pro</b>, Suite <b>Antares</b> (Auto-Tune) y <b>FabFilter</b> para un sonido competitivo.</p></div>
+        <div class="equipo-card" data-tilt><i class="fas fa-couch equipo-icon"></i><h3>VIBE & COMFORT</h3><p style="color:#ffffff;">Espacio climatizado y trato personal diseñado para que el artista fluya al 100%.</p></div>
+        <div class="equipo-card" data-tilt><i class="fas fa-door-open equipo-icon"></i><h3>ACÚSTICA CONTROLADA</h3><p style="color:#ffffff;">Cabina de grabación tratada profesionalmente para capturas de voces limpias y nítidas.</p></div>
+        <div class="equipo-card" data-tilt><i class="fas fa-plug equipo-icon"></i><h3>CABLEADO ELITE</h3><p style="color:#ffffff;">Nivel de señal purificado con cableado <b>Mogami</b> y conectores <b>Neutrik</b> para Zero Ruido.</p></div>
     </div>
 </div>
 
 <div id="contacto" class="seccion-pagina">
     <div class="contacto-grid">
         <div>
-            <h2>SÍGUENOS</h2>
+            <h2>SÍGUENOS Y CONTÁCTANOS</h2>
             <div class="redes-box" data-tilt>
                 <a href="https://www.facebook.com/share/1Eeg61VFA5/?mibextid=wwXIfr" target="_blank" class="social-item"><i class="fab fa-facebook"></i> Facebook</a>
                 <a href="https://www.instagram.com/jhonwayne.mp3?igsh=d2ttMjM1ZmczOTFw&utm_source=qr" target="_blank" class="social-item"><i class="fab fa-instagram"></i> Instagram</a>
                 <div class="social-item" style="opacity:0.9; cursor: default;"><i class="fab fa-tiktok"></i> TikTok <span class="badge-prox">PRÓXIMAMENTE</span></div>
             </div>
+            
+            <div class="qr-card-contact">
+                <div class="qr-card-img">
+                    <img id="qr-mini-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwa.me%2F525533167500" alt="QR WhatsApp Star Music" style="width:100%; height:100%;">
+                </div>
+                <div class="qr-card-info">
+                    <h4>ESCANEAME & AGENDA</h4>
+                    <p>Apunta con la cámara de tu celular para abrir WhatsApp directamente y agendar tu turno.</p>
+                    <button onclick="abrirModalQR()" style="background:var(--rojo-studio); border:none; color:white; padding:6px 14px; border-radius:20px; font-weight:bold; cursor:pointer; font-size:0.8rem;">
+                        <i class="fas fa-expand"></i> Ver QR Completo
+                    </button>
+                </div>
+            </div>
+
             <p style="margin-top:20px;">Benito Juárez Nte 9, San Benjamin, Ecatepec.<br>WhatsApp: 53 3316 7500</p>
         </div>
-        <div class="mapa-box"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3758.4563619920923!2d-99.04513798830597!3d19.607777934985076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f1d152043935%3A0x3295c5c0e37f2c21!2sSTAR%20MUSIC%20Records!5e0!3m2!1ses-419!2smx!4v1784059820978!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+        <div>
+            <div class="mapa-box">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3758.4563619920923!2d-99.04513798830597!3d19.607777934985076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f1d152043935%3A0x3295c5c0e37f2c21!2sSTAR%20MUSIC%20Records!5e0!3m2!1ses-419!2smx!4v1784059820978!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+
+            <div class="rutas-box">
+                <h4><i class="fas fa-route"></i> ¿CÓMO LLEGAR AL STUDIO?</h4>
+                <div class="ruta-item">
+                    <b><i class="fas fa-bus"></i> Desde Mexibús (Línea 2 o 4):</b>
+                    Bajar en la estación más cercana hacia la zona de San Cristóbal / Vía Morelos y tomar combi local hacia San Benjamin / Benito Juárez Nte.
+                </div>
+                <div class="ruta-item">
+                    <b><i class="fas fa-car"></i> En Uber / Didi / Auto:</b>
+                    Buscar en el mapa directo como <b>"STAR MUSIC Records"</b> o colocar calle Benito Juárez Nte 9, San Benjamin, Ecatepec. Contamos con acceso fácil y seguro.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PLANTILLA FORMAL DE IMPRESIÓN (OCUPA EL 100% DE LA HOJA CARTA) -->
+<div id="print-sheet">
+    <div class="pdf-header">
+        <div class="pdf-title">
+            <h1>STAR MUSIC RECORDS</h1>
+            <p>Record Studio & Producción Musical • San Benjamin, Ecatepec</p>
+            <p><b>WhatsApp:</b> +52 55 3316 7500 • <b>Instagram:</b> @jhonwayne.mp3</p>
+        </div>
+        <div>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=85x85&data=https%3A%2F%2Fwa.me%2F525533167500" alt="QR WhatsApp" style="width:75px; height:75px;">
+        </div>
+    </div>
+
+    <div class="pdf-grid-columns">
+        <div class="pdf-col">
+            <div class="pdf-section-title">1. TARIFAS Y PAQUETES</div>
+            <table class="pdf-table">
+                <thead>
+                    <tr>
+                        <th style="width: 38%;">Servicio</th>
+                        <th style="width: 42%;">Detalle</th>
+                        <th style="width: 20%;">Costo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b class="pdf-badge-morado">★ PAQUETE ESTRELLA</b></td>
+                        <td>Beat Limitado + Cabina (1:30h) + Master</td>
+                        <td><b>$500 MXN</b></td>
+                    </tr>
+                    <tr>
+                        <td><b class="pdf-badge-morado">★ MÁS VENDIDO</b></td>
+                        <td>Beat Exclusivo + Cabina (1:30h) + Master</td>
+                        <td><b>$850 MXN</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>Exclusiva + Grabación</b></td>
+                        <td>Beat Exclusivo + 1:30h cabina (Sin Master)</td>
+                        <td>$700 MXN</td>
+                    </tr>
+                    <tr>
+                        <td><b>Exclusiva + Master</b></td>
+                        <td>Beat Exclusivo + Masterización de pistas</td>
+                        <td>$650 MXN</td>
+                    </tr>
+                    <tr>
+                        <td><b>Licencia Exclusiva</b></td>
+                        <td>Beat con 100% de derechos comerciales</td>
+                        <td>$500 MXN</td>
+                    </tr>
+                    <tr>
+                        <td><b>PACK EP (3 Tracks)</b></td>
+                        <td>3 Beats Exclusivos + 6h Cabina + Master + Stems</td>
+                        <td>$1,999 MXN</td>
+                    </tr>
+                    <tr>
+                        <td><b>PACK ÁLBUM (5 Tracks)</b></td>
+                        <td>5 Beats Exclusivos + 10h Cabina + Master + Stems</td>
+                        <td>$3,499 MXN</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pdf-col">
+            <div class="pdf-section-title">2. REGLAMENTO DE CABINA</div>
+            <div class="pdf-rules-container">
+                <div class="pdf-rule-item">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <div class="pdf-rule-content">
+                        <b>1. Anticipo del 50%:</b> Turnos apartados con el 50% vía transferencia o depósito OXXO. El restante se liquida al llegar al estudio.
+                    </div>
+                </div>
+                <div class="pdf-rule-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="pdf-rule-content">
+                        <b>2. Puntualidad:</b> Tu turno inicia a la hora agendada. Se cuentan con 15 minutos de tolerancia; pasado ese lapso el tiempo transcurrido no es recuperable.
+                    </div>
+                </div>
+                <div class="pdf-rule-item">
+                    <i class="fas fa-users-slash"></i>
+                    <div class="pdf-rule-content">
+                        <b>3. Acompañantes:</b> Máximo 2 personas de apoyo por sesión para resguardar la acústica, concentración y rendimiento en cabina.
+                    </div>
+                </div>
+                <div class="pdf-rule-item">
+                    <i class="fas fa-file-audio"></i>
+                    <div class="pdf-rule-content">
+                        <b>4. Entrega de Pistas:</b> Envío previo por Drive/WhatsApp o en USB en formato WAV/MP3 320kbps. Traer letra estructurada agiliza las tomas.
+                    </div>
+                </div>
+                <div class="pdf-rule-item">
+                    <i class="fas fa-smoking-ban"></i>
+                    <div class="pdf-rule-content">
+                        <b>5. Cuidado de Equipos:</b> Sin bebidas destapadas en consolas. Estrictamente prohibido fumar o vapear dentro de la cabina.
+                    </div>
+                </div>
+                <div class="pdf-rule-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <div class="pdf-rule-content">
+                        <b>6. Reagendas:</b> Avisa con al menos 24 horas de antelación para conservar tu anticipo (válido por una ocasión). Mismo día pierde anticipo.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pdf-footer">
+        <span><b>Star Music Record Studio</b> • Benito Juárez Nte 9, San Benjamin, Ecatepec</span>
+        <span>"De la calle para el mundo. Tu talento, nuestro sonido."</span>
     </div>
 </div>
 
 <footer style="text-align:center; padding:40px; color:#444; font-size:0.8rem;">© 2026 Star Music Record Studio - Haciendo Ruido</footer>
 
+<!-- MODAL INFORMATIVO Y CONTRATACIÓN -->
 <div id="miModal" class="modal">
     <div class="modal-contenido">
-        <span onclick="cerrarModal()" style="cursor:pointer; position:absolute; right:20px; top:10px; font-size:30px;">×</span>
+        <span onclick="cerrarModal()" class="btn-cerrar-modal">×</span>
         <h2 id="modal-titulo" style="color: var(--rojo-studio);"></h2>
         <p id="modal-descripcion" style="margin:20px 0; line-height:1.6;"></p>
+        <a id="modal-wa-btn" href="#" target="_blank" class="btn-modal-wa">
+            <i class="fab fa-whatsapp"></i> CONTRATAR ESTE SERVICIO
+        </a>
+    </div>
+</div>
+
+<!-- MODAL DEDICADO AL CÓDIGO QR -->
+<div id="modalQR" class="modal">
+    <div class="modal-contenido">
+        <span onclick="cerrarModalQR()" class="btn-cerrar-modal">×</span>
+        <h2 style="color: var(--rojo-studio); margin-bottom:10px;"><i class="fas fa-qrcode"></i> PASE DIGITAL</h2>
+        <p style="font-size:0.9rem; color:#aaa; margin:0 0 20px;">Escanea con tu celular para conectar de inmediato con Star Music</p>
+        
+        <div class="qr-tabs">
+            <button class="qr-tab-btn active" id="tab-wa" onclick="cambiarQR('wa')"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+            <button class="qr-tab-btn" id="tab-ig" onclick="cambiarQR('ig')"><i class="fab fa-instagram"></i> Instagram</button>
+        </div>
+
+        <div class="qr-display-box">
+            <img id="qr-main-img" src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https%3A%2F%2Fwa.me%2F525533167500" alt="Código QR Star Music">
+        </div>
+
+        <p id="qr-instruction" style="font-size:0.85rem; color:#ccc; margin-top:15px;">Apunta tu cámara para chatear y agendar por WhatsApp</p>
     </div>
 </div>
 
@@ -349,23 +1445,74 @@
             if (width >= 100) { clearInterval(interval); setTimeout(() => { document.getElementById('loader').style.display='none'; document.body.style.overflow='auto'; }, 500); }
             else { width += 10; bar.style.width = width + '%'; }
         }, 50);
+        calcularPresupuesto();
     };
 
+    /* --- SPOTLIGHT MOUSE SEGUIMIENTO --- */
+    const spotlight = document.getElementById('spotlight');
+    window.addEventListener('mousemove', (e) => {
+        spotlight.style.left = e.clientX + 'px';
+        spotlight.style.top = e.clientY + 'px';
+    });
+
+    /* --- EFECTO RIPPLE AL HACER CLIC --- */
+    window.addEventListener('click', function (e) {
+        let circle = document.createElement('div');
+        circle.className = 'ripple';
+        circle.style.left = e.clientX + 'px';
+        circle.style.top = e.clientY + 'px';
+        document.body.appendChild(circle);
+        setTimeout(() => circle.remove(), 600);
+    });
+
     function playHoverSound() {
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        const oscillator = audioCtx.createOscillator(); const gainNode = audioCtx.createGain();
-        oscillator.connect(gainNode); gainNode.connect(audioCtx.destination);
-        oscillator.type = 'sine'; oscillator.frequency.setValueAtTime(800, audioCtx.currentTime);
-        gainNode.gain.setValueAtTime(0.02, audioCtx.currentTime);
-        oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.05);
+        try {
+            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioCtx.createOscillator(); const gainNode = audioCtx.createGain();
+            oscillator.connect(gainNode); gainNode.connect(audioCtx.destination);
+            oscillator.type = 'sine'; oscillator.frequency.setValueAtTime(800, audioCtx.currentTime);
+            gainNode.gain.setValueAtTime(0.02, audioCtx.currentTime);
+            oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.05);
+        } catch(e) {}
     }
 
+    function descargarFichaPDF() { window.print(); }
+
+    /* --- CONTROL MODO CABINA PRO (DARK MODE NOCTURNO EXTREMO) --- */
+    function alternarModoCabinaPro() {
+        document.body.classList.toggle('modo-cabina-pro');
+        const btnPro = document.getElementById('btn-modo-pro');
+        if(document.body.classList.contains('modo-cabina-pro')) {
+            btnPro.classList.add('activo');
+            btnPro.innerHTML = '<i class="fas fa-sun"></i> Modo Normal';
+        } else {
+            btnPro.classList.remove('activo');
+            btnPro.innerHTML = '<i class="fas fa-moon"></i> Modo Cabina Pro';
+        }
+    }
+
+    /* --- CAMBIO DE LUCES LED --- */
+    function cambiarTema(color) {
+        document.body.classList.remove('theme-red', 'theme-green');
+        if (color === 'red') document.body.classList.add('theme-red');
+        if (color === 'green') document.body.classList.add('theme-green');
+    }
+
+    /* --- TRANSICIÓN ANALÓGICA ENTRE SECCIONES --- */
     function mostrarPagina(id) {
-        document.querySelectorAll('.seccion-pagina').forEach(p => p.classList.remove('activa'));
+        document.querySelectorAll('.seccion-pagina').forEach(p => {
+            p.classList.remove('activa');
+        });
         document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
-        document.getElementById(id).classList.add('activa');
-        if(document.getElementById('btn-' + id)) document.getElementById('btn-' + id).classList.add('active');
-        window.scrollTo(0,0);
+        
+        const destino = document.getElementById(id);
+        if(destino) {
+            destino.classList.add('activa');
+        }
+        if(document.getElementById('btn-' + id)) {
+            document.getElementById('btn-' + id).classList.add('active');
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function crearVU(id) { const container = document.getElementById(id); if(!container) return; for(let i=0; i<18; i++) { const bar = document.createElement('div'); bar.className = 'vu-bar'; container.appendChild(bar); } }
@@ -379,15 +1526,150 @@
     }
     setInterval(animarVU, 150);
 
-    function mostrarInfo(t, d) { 
+    function mostrarInfo(t, d, precio) { 
         document.getElementById("modal-titulo").innerText = t; 
         document.getElementById("modal-descripcion").innerText = d; 
+        const msj = encodeURIComponent("¡Qué onda! Me interesa apartar el paquete: " + t + " (" + (precio || '') + "). ¿Qué fechas tienen disponibles?");
+        document.getElementById("modal-wa-btn").href = "https://wa.me/525533167500?text=" + msj; 
         document.getElementById("miModal").style.display = "flex"; 
     }
     function cerrarModal() { document.getElementById("miModal").style.display = "none"; }
     
-    // INICIALIZACIÓN DE TILT PARA EQUIPO Y REDES
-    VanillaTilt.init(document.querySelectorAll(".equipo-card, .redes-box"), { max: 10, speed: 400 });
+    function abrirModalQR() { document.getElementById('modalQR').style.display = 'flex'; }
+    function cerrarModalQR() { document.getElementById('modalQR').style.display = 'none'; }
+    function cambiarQR(tipo) {
+        const qrImg = document.getElementById('qr-main-img');
+        const inst = document.getElementById('qr-instruction');
+        const btnWa = document.getElementById('tab-wa');
+        const btnIg = document.getElementById('tab-ig');
+
+        if(tipo === 'wa') {
+            btnWa.classList.add('active');
+            btnIg.classList.remove('active');
+            qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https%3A%2F%2Fwa.me%2F525533167500";
+            inst.innerText = "Apunta tu cámara para chatear y agendar por WhatsApp";
+        } else {
+            btnIg.classList.add('active');
+            btnWa.classList.remove('active');
+            qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https%3A%2F%2Fwww.instagram.com%2Fjhonwayne.mp3";
+            inst.innerText = "Apunta tu cámara para seguir a @jhonwayne.mp3 en Instagram";
+        }
+    }
+
+    window.addEventListener('click', function(e) {
+        const modal = document.getElementById('miModal');
+        const modalQR = document.getElementById('modalQR');
+        if (e.target === modal) cerrarModal();
+        if (e.target === modalQR) cerrarModalQR();
+    });
+
+    function toggleFaq(elemento) {
+        const estaActivo = elemento.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
+        if (!estaActivo) {
+            elemento.classList.add('active');
+        }
+    }
+
+    let asistenteRespuestas = { 1: null, 2: null, 3: null };
+
+    function seleccionarOpcionAsistente(paso, valor, boton) {
+        asistenteRespuestas[paso] = valor;
+        const botonesPaso = document.querySelectorAll(`button[data-step="${paso}"]`);
+        botonesPaso.forEach(btn => btn.classList.remove('selected'));
+        boton.classList.add('selected');
+        evaluarRecomendacionAsistente();
+    }
+
+    function evaluarRecomendacionAsistente() {
+        if (!asistenteRespuestas[1] || !asistenteRespuestas[2] || !asistenteRespuestas[3]) {
+            return;
+        }
+
+        const resBox = document.getElementById('assistant-result');
+        const tit = document.getElementById('assistant-paquete-nombre');
+        const precio = document.getElementById('assistant-paquete-precio');
+        const desc = document.getElementById('assistant-paquete-desc');
+        const waBtn = document.getElementById('assistant-wa-btn');
+
+        let nombre = '';
+        let costo = '';
+        let explicacion = '';
+
+        if (asistenteRespuestas[2] === 'disco') {
+            nombre = 'PACK EP (3 TRACKS) O ÁLBUM (5 TRACKS)';
+            costo = 'Desde $1,999.00 MXN';
+            explicacion = 'Tu visión es grande. Te recomendamos nuestros paquetes completos de producción para EP o Álbum: incluyen beats exclusivos a medida, horas extendidas de cabina, stems WAV de regalo y masterización comercial para que todo tu proyecto suene uniforme y profesional.';
+        } else if (asistenteRespuestas[3] === 'no_grabar') {
+            if (asistenteRespuestas[1] === 'exclusivo') {
+                nombre = 'BEAT LICENCIA EXCLUSIVA + MASTER';
+                costo = '$650.00 MXN';
+                explicacion = 'Ideal si tienes tu propio lugar de grabación o mandas tomas a distancia: te componemos una instrumental original con 100% de derechos y realizamos la mezcla y masterización con calidad de plataformas digitales.';
+            } else {
+                nombre = 'BEAT LICENCIA EXCLUSIVA';
+                costo = '$500.00 MXN';
+                explicacion = 'Componemos tu beat urbano original desde cero con cesión total de derechos de autor y entrega en alta calidad multitrack.';
+            }
+        } else if (asistenteRespuestas[1] === 'exclusivo' || asistenteRespuestas[2] === 'spotify') {
+            nombre = '★ MÁS VENDIDO: BEAT EXCLUSIVO + CABINA (1:30h) + MASTER';
+            costo = '$850.00 MXN';
+            explicacion = 'La opción preferida de los artistas serios: beat compuesto exclusivamente para ti (100% de derechos), 1 hora y media en cabina acústica con microfonía Sennheiser y masterización profesional para competir en Spotify y Apple Music.';
+        } else {
+            nombre = '★ PAQUETE ESTRELLA: HAZ TU CANCIÓN POR $500 PESOS';
+            costo = '$500.00 MXN';
+            explicacion = '¡La mejor relación calidad-precio! Beat de catálogo con licencia, 1 hora y media de grabación de voces en cabina profesional y masterización digital lista para sonar en plataformas.';
+        }
+
+        tit.innerText = nombre;
+        precio.innerText = costo;
+        desc.innerText = explicacion;
+
+        const msj = encodeURIComponent(`¡Hola Star Music! Hice el test de su Asistente Web y me recomendó el: ${nombre} (${costo}). ¿Qué fechas y horarios tienen disponibles para agendar?`);
+        waBtn.href = `https://wa.me/525533167500?text=${msj}`;
+
+        resBox.style.display = 'block';
+        resBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function calcularPresupuesto() {
+        let total = 0;
+        let resumen = [];
+
+        const beatEl = document.querySelector('input[name="calc-beat"]:checked');
+        if (beatEl) {
+            const beatVal = parseInt(beatEl.value);
+            total += beatVal;
+            if (beatVal > 0) resumen.push(beatEl.dataset.name);
+        }
+
+        const recEl = document.querySelector('input[name="calc-rec"]:checked');
+        if (recEl) {
+            const recVal = parseInt(recEl.value);
+            total += recVal;
+            if (recVal > 0) resumen.push(recEl.dataset.name);
+        }
+
+        const masterEl = document.querySelector('input[name="calc-master"]:checked');
+        if (masterEl) {
+            const masterVal = parseInt(masterEl.value);
+            total += masterVal;
+            if (masterVal > 0) resumen.push(masterEl.dataset.name);
+        }
+
+        const extras = document.querySelectorAll('input[name="calc-extra"]:checked');
+        extras.forEach(ext => {
+            total += parseInt(ext.value);
+            resumen.push(ext.dataset.name);
+        });
+
+        document.getElementById('calc-total-display').innerText = '$' + total + '.00 MXN';
+
+        let detalleTexto = resumen.length > 0 ? resumen.join('\n- ') : 'Servicios generales';
+        const msjCalc = encodeURIComponent("¡Hola Star Music! Armé mi paquete personalizado en su web:\n- " + detalleTexto + "\n\nTotal estimado: $" + total + " MXN\n¿Qué días y horarios tienen disponibles para agendar la sesión?");
+        document.getElementById('btn-calc-whatsapp').href = "https://wa.me/525533167500?text=" + msjCalc;
+    }
+
+    VanillaTilt.init(document.querySelectorAll(".equipo-card, .redes-box, .ep-card, .mvo-card, .signal-step"), { max: 10, speed: 400 });
 </script>
 </body>
 </html>
