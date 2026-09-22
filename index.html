@@ -142,41 +142,6 @@
             transition: width 0.3s, height 0.3s;
         }
 
-        /* --- CONSOLA ANALÓGICA INTERACTIVA --- */
-        .consola-box {
-            max-width: 900px;
-            margin: 40px auto;
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-        }
-        .consola-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .fader-control {
-            background: rgba(0,0,0,0.4);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 15px;
-            text-align: center;
-        }
-        .fader-control label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: var(--rojo-studio);
-            letter-spacing: 1px;
-        }
-        .fader-control input[type="range"] {
-            width: 100%;
-            accent-color: var(--rojo-studio);
-            cursor: pointer;
-        }
-
         /* --- EFECTO RIPPLE (ONDA AL HACER CLIC) --- */
         .ripple {
             position: absolute;
@@ -583,7 +548,16 @@
             position: relative;
         }
 
-        .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto; border-radius: 20px; padding: 40px; }
+        /* --- CORRECCIÓN RESPONSIVE PARA CONTACTO (MÓVIL PERFECTO) --- */
+        .contacto-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 40px; 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            border-radius: 20px; 
+            padding: 40px; 
+        }
         .redes-box { padding: 30px; border-radius: 20px; transform-style: preserve-3d; margin-top: 20px; }
         .social-item { display: flex; align-items: center; gap: 15px; text-decoration: none; color: white; font-size: 1.6rem; margin-bottom: 20px; transition: 0.3s; }
         .social-item:hover { color: var(--rojo-studio); transform: translateZ(20px); }
@@ -642,7 +616,7 @@
 
         @keyframes modalPop { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
 
-        /* --- PLANTILLA IMPRIMIBLE: 1 HOJA CARTA COMPLETA --- */
+        /* --- PLANTILLA IMPRIMIBLE LIMPIA (SIN MANCHAS CIRCULARES) --- */
         #print-sheet { display: none; }
 
         @page { size: letter portrait; margin: 8mm 10mm; }
@@ -651,12 +625,15 @@
             html, body { background: white !important; color: #111 !important; margin: 0 !important; padding: 0 !important; width: 100% !important; height: 100% !important; overflow: hidden !important; }
             nav, .session-clock, .status-bar, .lateral-rack, .vu-meter-container, 
             .btn-flotante-whatsapp, .btn-flotante-qr, #visualizer-bg, #fondo-parallax, 
-            #loader, .modal, .seccion-pagina, footer { display: none !important; }
+            #loader, .modal, .seccion-pagina, footer, #spotlight { display: none !important; }
+            
             #print-sheet {
                 display: flex !important; flex-direction: column; justify-content: space-between; height: 98vh;
-                box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; page-break-inside: avoid; break-inside: avoid;
+                box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; 
+                page-break-inside: avoid; break-inside: avoid;
+                box-shadow: none !important; background: white !important; border: none !important;
             }
-            .pdf-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid #b000ff; padding-bottom: 8px; }
+            .pdf-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid #b000ff; padding-bottom: 8px; box-shadow: none !important; }
             .pdf-title h1 { margin: 0; font-family: 'Impact', sans-serif; font-size: 2.2rem; letter-spacing: 2px; color: #111; }
             .pdf-title p { margin: 3px 0 0; font-size: 0.9rem; color: #444; }
             .pdf-grid-columns { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 20px; flex: 1; margin: 12px 0; }
@@ -667,7 +644,7 @@
             .pdf-table th { background: #f4f4f4; font-weight: bold; font-size: 0.85rem; }
             .pdf-badge-morado { color: #b000ff; font-weight: 900; }
             .pdf-rules-container { display: flex; flex-direction: column; justify-content: space-between; flex: 1; }
-            .pdf-rule-item { border: 1px solid #ddd; border-left: 3.5px solid #b000ff; padding: 7px 10px; margin-bottom: 6px; background: #fafafa; font-size: 0.8rem; line-height: 1.35; display: flex; align-items: flex-start; gap: 10px; }
+            .pdf-rule-item { border: 1px solid #ddd; border-left: 3.5px solid #b000ff; padding: 7px 10px; margin-bottom: 6px; background: #fafafa; font-size: 0.8rem; line-height: 1.35; display: flex; align-items: flex-start; gap: 10px; box-shadow: none !important; }
             .pdf-rule-item:last-child { margin-bottom: 0; }
             .pdf-rule-item i { color: #b000ff; font-size: 1.15rem; margin-top: 2px; min-width: 18px; text-align: center; }
             .pdf-rule-content b { color: #b000ff; }
@@ -678,24 +655,29 @@
             .lateral-rack, .vu-meter-container, .session-clock, .status-bar { display: none !important; }
             nav { padding: 0 15px; height: 70px; }
             .nav-logo-text { font-size: 1rem; }
-            .nav-links button { margin-left: 4px; font-size: 0.6rem; padding: 0; }
+            .nav-links button { margin-left: 4px; font-size: 0.55rem; padding: 0; }
             .led-switcher { padding: 3px 6px; }
             .led-dot { width: 10px; height: 10px; }
-            .titulo-principal { font-size: 3em !important; }
-            .lema-badge { font-size: 1.1rem; padding: 8px 18px; }
-            .mision-text { font-size: 2.2rem !important; }
-            .contacto-grid { grid-template-columns: 1fr !important; }
-            .seccion-pagina { padding: 100px 20px 60px !important; }
-            .btn-flotante-whatsapp { right: 20px; bottom: 30px; padding: 10px 20px; }
-            .btn-flotante-qr { right: 20px; bottom: 90px; padding: 8px 15px; font-size: 0.75rem; }
-            .calc-wrapper { padding: 20px; }
-            .calc-price { font-size: 2.3rem; }
+            .titulo-principal { font-size: 2.5em !important; }
+            .lema-badge { font-size: 0.95rem; padding: 8px 15px; text-align: center; }
+            .mision-text { font-size: 1.8rem !important; }
+            
+            /* CORRECCIÓN CELULAR EN CONTACTO */
+            .contacto-grid { 
+                grid-template-columns: 1fr !important; 
+                padding: 15px !important; 
+                gap: 20px !important; 
+            }
+            .seccion-pagina { padding: 90px 15px 40px !important; }
+            .btn-flotante-whatsapp { right: 15px; bottom: 20px; padding: 10px 18px; font-size: 0.85rem; }
+            .btn-flotante-qr { right: 15px; bottom: 75px; padding: 8px 12px; font-size: 0.75rem; }
+            .calc-wrapper { padding: 15px; }
+            .calc-price { font-size: 2rem; }
             .qr-card-contact { flex-direction: column; text-align: center; }
             .qr-card-info { text-align: center; }
-            .loyalty-banner { flex-direction: column; text-align: center; }
+            .loyalty-banner { flex-direction: column; text-align: center; padding: 20px; }
             .loyalty-steps { justify-content: center; }
-            .assistant-box { padding: 25px 15px; }
-            .mvo-grid { grid-template-columns: 1fr; }
+            .assistant-box { padding: 20px 15px; }
             .signal-steps-grid { grid-template-columns: 1fr; }
         }
 
