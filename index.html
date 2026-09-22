@@ -557,6 +557,8 @@
             margin: 0 auto; 
             border-radius: 20px; 
             padding: 40px; 
+            box-sizing: border-box;
+            width: 100%;
         }
         .redes-box { padding: 30px; border-radius: 20px; transform-style: preserve-3d; margin-top: 20px; }
         .social-item { display: flex; align-items: center; gap: 15px; text-decoration: none; color: white; font-size: 1.6rem; margin-bottom: 20px; transition: 0.3s; }
@@ -572,9 +574,10 @@
         .qr-card-info h4 { margin: 0 0 6px; font-size: 1.1rem; color: var(--rojo-studio); font-family: 'Impact', sans-serif; letter-spacing: 1px; }
         .qr-card-info p { margin: 0 0 10px; font-size: 0.85rem; color: #ffffff; line-height: 1.4; }
 
-        .mapa-box { border-radius: 15px; overflow: hidden; border: 2px solid var(--rojo-studio); height: 320px; }
+        .mapa-box { border-radius: 15px; overflow: hidden; border: 2px solid var(--rojo-studio); height: 320px; width: 100%; }
+        .mapa-box iframe { width: 100%; height: 100%; }
 
-        .rutas-box { border-radius: 15px; padding: 20px; }
+        .rutas-box { border-radius: 15px; padding: 20px; width: 100%; box-sizing: border-box; }
         .rutas-box h4 { margin: 0 0 15px; font-family: 'Impact', sans-serif; color: var(--rojo-studio); letter-spacing: 1.5px; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; }
         .ruta-item { background: rgba(0,0,0,0.3); border-left: 3px solid var(--rojo-studio); padding: 10px 14px; border-radius: 6px; margin-bottom: 10px; font-size: 0.85rem; color: #ffffff; line-height: 1.4; }
         .ruta-item b { color: white; display: block; margin-bottom: 2px; }
@@ -616,7 +619,7 @@
 
         @keyframes modalPop { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
 
-        /* --- PLANTILLA IMPRIMIBLE LIMPIA (SIN MANCHAS CIRCULARES) --- */
+        /* --- PLANTILLA IMPRIMIBLE: 1 HOJA CARTA COMPLETA (SIN MANCHAS) --- */
         #print-sheet { display: none; }
 
         @page { size: letter portrait; margin: 8mm 10mm; }
@@ -662,11 +665,13 @@
             .lema-badge { font-size: 0.95rem; padding: 8px 15px; text-align: center; }
             .mision-text { font-size: 1.8rem !important; }
             
-            /* CORRECCIÓN CELULAR EN CONTACTO */
+            /* CORRECCIÓN MÓVIL ABSOLUTA PARA CONTACTO (1 SOLA COLUMNA SIN DESCUADRE) */
             .contacto-grid { 
                 grid-template-columns: 1fr !important; 
                 padding: 15px !important; 
                 gap: 20px !important; 
+                width: 100% !important;
+                box-sizing: border-box;
             }
             .seccion-pagina { padding: 90px 15px 40px !important; }
             .btn-flotante-whatsapp { right: 15px; bottom: 20px; padding: 10px 18px; font-size: 0.85rem; }
@@ -679,6 +684,7 @@
             .loyalty-steps { justify-content: center; }
             .assistant-box { padding: 20px 15px; }
             .signal-steps-grid { grid-template-columns: 1fr; }
+            .mapa-box { height: 250px !important; }
         }
 
         #visualizer-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(176, 0, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(176, 0, 255, 0.05) 1px, transparent 1px); background-size: 50px 50px; z-index: -1; animation: moveGrid 20s linear infinite; }
