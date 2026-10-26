@@ -26,7 +26,6 @@
             --gris-oscuro: #161616;
             --gris-tarjeta: #1a1a1a;
             --rojo-glow: rgba(176, 0, 255, 0.4);
-            /* Liquid Glass 100% Cristalino y Transparente estilo iOS */
             --glass-bg: rgba(255, 255, 255, 0.003);
             --glass-border: rgba(255, 255, 255, 0.15);
             --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
@@ -43,7 +42,6 @@
             --rojo-glow: rgba(0, 255, 102, 0.4);
         }
 
-        /* --- MODO CABINA PRO (ATMÓSFERA NOCTURNA EXTREMA) --- */
         body.modo-cabina-pro {
             --negro-profundo: #000000 !important;
             --gris-oscuro: #060606 !important;
@@ -65,18 +63,7 @@
             filter: invert(1) brightness(0.5) hue-rotate(45deg);
         }
 
-        /* --- EFECTO LIQUID GLASS ULTRA CRISTALINO --- */
-        .ep-card, 
-        .mvo-card, 
-        .rule-card, 
-        .equipo-card, 
-        .calc-wrapper, 
-        .assistant-box,
-        .tabla-contenedor,
-        .loyalty-banner,
-        .redes-box,
-        .rutas-box,
-        .consola-box {
+        .ep-card, .mvo-card, .rule-card, .equipo-card, .calc-wrapper, .assistant-box, .tabla-contenedor, .loyalty-banner, .redes-box, .rutas-box, .consola-box {
             background: var(--glass-bg) !important;
             backdrop-filter: blur(35px) saturate(280%);
             -webkit-backdrop-filter: blur(35px) saturate(280%);
@@ -86,7 +73,6 @@
             overflow: hidden;
         }
 
-        /* Contenedor de los pasos del flujo de audio (VISIBLE SIN CORTES) */
         .signal-step {
             background: var(--glass-bg) !important;
             backdrop-filter: blur(35px) saturate(280%);
@@ -99,7 +85,6 @@
             padding-top: 25px;
         }
 
-        /* Badge del paso en morado neón brillante con texto blanco */
         .signal-step-num {
             position: absolute;
             top: -14px;
@@ -115,12 +100,10 @@
             z-index: 5;
         }
 
-        /* Textos en blanco nítido */
         .signal-step p, .ep-card p, .mvo-card p, .rule-card p, .equipo-card p, .loyalty-info p, .ruta-item, .faq-answer {
             color: #ffffff !important;
         }
 
-        /* Reflejo de luz especular superior tipo cristal puro */
         .ep-card::before, .mvo-card::before, .rule-card::before, .equipo-card::before, .calc-wrapper::before, .assistant-box::before, .signal-step::before, .consola-box::before {
             content: '';
             position: absolute;
@@ -130,7 +113,6 @@
             pointer-events: none;
         }
 
-        /* --- SPOTLIGHT AMBIENTAL --- */
         #spotlight {
             position: fixed;
             top: 0; left: 0;
@@ -143,7 +125,6 @@
             transition: width 0.3s, height 0.3s;
         }
 
-        /* --- EFECTO RIPPLE --- */
         .ripple {
             position: absolute;
             border-radius: 50%;
@@ -156,7 +137,6 @@
             to { transform: scale(4); opacity: 0; }
         }
 
-        /* --- CURSOR: MIRA TÁCTICA --- */
         body, button, input, a {
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23b000ff" stroke-width="2"><circle cx="12" cy="12" r="7"/><path d="M12 2v3"/><path d="M12 19v3"/><path d="M2 12h3"/><path d="M19 12h3"/><circle cx="12" cy="12" r="1" fill="%23b000ff"/></svg>') 9 9, auto !important;
         }
@@ -172,7 +152,6 @@
             transition: background-color 0.4s, color 0.3s;
         }
 
-        /* --- CONTROLES DE CABINA & LEDS --- */
         .header-controls { display: flex; align-items: center; gap: 15px; }
         .btn-modo-nocturno {
             background: var(--glass-bg); backdrop-filter: blur(15px);
@@ -196,7 +175,6 @@
         .led-red { background: #ff003c; box-shadow: 0 0 8px #ff003c; }
         .led-green { background: #00ff66; box-shadow: 0 0 8px #00ff66; }
 
-        /* --- PANTALLA DE CARGA --- */
         #loader {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--negro-profundo); z-index: 50000;
@@ -206,7 +184,6 @@
         .progress-container { width: 250px; height: 4px; background: #222; border-radius: 10px; overflow: hidden; border: 1px solid #333; }
         .progress-bar { width: 0%; height: 100%; background: var(--rojo-studio); box-shadow: 0 0 15px var(--rojo-studio); transition: width 0.1s linear; }
 
-        /* --- SESSION CLOCK & STATUS --- */
         .session-clock {
             position: fixed; top: 90px; right: 110px; background: rgba(0,0,0,0.5);
             backdrop-filter: blur(15px); padding: 10px 20px; border: 1px solid var(--glass-border); border-radius: 5px;
@@ -223,7 +200,6 @@
         }
         .status-item span { color: var(--rojo-studio); }
 
-        /* --- RACKS & VU METERS --- */
         .lateral-rack {
             position: fixed; top: 0; width: 40px; height: 100vh;
             background: rgba(20, 20, 20, 0.8); display: flex; flex-direction: column;
@@ -240,7 +216,6 @@
         .vu-izq { left: 45px; } .vu-der { right: 45px; }
         .vu-bar { width: 100%; height: 5px; margin-bottom: 2px; background: #222; transition: 0.1s; }
 
-        /* --- NAVEGACIÓN --- */
         nav {
             position: fixed; top: 0; width: 100%; height: 80px;
             background: rgba(10, 10, 10, 0.35); backdrop-filter: blur(35px) saturate(280%);
@@ -262,11 +237,9 @@
             color: white; font-size: 1.4rem; padding: 8px 14px; border-radius: 10px; cursor: pointer; backdrop-filter: blur(12px);
         }
 
-        /* --- SISTEMA PÁGINAS --- */
         .seccion-pagina { display: none; opacity: 0; transform: translateY(12px); transition: opacity 0.4s ease, transform 0.4s ease; padding: 120px 80px 80px; min-height: 100vh; box-sizing: border-box; }
         .seccion-pagina.activa { display: block; opacity: 1; transform: translateY(0); }
 
-        /* --- TÍTULO PRINCIPAL & LOGO --- */
         .titulo-principal { 
             font-size: 5em; font-family: 'Impact', sans-serif; letter-spacing: 8px; margin: 0; 
             animation: floatTitle 4s ease-in-out infinite;
@@ -292,14 +265,12 @@
         .pulse-ring { position: absolute; width: 340px; height: 340px; border: 2px solid var(--rojo-studio); border-radius: 50%; opacity: 0; animation: pulseBeat 2s infinite; }
         @keyframes pulseBeat { 0% { transform: scale(0.8); opacity: 0.5; } 100% { transform: scale(1.5); opacity: 0; } }
         
-        /* LOGO USANDO TU ARCHIVO ORIGINAL EXACTO */
         .main-logo-display { height: 310px; width: auto; filter: drop-shadow(0 0 35px var(--rojo-studio)); z-index: 1; }
 
         .generos-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 30px 0; max-width: 800px; }
         .genero-tag { padding: 10px 25px; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; font-weight: 800; text-transform: uppercase; background: var(--glass-bg); backdrop-filter: blur(15px); cursor: pointer; transition: 0.3s; }
         .genero-tag:hover { border-color: var(--rojo-studio); color: var(--rojo-studio); box-shadow: 0 0 15px var(--rojo-glow); transform: translateY(-5px); }
 
-        /* --- MISION, VISION Y OBJETIVOS --- */
         .mvo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1000px; width: 100%; margin: 40px 0; text-align: left; }
         .mvo-card { border-top: 4px solid var(--rojo-studio); border-radius: 15px; padding: 30px; transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
         .mvo-card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px var(--rojo-glow) !important; border-color: var(--rojo-studio); }
@@ -320,7 +291,6 @@
         .wave-bar { width: 4px; height: 10px; background: var(--rojo-studio); animation: waveAnim 1s ease-in-out infinite; }
         @keyframes waveAnim { 0%, 100% { height: 10px; } 50% { height: 50px; } }
 
-        /* --- TABLA DE SERVICIOS --- */
         .tabla-contenedor { max-width: 900px; margin: 0 auto; padding: 25px; border-radius: 20px; }
         table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
         tr { background: var(--glass-bg); backdrop-filter: blur(15px); transition: 0.4s; cursor: pointer; border: 1px solid var(--glass-border); }
@@ -330,7 +300,6 @@
         .badge-venda-morado { background: var(--rojo-studio); color: white; padding: 4px 8px; border-radius: 3px; font-size: 0.7em; font-weight: bold; box-shadow: 0 0 10px var(--rojo-glow); }
         .subtext-tabla { font-size: 0.78rem; color: #aaa; margin-top: 5px; }
 
-        /* --- EP & ASISTENTE --- */
         .ep-container { max-width: 900px; margin: 50px auto 0; }
         .ep-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }
         .ep-card {
@@ -372,7 +341,6 @@
         .assistant-result-box p { color: #ccc; font-size: 0.95rem; margin: 0 0 20px; line-height: 1.5; }
         .assistant-price-tag { font-family: 'Impact', sans-serif; font-size: 2.2rem; color: var(--rojo-studio); margin-bottom: 20px; }
 
-        /* --- FIDELIDAD VIP --- */
         .loyalty-banner { max-width: 900px; margin: 40px auto 0; border-radius: 20px; padding: 30px; display: flex; align-items: center; justify-content: space-between; gap: 25px; position: relative; overflow: hidden; }
         .loyalty-info h3 { font-family: 'Impact', sans-serif; font-size: 1.8rem; letter-spacing: 2px; margin: 0 0 8px; color: white; }
         .loyalty-info h3 span { color: var(--rojo-studio); }
@@ -383,7 +351,6 @@
         .btn-loyalty { background: var(--rojo-studio); color: white; padding: 12px 24px; border-radius: 50px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; transition: 0.3s; box-shadow: 0 0 15px var(--rojo-glow); }
         .btn-loyalty:hover { transform: scale(1.05); background: white; color: black; }
 
-        /* --- CALCULADORA --- */
         .calc-wrapper { max-width: 900px; margin: 60px auto 0; border-radius: 20px; padding: 40px; }
         .calc-title { font-family: 'Impact', sans-serif; letter-spacing: 3px; color: var(--rojo-studio); text-align: center; font-size: 2rem; margin-top: 0; }
         .calc-step { margin-bottom: 25px; background: rgba(255,255,255,0.01); padding: 20px; border-radius: 12px; border-left: 4px solid var(--rojo-studio); border: 1px solid var(--glass-border); }
@@ -403,7 +370,6 @@
         }
         .btn-apartar-calc:hover { transform: scale(1.05); box-shadow: 0 5px 25px rgba(37, 211, 102, 0.6); }
 
-        /* --- REGLAS & FAQ --- */
         .faq-container { max-width: 900px; margin: 0 auto; }
         .rules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 30px; }
         .rule-card { border-radius: 12px; padding: 25px; transition: 0.3s; border-top: 3px solid var(--rojo-studio); }
@@ -427,7 +393,6 @@
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; color: #ffffff; font-size: 0.95rem; line-height: 1.6; padding: 0 20px; background: rgba(0,0,0,0.2); }
         .faq-item.active .faq-answer { max-height: 200px; padding: 15px 20px 20px; border-top: 1px solid var(--glass-border); }
 
-        /* --- ESTUDIO & FLUJO DE AUDIO --- */
         .equipo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 40px auto; }
         .equipo-card { padding: 40px; border-radius: 15px; text-align: center; transform-style: preserve-3d; transition: 0.3s; }
         .equipo-card:hover { box-shadow: 0 10px 30px var(--rojo-glow) !important; border-color: var(--rojo-studio); }
@@ -438,7 +403,6 @@
         .signal-flow-title { font-family: 'Impact', sans-serif; font-size: 2rem; color: var(--rojo-studio); letter-spacing: 2px; margin-bottom: 30px; }
         .signal-steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; position: relative; }
 
-        /* --- CONTACTO RESPONSIVE CORREGIDO --- */
         .contacto-grid { 
             display: grid; 
             grid-template-columns: 1fr 1fr; 
@@ -506,9 +470,7 @@
 
         @keyframes modalPop { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
 
-        /* --- PLANTILLA IMPRIMIBLE LIMPIA (SIN MANCHAS MORADAS) --- */
         #print-sheet { display: none; }
-
         @page { size: letter portrait; margin: 8mm 10mm; }
 
         @media print {
@@ -541,7 +503,6 @@
             .pdf-footer { display: flex; justify-content: space-between; align-items: center; border-top: 2px solid #ccc; padding-top: 8px; font-size: 0.8rem; color: #555; }
         }
 
-        /* --- ADAPTACIÓN MÓVIL OPTIMIZADA (CONTACTO ARREGLADO) --- */
         @media (max-width: 768px) {
             .lateral-rack, .vu-meter-container, .session-clock, .status-bar { display: none !important; }
             
@@ -564,7 +525,6 @@
             .lema-badge { font-size: 0.95rem; padding: 8px 15px; text-align: center; }
             .mision-text { font-size: 1.8rem !important; }
             
-            /* CORRECCIÓN DE CONTACTO A 1 SOLA COLUMNA SIN DESBORDES */
             .contacto-grid { 
                 grid-template-columns: 1fr !important; 
                 padding: 15px !important; 
@@ -1168,7 +1128,6 @@
     </div>
 </div>
 
-<!-- PLANTILLA FORMAL DE IMPRESIÓN (SIN MANCHAS MORADAS) -->
 <div id="print-sheet">
     <div class="pdf-header">
         <div class="pdf-title">
