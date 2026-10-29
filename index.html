@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="icon" href="Fondo de logo eliminado.png" type="image/png">
+    <link rel="icon" href="Fondo de Copia de logo eliminado.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="description" content="Star Music Record Studio en Ecatepec. Especialistas en Trap, Hip Hop, Rap y R&B. Grabación, mezcla, masterización y beats exclusivos en San Benjamin.">
     <meta name="keywords" content="Estudio de grabacion Ecatepec, Star Music, Produccion musical Trap, Beats exclusivos Hip Hop, Grabacion de Rap Mexico, Masterizacion profesional, Microfonia Sennheiser, Beats Rap Ecatepec">
@@ -10,8 +10,8 @@
 
     <meta property="og:title" content="Star Music | Record Studio & Beats | Ecatepec">
     <meta property="og:description" content="Tu talento, nuestro sonido. Haz tu canción por $500 pesos en Ecatepec.">
-    <meta property="og:image" content="Fondo de logo eliminado.png">
-    <meta property="og:url" content="https://tu-pagina-aqui.com">
+    <meta property="og:image" content="Fondo de Copia de logo eliminado.png">
+    <meta property="og:url" content="https://starmusicecatepec.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Star Music | Record Studio & Beats | Ecatepec</title>
     
@@ -25,21 +25,21 @@
             --negro-profundo: #0a0a0a;
             --gris-oscuro: #161616;
             --gris-tarjeta: #1a1a1a;
-            --rojo-glow: rgba(176, 0, 255, 0.4);
-            --glass-bg: rgba(255, 255, 255, 0.003);
-            --glass-border: rgba(255, 255, 255, 0.15);
-            --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+            --rojo-glow: rgba(176, 0, 255, 0.5);
+            --glass-bg: rgba(10, 10, 10, 0.18);
+            --glass-border: rgba(255, 255, 255, 0.22);
+            --glass-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
             --vu-verde: #2ecc71;
             --vu-amarillo: #f1c40f;
         }
 
         body.theme-red {
             --rojo-studio: #ff003c;
-            --rojo-glow: rgba(255, 0, 60, 0.4);
+            --rojo-glow: rgba(255, 0, 60, 0.5);
         }
         body.theme-green {
             --rojo-studio: #00ff66;
-            --rojo-glow: rgba(0, 255, 102, 0.4);
+            --rojo-glow: rgba(0, 255, 102, 0.5);
         }
 
         body.modo-cabina-pro {
@@ -47,26 +47,45 @@
             --gris-oscuro: #060606 !important;
             --gris-tarjeta: #080808 !important;
             --rojo-glow: rgba(176, 0, 255, 0.9) !important;
-            --glass-bg: rgba(176, 0, 255, 0.008) !important;
-            --glass-border: rgba(176, 0, 255, 0.35) !important;
+            --glass-bg: rgba(0, 0, 0, 0.28) !important;
+            --glass-border: rgba(176, 0, 255, 0.45) !important;
         }
         body.modo-cabina-pro::after {
             content: '';
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            box-shadow: inset 0 0 140px rgba(0, 0, 0, 0.98), inset 0 0 60px rgba(176, 0, 255, 0.25);
+            box-shadow: inset 0 0 140px rgba(0, 0, 0, 0.95), inset 0 0 60px rgba(176, 0, 255, 0.25);
             pointer-events: none;
             z-index: 40000;
         }
-        body.modo-cabina-pro #visualizer-bg {
-            opacity: 0.8;
-            filter: invert(1) brightness(0.5) hue-rotate(45deg);
+
+        #video-bg-container {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: -3;
+            overflow: hidden;
+            background-color: var(--negro-profundo);
+        }
+        #bg-video {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(0.85) contrast(1.08);
+        }
+        #video-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.5) 100%);
+            z-index: -2;
+            pointer-events: none;
         }
 
-        .ep-card, .mvo-card, .rule-card, .equipo-card, .calc-wrapper, .assistant-box, .tabla-contenedor, .loyalty-banner, .redes-box, .rutas-box, .consola-box {
+        .ep-card, .mvo-card, .rule-card, .equipo-card, .calc-wrapper, .assistant-box, .loyalty-banner, .redes-box, .rutas-box, .consola-box {
             background: var(--glass-bg) !important;
-            backdrop-filter: blur(35px) saturate(280%);
-            -webkit-backdrop-filter: blur(35px) saturate(280%);
+            backdrop-filter: blur(2px) saturate(130%);
+            -webkit-backdrop-filter: blur(2px) saturate(130%);
             border: 1px solid var(--glass-border) !important;
             box-shadow: var(--glass-shadow) !important;
             position: relative;
@@ -75,8 +94,8 @@
 
         .signal-step {
             background: var(--glass-bg) !important;
-            backdrop-filter: blur(35px) saturate(280%);
-            -webkit-backdrop-filter: blur(35px) saturate(280%);
+            backdrop-filter: blur(2px) saturate(130%);
+            -webkit-backdrop-filter: blur(2px) saturate(130%);
             border: 1px solid var(--glass-border) !important;
             box-shadow: var(--glass-shadow) !important;
             position: relative;
@@ -87,8 +106,7 @@
 
         .signal-step-num {
             position: absolute;
-            top: -14px;
-            left: 20px;
+            top: -14px; left: 20px;
             background: var(--rojo-studio) !important;
             color: #ffffff !important;
             font-weight: 900;
@@ -100,8 +118,9 @@
             z-index: 5;
         }
 
-        .signal-step p, .ep-card p, .mvo-card p, .rule-card p, .equipo-card p, .loyalty-info p, .ruta-item, .faq-answer {
-            color: #ffffff !important;
+        .signal-step p, .ep-card p, .mvo-card p, .rule-card p, .equipo-card p, .loyalty-info p, .ruta-item, .faq-answer, td, h2, h3, h4 {
+            color: #ffffff;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
         }
 
         .ep-card::before, .mvo-card::before, .rule-card::before, .equipo-card::before, .calc-wrapper::before, .assistant-box::before, .signal-step::before, .consola-box::before {
@@ -109,7 +128,7 @@
             position: absolute;
             top: 0; left: 0; right: 0;
             height: 1.5px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85), transparent);
             pointer-events: none;
         }
 
@@ -117,12 +136,11 @@
             position: fixed;
             top: 0; left: 0;
             width: 450px; height: 450px;
-            background: radial-gradient(circle, rgba(176, 0, 255, 0.15) 0%, rgba(10, 10, 10, 0) 70%);
+            background: radial-gradient(circle, rgba(176, 0, 255, 0.12) 0%, rgba(10, 10, 10, 0) 70%);
             border-radius: 50%;
             pointer-events: none;
             transform: translate(-50%, -50%);
             z-index: 2;
-            transition: width 0.3s, height 0.3s;
         }
 
         .ripple {
@@ -149,13 +167,12 @@
             overflow-x: hidden;
             position: relative;
             scroll-behavior: smooth;
-            transition: background-color 0.4s, color 0.3s;
         }
 
         .header-controls { display: flex; align-items: center; gap: 15px; }
         .btn-modo-nocturno {
-            background: var(--glass-bg); backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border); color: #aaa;
+            background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(5px);
+            border: 1px solid var(--glass-border); color: #ddd;
             padding: 6px 14px; border-radius: 20px; cursor: pointer;
             font-size: 0.75rem; font-weight: bold; display: flex; align-items: center; gap: 6px; transition: 0.3s;
         }
@@ -166,7 +183,7 @@
 
         .led-switcher {
             display: flex; align-items: center; gap: 8px;
-            background: var(--glass-bg); backdrop-filter: blur(15px);
+            background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(5px);
             padding: 5px 12px; border-radius: 20px; border: 1px solid var(--glass-border);
         }
         .led-dot { width: 14px; height: 14px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: transform 0.2s, box-shadow 0.2s; }
@@ -179,96 +196,134 @@
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--negro-profundo); z-index: 50000;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
+            transition: opacity 0.15s ease;
         }
         .loader-text { font-family: 'Impact', sans-serif; letter-spacing: 5px; color: white; margin-bottom: 20px; font-size: 1.5rem; }
         .progress-container { width: 250px; height: 4px; background: #222; border-radius: 10px; overflow: hidden; border: 1px solid #333; }
-        .progress-bar { width: 0%; height: 100%; background: var(--rojo-studio); box-shadow: 0 0 15px var(--rojo-studio); transition: width 0.1s linear; }
+        .progress-bar { width: 0%; height: 100%; background: var(--rojo-studio); box-shadow: 0 0 15px var(--rojo-studio); transition: width 0.02s linear; }
 
         .session-clock {
-            position: fixed; top: 90px; right: 110px; background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(15px); padding: 10px 20px; border: 1px solid var(--glass-border); border-radius: 5px;
+            position: fixed; top: 90px; right: 110px; background: rgba(0,0,0,0.45);
+            backdrop-filter: blur(4px); padding: 10px 20px; border: 1px solid var(--glass-border); border-radius: 5px;
             font-family: 'Courier New', Courier, monospace; color: var(--rojo-studio); font-weight: bold; z-index: 9000; display: flex; align-items: center; gap: 10px;
         }
-        .rec-dot { width: 10px; height: 10px; background: var(--rojo-studio); border-radius: 50%; animation: blink 1s infinite; }
+        .rec-dot { width: 10px; height: 10px; background: var(--rojo-studio); border-radius: 50%; box-shadow: 0 0 10px var(--rojo-studio); animation: blink 1s infinite; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
 
         .status-bar {
             position: fixed; bottom: 0; width: 100%; height: 25px;
-            background: rgba(0,0,0,0.7); backdrop-filter: blur(15px); border-top: 1px solid var(--glass-border);
+            background: rgba(0,0,0,0.65); backdrop-filter: blur(5px); border-top: 1px solid var(--glass-border);
             z-index: 10001; display: flex; align-items: center; padding: 0 50px;
-            font-family: 'Courier New', monospace; font-size: 0.7rem; color: #555; gap: 20px; box-sizing: border-box;
+            font-family: 'Courier New', monospace; font-size: 0.7rem; color: #aaa; gap: 20px; box-sizing: border-box;
         }
         .status-item span { color: var(--rojo-studio); }
 
         .lateral-rack {
             position: fixed; top: 0; width: 40px; height: 100vh;
-            background: rgba(20, 20, 20, 0.8); display: flex; flex-direction: column;
+            background: rgba(15, 15, 15, 0.55); display: flex; flex-direction: column;
             align-items: center; justify-content: space-around; z-index: 5;
-            border-left: 1px solid #333; border-right: 1px solid #333;
+            border-left: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1);
         }
         .izquierdo { left: 0; } .derecho { right: 0; }
         .jack-input { width: 20px; height: 20px; border-radius: 50%; background: radial-gradient(circle, #444 20%, #111 80%); border: 2px solid #555; }
 
         .vu-meter-container {
             position: fixed; bottom: 60px; width: 15px; height: 200px;
-            background: #111; border: 1px solid #333; display: flex; flex-direction: column-reverse; padding: 2px; z-index: 6;
+            background: rgba(17,17,17,0.6); border: 1px solid #333; display: flex; flex-direction: column-reverse; padding: 2px; z-index: 6;
         }
         .vu-izq { left: 45px; } .vu-der { right: 45px; }
         .vu-bar { width: 100%; height: 5px; margin-bottom: 2px; background: #222; transition: 0.1s; }
 
         nav {
             position: fixed; top: 0; width: 100%; height: 80px;
-            background: rgba(10, 10, 10, 0.35); backdrop-filter: blur(35px) saturate(280%);
-            -webkit-backdrop-filter: blur(35px) saturate(280%);
+            background: rgba(10, 10, 10, 0.4); backdrop-filter: blur(8px) saturate(160%);
+            -webkit-backdrop-filter: blur(8px) saturate(160%);
             display: flex; justify-content: space-between; align-items: center;
             padding: 0 40px; box-sizing: border-box; z-index: 10000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
         }
-        .nav-logo-container { display: flex; align-items: center; gap: 15px; cursor: pointer; }
-        .img-logo-nav { height: 50px; border-radius: 5px; }
-        .nav-logo-text { font-family: 'Impact', sans-serif; font-size: 1.8rem; color: white; }
+        .nav-logo-container {
+            display: flex; align-items: center; gap: 12px; cursor: pointer; padding: 6px 16px; border-radius: 12px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(176,0,255,0.12) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 0 20px rgba(176, 0, 255, 0.2); transition: 0.3s;
+        }
+        .nav-logo-container:hover { transform: scale(1.03); border-color: var(--rojo-studio); box-shadow: 0 0 25px var(--rojo-glow); }
+        .nav-logo-text {
+            font-family: 'Impact', sans-serif; font-size: 2rem; letter-spacing: 3px;
+            background: linear-gradient(90deg, #ffffff 0%, #f0d0ff 50%, var(--rojo-studio) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 8px rgba(176, 0, 255, 0.5));
+        }
+        .nav-logo-badge {
+            font-family: 'Courier New', monospace; font-size: 0.65rem; font-weight: 900; color: #fff;
+            background: var(--rojo-studio); padding: 3px 8px; border-radius: 4px; letter-spacing: 2px; box-shadow: 0 0 10px var(--rojo-glow);
+        }
         
         .nav-links { display: flex; align-items: center; }
-        .nav-links button { background: none; border: none; color: white; cursor: pointer; font-weight: 600; text-transform: uppercase; margin-left: 15px; transition: 0.3s; font-size: 0.85rem; }
+        .nav-links button { background: none; border: none; color: white; cursor: pointer; font-weight: 600; text-transform: uppercase; margin-left: 15px; transition: 0.3s; font-size: 0.85rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
         .nav-links button:hover, .nav-links button.active { color: var(--rojo-studio); text-shadow: 0 0 10px var(--rojo-studio); transform: scale(1.1); }
 
         .menu-hamburguesa-btn {
             display: none; background: var(--glass-bg); border: 1px solid var(--glass-border);
-            color: white; font-size: 1.4rem; padding: 8px 14px; border-radius: 10px; cursor: pointer; backdrop-filter: blur(12px);
+            color: white; font-size: 1.4rem; padding: 8px 14px; border-radius: 10px; cursor: pointer; backdrop-filter: blur(6px);
         }
 
-        .seccion-pagina { display: none; opacity: 0; transform: translateY(12px); transition: opacity 0.4s ease, transform 0.4s ease; padding: 120px 80px 80px; min-height: 100vh; box-sizing: border-box; }
+        .seccion-pagina { display: none; opacity: 0; transform: translateY(12px); transition: opacity 0.3s ease, transform 0.3s ease; padding: 120px 80px 80px; min-height: 100vh; box-sizing: border-box; }
         .seccion-pagina.activa { display: block; opacity: 1; transform: translateY(0); }
 
+        /* --- TÍTULO PRINCIPAL CON EFECTO GLITCH ACTIVO --- */
         .titulo-principal { 
-            font-size: 5em; font-family: 'Impact', sans-serif; letter-spacing: 8px; margin: 0; 
+            font-size: 5.5em; font-family: 'Impact', sans-serif; letter-spacing: 10px; margin: 30px 0 0; 
             animation: floatTitle 4s ease-in-out infinite;
+            text-shadow: 0 5px 25px rgba(0,0,0,0.95), 0 0 30px var(--rojo-glow);
         }
         @keyframes floatTitle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
         .glitch { position: relative; display: inline-block; }
-        .glitch:hover::before, .glitch:hover::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--negro-profundo); }
-        .glitch:hover::before { left: 2px; text-shadow: -2px 0 #ff00c1; clip: rect(44px, 450px, 56px, 0); animation: glitch-anim 5s infinite linear alternate-reverse; }
-        .glitch:hover::after { left: -2px; text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1; clip: rect(100px, 450px, 120px, 0); animation: glitch-anim2 1s infinite linear alternate-reverse; }
-        @keyframes glitch-anim { 0% { clip: rect(31px, 9999px, 94px, 0); } 100% { clip: rect(70px, 9999px, 71px, 0); } }
-        @keyframes glitch-anim2 { 0% { clip: rect(65px, 9999px, 119px, 0); } 100% { clip: rect(10px, 9999px, 15px, 0); } }
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+        }
+        .glitch::before {
+            left: 3px;
+            text-shadow: -2px 0 #ff00c1;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim 3s infinite linear alternate-reverse;
+        }
+        .glitch::after {
+            left: -3px;
+            text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim2 2s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim {
+            0% { clip: rect(15px, 9999px, 75px, 0); }
+            25% { clip: rect(55px, 9999px, 25px, 0); }
+            50% { clip: rect(10px, 9999px, 85px, 0); }
+            75% { clip: rect(65px, 9999px, 40px, 0); }
+            100% { clip: rect(30px, 9999px, 95px, 0); }
+        }
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            25% { clip: rect(20px, 9999px, 55px, 0); }
+            50% { clip: rect(80px, 9999px, 30px, 0); }
+            75% { clip: rect(5px, 9999px, 70px, 0); }
+            100% { clip: rect(45px, 9999px, 90px, 0); }
+        }
 
         .lema-badge {
-            background: var(--glass-bg); backdrop-filter: blur(20px);
+            background: rgba(10, 10, 10, 0.35); backdrop-filter: blur(3px);
             border: 2px solid var(--rojo-studio); box-shadow: 0 0 25px var(--rojo-glow);
-            padding: 12px 30px; border-radius: 50px; margin-top: 20px;
-            font-family: 'Impact', sans-serif; font-size: 1.5rem; letter-spacing: 2px; color: white; display: inline-block; animation: pulseBeat 2.5s infinite;
+            padding: 12px 30px; border-radius: 50px; margin-top: 25px;
+            font-family: 'Impact', sans-serif; font-size: 1.5rem; letter-spacing: 2px; color: white; display: inline-block;
         }
 
         .home-content { text-align: center; display: flex; flex-direction: column; align-items: center; }
-        .logo-wrapper { position: relative; display: flex; justify-content: center; align-items: center; margin-bottom: 25px; }
-        .pulse-ring { position: absolute; width: 340px; height: 340px; border: 2px solid var(--rojo-studio); border-radius: 50%; opacity: 0; animation: pulseBeat 2s infinite; }
-        @keyframes pulseBeat { 0% { transform: scale(0.8); opacity: 0.5; } 100% { transform: scale(1.5); opacity: 0; } }
-        
-        .main-logo-display { height: 310px; width: auto; filter: drop-shadow(0 0 35px var(--rojo-studio)); z-index: 1; }
 
-        .generos-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 30px 0; max-width: 800px; }
-        .genero-tag { padding: 10px 25px; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; font-weight: 800; text-transform: uppercase; background: var(--glass-bg); backdrop-filter: blur(15px); cursor: pointer; transition: 0.3s; }
+        .generos-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 35px 0; max-width: 800px; }
+        .genero-tag { padding: 10px 25px; border: 1px solid rgba(255,255,255,0.35); border-radius: 5px; font-weight: 800; text-transform: uppercase; background: rgba(0,0,0,0.25); backdrop-filter: blur(2px); cursor: pointer; transition: 0.3s; }
         .genero-tag:hover { border-color: var(--rojo-studio); color: var(--rojo-studio); box-shadow: 0 0 15px var(--rojo-glow); transform: translateY(-5px); }
 
         .mvo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1000px; width: 100%; margin: 40px 0; text-align: left; }
@@ -278,10 +333,10 @@
         .mvo-card h3 { font-family: 'Impact', sans-serif; font-size: 1.5rem; letter-spacing: 1.5px; margin: 0 0 12px; color: white; }
         .mvo-card p { color: #ffffff !important; font-size: 0.92rem; line-height: 1.6; margin: 0; }
 
-        .mision-block { margin: 40px 0; padding: 40px; border-left: 5px solid var(--rojo-studio); background: var(--glass-bg); backdrop-filter: blur(20px); border-radius: 0 15px 15px 0; text-align: left; max-width: 900px; }
-        .mision-text { font-family: 'Impact', sans-serif; font-size: 3rem; line-height: 1; letter-spacing: 2px; text-transform: uppercase; }
+        .mision-block { margin: 40px 0; padding: 40px; border-left: 5px solid var(--rojo-studio); background: rgba(10,10,10,0.2); backdrop-filter: blur(2px); border-radius: 0 15px 15px 0; text-align: left; max-width: 900px; }
+        .mision-text { font-family: 'Impact', sans-serif; font-size: 3rem; line-height: 1; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 3px 12px rgba(0,0,0,0.9); }
 
-        .plugins-banner { display: flex; justify-content: center; gap: 30px; margin-top: 20px; opacity: 0.5; filter: grayscale(1); }
+        .plugins-banner { display: flex; justify-content: center; gap: 30px; margin-top: 20px; opacity: 0.8; }
         .plugin-name { font-family: 'Arial Black', sans-serif; font-size: 0.8rem; letter-spacing: 2px; }
 
         .reproductores-stack { display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%; max-width: 660px; margin-top: 40px; }
@@ -291,14 +346,23 @@
         .wave-bar { width: 4px; height: 10px; background: var(--rojo-studio); animation: waveAnim 1s ease-in-out infinite; }
         @keyframes waveAnim { 0%, 100% { height: 10px; } 50% { height: 50px; } }
 
-        .tabla-contenedor { max-width: 900px; margin: 0 auto; padding: 25px; border-radius: 20px; }
-        table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
-        tr { background: var(--glass-bg); backdrop-filter: blur(15px); transition: 0.4s; cursor: pointer; border: 1px solid var(--glass-border); }
-        tr:hover { transform: scale(1.02) translateX(15px); box-shadow: -10px 0 20px var(--rojo-studio); background: rgba(176, 0, 255, 0.15); }
-        td { padding: 20px; }
-        td:last-child { text-align: right; color: var(--rojo-studio); font-weight: bold; font-size: 1.2em; }
-        .badge-venda-morado { background: var(--rojo-studio); color: white; padding: 4px 8px; border-radius: 3px; font-size: 0.7em; font-weight: bold; box-shadow: 0 0 10px var(--rojo-glow); }
-        .subtext-tabla { font-size: 0.78rem; color: #aaa; margin-top: 5px; }
+        .tabla-contenedor {
+            max-width: 900px; margin: 0 auto; padding: 10px 0;
+            background: transparent !important; border: none !important; box-shadow: none !important; backdrop-filter: none !important;
+        }
+        .tabla-servicios-web { width: 100%; border-collapse: separate; border-spacing: 0 14px; }
+        .tabla-servicios-web tr {
+            background: rgba(10, 10, 10, 0.22); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); transition: 0.35s; cursor: pointer;
+        }
+        .tabla-servicios-web tr td { padding: 20px 24px; border-top: 1px solid rgba(255, 255, 255, 0.22); border-bottom: 1px solid rgba(255, 255, 255, 0.22); }
+        .tabla-servicios-web tr td:first-child { border-left: 1px solid rgba(255, 255, 255, 0.22); border-radius: 14px 0 0 14px; }
+        .tabla-servicios-web tr td:last-child {
+            border-right: 1px solid rgba(255, 255, 255, 0.22); border-radius: 0 14px 14px 0;
+            text-align: right; color: var(--rojo-studio); font-weight: 900; font-size: 1.3em; text-shadow: 0 2px 10px rgba(0,0,0,0.95);
+        }
+        .tabla-servicios-web tr:hover { transform: scale(1.02) translateX(12px); background: rgba(176, 0, 255, 0.2); box-shadow: -8px 0 25px var(--rojo-glow); }
+        .badge-venda-morado { background: var(--rojo-studio); color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.72em; font-weight: bold; box-shadow: 0 0 10px var(--rojo-glow); display: inline-block; margin-bottom: 4px; }
+        .subtext-tabla { font-size: 0.85rem; color: #eee; margin-top: 5px; text-shadow: 0 2px 4px rgba(0,0,0,0.95); }
 
         .ep-container { max-width: 900px; margin: 50px auto 0; }
         .ep-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }
@@ -309,36 +373,36 @@
         .ep-card:hover { transform: translateY(-8px); border-color: var(--rojo-studio); box-shadow: 0 10px 30px var(--rojo-glow) !important; }
         .ep-tag { position: absolute; top: 15px; right: 15px; background: var(--rojo-studio); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; letter-spacing: 1px; }
         .ep-card h3 { font-family: 'Impact', sans-serif; font-size: 1.8rem; margin: 0 0 10px; letter-spacing: 1px; }
-        .ep-price { font-size: 2.3rem; font-weight: 900; color: var(--rojo-studio); margin-bottom: 5px; }
-        .ep-savings { color: #2ecc71; font-size: 0.85rem; font-weight: bold; margin-bottom: 20px; }
+        .ep-price { font-size: 2.3rem; font-weight: 900; color: var(--rojo-studio); margin-bottom: 5px; text-shadow: 0 2px 8px rgba(0,0,0,0.9); }
+        .ep-savings { color: #2ecc71; font-size: 0.85rem; font-weight: bold; margin-bottom: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.9); }
         .ep-features { list-style: none; padding: 0; margin: 0 0 25px; color: #ffffff; font-size: 0.9rem; line-height: 1.8; }
         .ep-features li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
         .ep-features li i { color: var(--rojo-studio); margin-top: 4px; }
         .btn-ep-wa {
-            background: transparent; border: 2px solid var(--rojo-studio); color: white; text-align: center;
+            background: rgba(0,0,0,0.4); border: 2px solid var(--rojo-studio); color: white; text-align: center;
             padding: 12px; border-radius: 50px; font-weight: bold; text-decoration: none; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px;
         }
         .btn-ep-wa:hover { background: var(--rojo-studio); color: white; box-shadow: 0 0 20px var(--rojo-glow); }
 
         .assistant-box { max-width: 900px; margin: 50px auto 0; border-radius: 20px; padding: 35px 30px; text-align: center; }
         .assistant-title { font-family: 'Impact', sans-serif; font-size: 2.2rem; color: var(--rojo-studio); letter-spacing: 2px; margin: 0 0 5px; }
-        .assistant-subtitle { color: #aaa; font-size: 0.95rem; margin: 0 0 30px; }
-        .assistant-step-card { background: rgba(255, 255, 255, 0.02); border: 1px solid #333; border-radius: 15px; padding: 25px; margin-bottom: 20px; text-align: left; }
+        .assistant-subtitle { color: #ddd; font-size: 0.95rem; margin: 0 0 30px; }
+        .assistant-step-card { background: rgba(0, 0, 0, 0.22); border: 1px solid var(--glass-border); border-radius: 15px; padding: 25px; margin-bottom: 20px; text-align: left; }
         .assistant-step-title { font-weight: bold; font-size: 1.05rem; color: white; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
         .assistant-step-title i { color: var(--rojo-studio); }
         .assistant-options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
         .assistant-btn-option {
-            background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: #ddd; padding: 12px 16px; border-radius: 10px;
+            background: rgba(0,0,0,0.35); border: 1px solid var(--glass-border); color: #fff; padding: 12px 16px; border-radius: 10px;
             cursor: pointer; text-align: left; font-size: 0.9rem; transition: 0.25s; display: flex; align-items: center; gap: 10px; user-select: none;
         }
-        .assistant-btn-option:hover { border-color: var(--rojo-studio); background: rgba(176, 0, 255, 0.2); color: white; }
-        .assistant-btn-option.selected { border-color: var(--rojo-studio); background: rgba(176, 0, 255, 0.4); color: white; box-shadow: 0 0 15px var(--rojo-glow); }
+        .assistant-btn-option:hover { border-color: var(--rojo-studio); background: rgba(176, 0, 255, 0.25); color: white; }
+        .assistant-btn-option.selected { border-color: var(--rojo-studio); background: rgba(176, 0, 255, 0.45); color: white; box-shadow: 0 0 15px var(--rojo-glow); }
         .assistant-result-box {
-            display: none; margin-top: 30px; background: rgba(5,5,5,0.7); backdrop-filter: blur(25px); border: 2px solid var(--rojo-studio); border-radius: 15px;
+            display: none; margin-top: 30px; background: rgba(10,10,10,0.55); backdrop-filter: blur(4px); border: 2px solid var(--rojo-studio); border-radius: 15px;
             padding: 25px; box-shadow: 0 0 25px var(--rojo-glow); text-align: center; animation: modalPop 0.3s ease;
         }
         .assistant-result-box h4 { font-family: 'Impact', sans-serif; font-size: 1.8rem; margin: 0 0 8px; color: white; letter-spacing: 1px; }
-        .assistant-result-box p { color: #ccc; font-size: 0.95rem; margin: 0 0 20px; line-height: 1.5; }
+        .assistant-result-box p { color: #eee; font-size: 0.95rem; margin: 0 0 20px; line-height: 1.5; }
         .assistant-price-tag { font-family: 'Impact', sans-serif; font-size: 2.2rem; color: var(--rojo-studio); margin-bottom: 20px; }
 
         .loyalty-banner { max-width: 900px; margin: 40px auto 0; border-radius: 20px; padding: 30px; display: flex; align-items: center; justify-content: space-between; gap: 25px; position: relative; overflow: hidden; }
@@ -346,24 +410,24 @@
         .loyalty-info h3 span { color: var(--rojo-studio); }
         .loyalty-info p { margin: 0 0 15px; color: #ffffff; font-size: 0.95rem; line-height: 1.5; }
         .loyalty-steps { display: flex; gap: 8px; align-items: center; }
-        .loyalty-dot { width: 38px; height: 38px; border-radius: 50%; background: rgba(0,0,0,0.4); border: 2px solid var(--rojo-studio); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85rem; color: white; }
+        .loyalty-dot { width: 38px; height: 38px; border-radius: 50%; background: rgba(0,0,0,0.5); border: 2px solid var(--rojo-studio); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85rem; color: white; }
         .loyalty-dot.reward { background: var(--rojo-studio); box-shadow: 0 0 15px var(--rojo-glow); color: white; font-size: 1rem; }
         .btn-loyalty { background: var(--rojo-studio); color: white; padding: 12px 24px; border-radius: 50px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; transition: 0.3s; box-shadow: 0 0 15px var(--rojo-glow); }
         .btn-loyalty:hover { transform: scale(1.05); background: white; color: black; }
 
         .calc-wrapper { max-width: 900px; margin: 60px auto 0; border-radius: 20px; padding: 40px; }
         .calc-title { font-family: 'Impact', sans-serif; letter-spacing: 3px; color: var(--rojo-studio); text-align: center; font-size: 2rem; margin-top: 0; }
-        .calc-step { margin-bottom: 25px; background: rgba(255,255,255,0.01); padding: 20px; border-radius: 12px; border-left: 4px solid var(--rojo-studio); border: 1px solid var(--glass-border); }
-        .calc-step-title { font-weight: bold; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.95rem; color: #eee; }
+        .calc-step { margin-bottom: 25px; background: rgba(0,0,0,0.22); padding: 20px; border-radius: 12px; border-left: 4px solid var(--rojo-studio); border: 1px solid var(--glass-border); }
+        .calc-step-title { font-weight: bold; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.95rem; color: #fff; }
         .calc-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
         .calc-option {
-            background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); padding: 12px 15px; border-radius: 8px;
+            background: rgba(0,0,0,0.35); border: 1px solid var(--glass-border); padding: 12px 15px; border-radius: 8px;
             display: flex; align-items: center; gap: 10px; cursor: pointer; transition: 0.2s; user-select: none; font-size: 0.9rem;
         }
         .calc-option:hover { border-color: var(--rojo-studio); }
         .calc-option input[type="radio"], .calc-option input[type="checkbox"] { accent-color: var(--rojo-studio); transform: scale(1.2); }
         .calc-total-box { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; margin-top: 30px; padding-top: 25px; border-top: 1px solid var(--glass-border); text-align: center; }
-        .calc-price { font-family: 'Impact', sans-serif; font-size: 3rem; color: var(--rojo-studio); letter-spacing: 2px; }
+        .calc-price { font-family: 'Impact', sans-serif; font-size: 3rem; color: var(--rojo-studio); letter-spacing: 2px; text-shadow: 0 2px 10px rgba(0,0,0,0.9); }
         .btn-apartar-calc {
             background: var(--verde-whatsapp); color: white; padding: 15px 35px; border-radius: 50px; font-weight: bold; text-decoration: none;
             display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); transition: 0.3s;
@@ -379,18 +443,18 @@
         .rule-card p { margin: 0; color: #ffffff; font-size: 0.9rem; line-height: 1.5; }
 
         .btn-descargar-pdf {
-            background: rgba(176, 0, 255, 0.15); border: 2px solid var(--rojo-studio); color: white; padding: 12px 25px; border-radius: 50px;
+            background: rgba(176, 0, 255, 0.25); border: 2px solid var(--rojo-studio); color: white; padding: 12px 25px; border-radius: 50px;
             font-weight: bold; font-size: 0.9rem; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; margin: 0 auto 50px; transition: 0.3s; box-shadow: 0 0 15px var(--rojo-glow);
         }
         .btn-descargar-pdf:hover { background: var(--rojo-studio); color: white; transform: scale(1.05); box-shadow: 0 0 25px var(--rojo-studio); }
 
         .faq-accordion { display: flex; flex-direction: column; gap: 15px; }
-        .faq-item { background: var(--glass-bg); backdrop-filter: blur(15px); border: 1px solid var(--glass-border); border-radius: 10px; overflow: hidden; transition: border-color 0.3s; }
+        .faq-item { background: var(--glass-bg); backdrop-filter: blur(2px); border: 1px solid var(--glass-border); border-radius: 10px; overflow: hidden; transition: border-color 0.3s; }
         .faq-item:hover { border-color: var(--rojo-studio); }
         .faq-question { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: bold; user-select: none; font-size: 1.05rem; }
         .faq-question i { transition: transform 0.3s ease; color: var(--rojo-studio); }
         .faq-item.active .faq-question i { transform: rotate(180deg); }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; color: #ffffff; font-size: 0.95rem; line-height: 1.6; padding: 0 20px; background: rgba(0,0,0,0.2); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; color: #ffffff; font-size: 0.95rem; line-height: 1.6; padding: 0 20px; background: rgba(0,0,0,0.35); }
         .faq-item.active .faq-answer { max-height: 200px; padding: 15px 20px 20px; border-top: 1px solid var(--glass-border); }
 
         .equipo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 40px auto; }
@@ -404,22 +468,14 @@
         .signal-steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; position: relative; }
 
         .contacto-grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 40px; 
-            max-width: 1100px; 
-            margin: 0 auto; 
-            border-radius: 20px; 
-            padding: 40px; 
-            box-sizing: border-box;
-            width: 100%;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto; border-radius: 20px; padding: 40px; box-sizing: border-box; width: 100%;
         }
         .redes-box { padding: 30px; border-radius: 20px; transform-style: preserve-3d; margin-top: 20px; }
-        .social-item { display: flex; align-items: center; gap: 15px; text-decoration: none; color: white; font-size: 1.6rem; margin-bottom: 20px; transition: 0.3s; }
+        .social-item { display: flex; align-items: center; gap: 15px; text-decoration: none; color: white; font-size: 1.6rem; margin-bottom: 20px; transition: 0.3s; text-shadow: 0 2px 5px rgba(0,0,0,0.9); }
         .social-item:hover { color: var(--rojo-studio); transform: translateZ(20px); }
         .badge-prox { font-size: 0.5em; background: var(--rojo-studio); color: white; padding: 2px 8px; border-radius: 3px; vertical-align: middle; margin-left: 10px; font-weight: bold; box-shadow: 0 0 10px var(--rojo-studio); }
         
-        .qr-card-contact { border-radius: 15px; padding: 20px; text-align: center; margin-top: 25px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+        .qr-card-contact { border-radius: 15px; padding: 20px; text-align: center; margin-top: 25px; display: flex; align-items: center; justify-content: space-between; gap: 20px; background: rgba(0,0,0,0.22); border: 1px solid var(--glass-border); backdrop-filter: blur(2px); }
         .qr-card-img { width: 110px; height: 110px; background: white; padding: 6px; border-radius: 10px; box-shadow: 0 0 10px rgba(255,255,255,0.2); }
         .qr-card-info { text-align: left; flex: 1; }
         .qr-card-info h4 { margin: 0 0 6px; font-size: 1.1rem; color: var(--rojo-studio); font-family: 'Impact', sans-serif; letter-spacing: 1px; }
@@ -428,14 +484,14 @@
         .mapa-box { border-radius: 15px; overflow: hidden; border: 2px solid var(--rojo-studio); height: 320px; width: 100%; box-sizing: border-box; }
         .mapa-box iframe { width: 100%; height: 100%; }
 
-        .rutas-box { border-radius: 15px; padding: 20px; width: 100%; box-sizing: border-box; }
+        .rutas-box { border-radius: 15px; padding: 20px; width: 100%; box-sizing: border-box; margin-top: 20px; }
         .rutas-box h4 { margin: 0 0 15px; font-family: 'Impact', sans-serif; color: var(--rojo-studio); letter-spacing: 1.5px; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; }
-        .ruta-item { background: rgba(0,0,0,0.3); border-left: 3px solid var(--rojo-studio); padding: 10px 14px; border-radius: 6px; margin-bottom: 10px; font-size: 0.85rem; color: #ffffff; line-height: 1.4; }
+        .ruta-item { background: rgba(0,0,0,0.35); border-left: 3px solid var(--rojo-studio); padding: 10px 14px; border-radius: 6px; margin-bottom: 10px; font-size: 0.85rem; color: #ffffff; line-height: 1.4; }
         .ruta-item b { color: white; display: block; margin-bottom: 2px; }
         .ruta-item:last-child { margin-bottom: 0; }
 
         .btn-flotante-qr {
-            position: fixed; bottom: 110px; right: 80px; background: rgba(17, 17, 17, 0.6); backdrop-filter: blur(15px); color: var(--rojo-studio);
+            position: fixed; bottom: 110px; right: 80px; background: rgba(17, 17, 17, 0.55); backdrop-filter: blur(6px); color: var(--rojo-studio);
             border: 2px solid var(--rojo-studio); box-shadow: 0 0 15px var(--rojo-glow); padding: 10px 20px; border-radius: 50px;
             text-decoration: none; font-weight: bold; font-size: 0.85rem; letter-spacing: 1px; z-index: 20000; display: flex; align-items: center; gap: 8px; cursor: pointer; transition: 0.3s;
         }
@@ -447,14 +503,14 @@
         .btn-flotante-whatsapp::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--verde-whatsapp); border-radius: 50px; z-index: -1; animation: pulseRadarVerde 2s infinite; }
         @keyframes pulseRadarVerde { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.4); opacity: 0; } }
 
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); backdrop-filter: blur(20px); z-index: 60000; align-items: center; justify-content: center; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(8px); z-index: 60000; align-items: center; justify-content: center; }
         .modal-contenido {
-            background: rgba(10, 10, 10, 0.5); backdrop-filter: blur(35px); border: 2px solid var(--rojo-studio); box-shadow: 0 0 30px var(--rojo-glow);
+            background: rgba(10, 10, 10, 0.7); backdrop-filter: blur(12px); border: 2px solid var(--rojo-studio); box-shadow: 0 0 30px var(--rojo-glow);
             padding: 35px 30px; border-radius: 15px; width: 90%; max-width: 500px; position: relative; color: white; text-align: center; animation: modalPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .modal-contenido h2 { font-family: 'Impact', sans-serif; letter-spacing: 2px; font-size: 1.8rem; margin: 0; }
         .modal-contenido p { font-size: 1.05rem; color: #ffffff; }
-        .btn-cerrar-modal { cursor: pointer; position: absolute; right: 20px; top: 10px; font-size: 30px; color: #888; transition: color 0.2s; }
+        .btn-cerrar-modal { cursor: pointer; position: absolute; right: 20px; top: 10px; font-size: 30px; color: #ccc; transition: color 0.2s; }
         .btn-cerrar-modal:hover { color: var(--rojo-studio); }
         .btn-modal-wa {
             display: inline-flex; align-items: center; gap: 10px; background: var(--verde-whatsapp); color: white; text-decoration: none;
@@ -470,68 +526,191 @@
 
         @keyframes modalPop { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
 
+        /* --- PLANTILLA IMPRIMIBLE: PDF PERFECTAMENTE DISTRIBUIDO (SIN HUECOS) --- */
         #print-sheet { display: none; }
-        @page { size: letter portrait; margin: 8mm 10mm; }
+        @page { size: letter portrait; margin: 8mm; }
 
         @media print {
-            html, body { background: white !important; color: #111 !important; margin: 0 !important; padding: 0 !important; width: 100% !important; height: 100% !important; overflow: hidden !important; }
-            nav, .session-clock, .status-bar, .lateral-rack, .vu-meter-container, 
-            .btn-flotante-whatsapp, .btn-flotante-qr, #visualizer-bg, #fondo-parallax, 
-            #loader, .modal, .seccion-pagina, footer, #spotlight { display: none !important; }
-            
-            #print-sheet {
-                display: flex !important; flex-direction: column; justify-content: space-between; height: 98vh;
-                box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; 
-                page-break-inside: avoid; break-inside: avoid;
-                box-shadow: none !important; background: white !important; border: none !important;
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                text-shadow: none !important;
+                box-shadow: none !important;
+                filter: none !important;
+                backdrop-filter: none !important;
             }
-            .pdf-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid #b000ff; padding-bottom: 8px; box-shadow: none !important; }
-            .pdf-title h1 { margin: 0; font-family: 'Impact', sans-serif; font-size: 2.2rem; letter-spacing: 2px; color: #111; }
-            .pdf-title p { margin: 3px 0 0; font-size: 0.9rem; color: #444; }
-            .pdf-grid-columns { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 20px; flex: 1; margin: 12px 0; }
-            .pdf-col { display: flex; flex-direction: column; justify-content: space-between; }
-            .pdf-section-title { font-size: 1.05rem; font-weight: 800; text-transform: uppercase; border-bottom: 2px solid #b000ff; padding-bottom: 4px; margin-bottom: 10px; color: #b000ff; letter-spacing: 0.5px; }
-            .pdf-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; flex: 1; }
-            .pdf-table th, .pdf-table td { border: 1px solid #bbb; padding: 7px 8px; text-align: left; }
-            .pdf-table th { background: #f4f4f4; font-weight: bold; font-size: 0.85rem; }
-            .pdf-badge-morado { color: #b000ff; font-weight: 900; }
-            .pdf-rules-container { display: flex; flex-direction: column; justify-content: space-between; flex: 1; }
-            .pdf-rule-item { border: 1px solid #ddd; border-left: 3.5px solid #b000ff; padding: 7px 10px; margin-bottom: 6px; background: #fafafa; font-size: 0.8rem; line-height: 1.35; display: flex; align-items: flex-start; gap: 10px; box-shadow: none !important; }
-            .pdf-rule-item:last-child { margin-bottom: 0; }
-            .pdf-rule-item i { color: #b000ff; font-size: 1.15rem; margin-top: 2px; min-width: 18px; text-align: center; }
-            .pdf-rule-content b { color: #b000ff; }
-            .pdf-footer { display: flex; justify-content: space-between; align-items: center; border-top: 2px solid #ccc; padding-top: 8px; font-size: 0.8rem; color: #555; }
+            html, body {
+                background: #ffffff !important;
+                color: #111111 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                overflow: hidden !important;
+            }
+            body::before, body::after, body.modo-cabina-pro::after {
+                display: none !important; content: none !important;
+            }
+            nav, .session-clock, .status-bar, .lateral-rack, .vu-meter-container, 
+            .btn-flotante-whatsapp, .btn-flotante-qr, #visualizer-bg, #video-bg-container, #video-overlay,
+            #loader, .modal, .seccion-pagina, footer, #spotlight, .ripple {
+                display: none !important;
+            }
+            #print-sheet {
+                display: flex !important;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 100% !important;
+                height: 262mm !important;
+                box-sizing: border-box;
+                font-family: 'Segoe UI', Arial, sans-serif;
+                background: #ffffff !important;
+                color: #111111 !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                padding: 0;
+            }
+            .pdf-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 2.5px solid #b000ff;
+                padding-bottom: 5px;
+                margin-bottom: 8px;
+            }
+            .pdf-title h1 {
+                margin: 0;
+                font-family: 'Impact', Arial, sans-serif;
+                font-size: 2rem;
+                letter-spacing: 2px;
+                color: #111111 !important;
+            }
+            .pdf-title p {
+                margin: 2px 0 0;
+                font-size: 0.8rem;
+                color: #333333 !important;
+            }
+            .pdf-grid-columns {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+                flex: 1;
+                align-items: stretch;
+            }
+            .pdf-col {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+            }
+            .pdf-section-title {
+                font-size: 0.88rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                border-bottom: 2px solid #b000ff;
+                padding-bottom: 2px;
+                margin-bottom: 5px;
+                color: #b000ff !important;
+                letter-spacing: 0.5px;
+            }
+            .pdf-table {
+                width: 100%;
+                border-collapse: collapse !important;
+                border-spacing: 0 !important;
+                font-size: 0.68rem;
+                flex: 1;
+            }
+            .pdf-table tr { background: #ffffff !important; }
+            .pdf-table th, .pdf-table td {
+                border: 1px solid #c8c8c8 !important;
+                padding: 3px 5px !important;
+                text-align: left !important;
+                color: #111111 !important;
+                border-radius: 0 !important;
+                vertical-align: middle !important;
+            }
+            .pdf-table th {
+                background: #f2edf7 !important;
+                font-weight: bold;
+                font-size: 0.7rem;
+                color: #111111 !important;
+            }
+            .pdf-badge-morado { color: #b000ff !important; font-weight: 900; }
+            
+            .pdf-rules-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                flex: 1;
+                gap: 4px;
+            }
+            .pdf-rule-item {
+                flex: 1;
+                border: 1px solid #d5d5d5 !important;
+                border-left: 3px solid #b000ff !important;
+                padding: 3px 6px !important;
+                background: #fafafa !important;
+                font-size: 0.69rem;
+                line-height: 1.22;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                color: #111111 !important;
+                box-sizing: border-box;
+            }
+            .pdf-rule-item i { color: #b000ff !important; font-size: 0.82rem; min-width: 14px; text-align: center; }
+            .pdf-rule-content { color: #222222 !important; }
+            .pdf-rule-content b { color: #b000ff !important; }
+
+            .pdf-extra-banner {
+                border: 1px solid #b000ff !important;
+                background: #f8f3fc !important;
+                border-radius: 4px;
+                padding: 5px 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 6px;
+                font-size: 0.73rem;
+                color: #111111 !important;
+            }
+            .pdf-extra-banner b { color: #b000ff !important; }
+
+            .pdf-footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-top: 1.5px solid #cccccc;
+                padding-top: 4px;
+                margin-top: 6px;
+                font-size: 0.74rem;
+                color: #444444 !important;
+            }
         }
 
         @media (max-width: 768px) {
             .lateral-rack, .vu-meter-container, .session-clock, .status-bar { display: none !important; }
             
-            nav { padding: 0 20px; height: 70px; }
-            .nav-logo-text { font-size: 1.2rem; }
+            nav { padding: 0 15px; height: 70px; }
+            .nav-logo-text { font-size: 1.4rem; }
+            .nav-logo-badge { font-size: 0.55rem; padding: 2px 6px; }
             
             .menu-hamburguesa-btn { display: block; }
             
             .nav-links {
                 display: none; position: absolute; top: 70px; left: 0; width: 100%;
-                background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(25px);
+                background: rgba(10, 10, 10, 0.92); backdrop-filter: blur(12px);
                 flex-direction: column; align-items: center; padding: 20px 0;
                 border-bottom: 2px solid var(--rojo-studio); box-shadow: 0 15px 30px rgba(0,0,0,0.8); z-index: 9999;
             }
             .nav-links.abierto { display: flex; }
-            .nav-links button { margin: 10px 0; font-size: 1rem; padding: 10px; width: 80%; text-align: center; background: rgba(255,255,255,0.03); border-radius: 8px; }
+            .nav-links button { margin: 10px 0; font-size: 1rem; padding: 10px; width: 80%; text-align: center; background: rgba(255,255,255,0.05); border-radius: 8px; }
             .header-controls { margin-top: 15px; display: flex; flex-direction: column; gap: 10px; width: 80%; align-items: center; }
 
-            .titulo-principal { font-size: 2.5em !important; }
+            .titulo-principal { font-size: 2.8em !important; letter-spacing: 5px; }
             .lema-badge { font-size: 0.95rem; padding: 8px 15px; text-align: center; }
             .mision-text { font-size: 1.8rem !important; }
             
-            .contacto-grid { 
-                grid-template-columns: 1fr !important; 
-                padding: 15px !important; 
-                gap: 20px !important; 
-                width: 100% !important;
-                box-sizing: border-box;
-            }
+            .contacto-grid { grid-template-columns: 1fr !important; padding: 15px !important; gap: 20px !important; width: 100% !important; box-sizing: border-box; }
             .seccion-pagina { padding: 90px 15px 40px !important; }
             .btn-flotante-whatsapp { right: 15px; bottom: 20px; padding: 10px 18px; font-size: 0.85rem; }
             .btn-flotante-qr { right: 15px; bottom: 75px; padding: 8px 12px; font-size: 0.75rem; }
@@ -547,12 +726,17 @@
             .rutas-box { width: 100% !important; box-sizing: border-box; }
         }
 
-        #visualizer-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(176, 0, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(176, 0, 255, 0.05) 1px, transparent 1px); background-size: 50px 50px; z-index: -1; animation: moveGrid 20s linear infinite; }
+        #visualizer-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(176, 0, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(176, 0, 255, 0.03) 1px, transparent 1px); background-size: 50px 50px; z-index: -1; animation: moveGrid 20s linear infinite; pointer-events: none; }
         @keyframes moveGrid { 0% { background-position: 0 0; } 100% { background-position: 50px 50px; } }
-        #fondo-parallax { position: fixed; top: -5%; left: -5%; width: 110%; height: 110%; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('fondo.jpg'); background-size: cover; z-index: -2; transition: transform 0.1s ease-out; }
     </style>
 </head>
 <body>
+
+<div id="video-bg-container">
+    <video id="bg-video" autoplay loop muted playsinline preload="auto"></video>
+</div>
+<div id="video-overlay"></div>
+<div id="visualizer-bg"></div>
 
 <div id="spotlight"></div>
 
@@ -568,9 +752,6 @@
     <div class="status-item">ENGINE: <span>STAR-DRIVE v5.0</span></div>
 </div>
 
-<div id="visualizer-bg"></div>
-<div id="fondo-parallax"></div>
-
 <div class="lateral-rack izquierdo"><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div></div>
 <div class="lateral-rack derecho"><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div><div class="jack-input"></div></div>
 
@@ -582,8 +763,9 @@
 
 <nav>
     <div class="nav-logo-container" onclick="mostrarPagina('inicio')">
-        <img src="Fondo de logo eliminado.png" alt="Logo" class="img-logo-nav">
+        <div class="rec-dot"></div>
         <span class="nav-logo-text">STAR MUSIC</span>
+        <span class="nav-logo-badge">STUDIO</span>
     </div>
     
     <button class="menu-hamburguesa-btn" onclick="toggleMenuMovil()">
@@ -612,12 +794,8 @@
 
 <div id="inicio" class="seccion-pagina activa">
     <div class="home-content">
-        <div class="logo-wrapper">
-            <div class="pulse-ring"></div><div class="pulse-ring"></div>
-            <img src="Fondo de logo eliminado.png" alt="Logo" class="main-logo-display">
-        </div>
         <h1 class="titulo-principal glitch" data-text="STAR MUSIC">STAR MUSIC</h1>
-        <p style="color:var(--rojo-studio); letter-spacing:5px; text-transform:uppercase; font-weight:bold; margin-top:15px;">Record Studio & Producción Musical</p>
+        <p style="color:var(--rojo-studio); letter-spacing:5px; text-transform:uppercase; font-weight:bold; margin-top:15px; text-shadow: 0 2px 6px rgba(0,0,0,0.95);">Record Studio & Producción Musical</p>
 
         <div class="lema-badge">
             <i class="fas fa-fire"></i> HAZ TU CANCIÓN POR $500 PESOS
@@ -660,8 +838,8 @@
         </div>
 
         <div class="reproductores-stack">
-            <iframe allow="autoplay" frameborder="0" height="150" src="https://embed.music.apple.com/mx/album/no-te-pude-encontrar/1753496189?i=1753496190"></iframe>
-            <iframe allow="autoplay" frameborder="0" height="150" src="https://embed.music.apple.com/mx/album/haciendo-ruido/1795744188?i=1795744401"></iframe>
+            <iframe loading="lazy" allow="autoplay" frameborder="0" height="150" src="https://embed.music.apple.com/mx/album/no-te-pude-encontrar/1753496189?i=1753496190"></iframe>
+            <iframe loading="lazy" allow="autoplay" frameborder="0" height="150" src="https://embed.music.apple.com/mx/album/haciendo-ruido/1795744188?i=1795744401"></iframe>
         </div>
 
         <div class="wave-container">
@@ -672,20 +850,20 @@
             <div class="wave-bar" style="animation-delay:0.4s"></div>
             <div class="wave-bar" style="animation-delay:0.1s"></div>
         </div>
-        <div style="background:var(--glass-bg); backdrop-filter:blur(20px); padding:25px; border-radius:15px; border-top:3px solid var(--rojo-studio); font-style:italic; text-align:center; color:#ffffff;">"La mejor calidad de sonido en Ecatepec. El trato es otro nivel. Recomendado 100%."</div>
+        <div style="background:var(--glass-bg); backdrop-filter:blur(2px); padding:25px; border-radius:15px; border-top:3px solid var(--rojo-studio); font-style:italic; text-align:center; color:#ffffff; text-shadow: 0 2px 5px rgba(0,0,0,0.95);">"La mejor calidad de sonido en Ecatepec. El trato es otro nivel. Recomendado 100%."</div>
     </div>
 </div>
 
 <div id="servicios" class="seccion-pagina">
     <div class="tabla-contenedor">
-        <h2 style="text-align:center; color:var(--rojo-studio); letter-spacing:5px; margin-bottom:10px;">SERVICIOS Y COSTOS</h2>
-        <p style="text-align:center; color:#aaa; font-size:0.9rem; margin-bottom:30px;">Sesión base: 1:30 hrs en cabina. Hora extra de grabación: +$200.00</p>
-        <table>
+        <h2 style="text-align:center; color:var(--rojo-studio); font-family:'Impact', sans-serif; font-size:2.4rem; letter-spacing:5px; margin-bottom:8px;">SERVICIOS Y COSTOS</h2>
+        <p style="text-align:center; color:#eee; font-size:0.95rem; margin-bottom:30px; text-shadow: 0 2px 6px rgba(0,0,0,0.95);">Sesión base: 1:30 hrs en cabina. Hora extra de grabación: +$200.00</p>
+        <table class="tabla-servicios-web">
             <tbody>
                 <tr onclick="mostrarInfo('★ MÁS VENDIDO', 'Beat exclusivo producido desde cero, cesión total de derechos de autor, 1:30 hrs de grabación en cabina acústica con microfonía Sennheiser y masterización profesional para Spotify y plataformas.', '$850.00')">
                     <td>
                         <span class="badge-venda-morado">★ MÁS VENDIDO</span><br>
-                        <b style="color:var(--rojo-studio);">Beat Exclusivo + Grabación (1:30 hrs) + Master</b>
+                        <b style="color:var(--rojo-studio); font-size:1.05rem;">Beat Exclusivo + Grabación (1:30 hrs) + Master</b>
                         <div class="subtext-tabla">Composición original desde cero + sesión de voces + masterización completa</div>
                     </td>
                     <td>$850.00</td>
@@ -694,7 +872,7 @@
                 <tr onclick="mostrarInfo('★ PAQUETE ESTRELLA ($500)', 'Tu canción completa por $500 pesos: Beat con Licencia Limitada (hasta 20k repros), 1:30 hrs de grabación de voces en cabina profesional y masterización final lista para plataformas.', '$500.00')">
                     <td>
                         <span class="badge-venda-morado">★ PAQUETE ESTRELLA</span><br>
-                        <b style="color:var(--rojo-studio);">Beat Limitado + Grabación (1:30 hrs) + Master</b>
+                        <b style="color:var(--rojo-studio); font-size:1.05rem;">Beat Limitado + Grabación (1:30 hrs) + Master</b>
                         <div class="subtext-tabla">¡Haz tu canción completa por $500 pesos! Todo incluido listo para lanzar</div>
                     </td>
                     <td>$500.00</td>
@@ -702,26 +880,26 @@
 
                 <tr onclick="mostrarInfo('EXCLUSIVA + GRABACIÓN', 'Composición original desde cero y transferencia total de derechos con 1:30 hrs de grabación en cabina (sin masterización).', '$700.00')">
                     <td>
-                        Beat Exclusivo + Grabación (1:30 hrs) [Sin Master]
+                        <b>Beat Exclusivo + Grabación (1:30 hrs) [Sin Master]</b>
                         <div class="subtext-tabla">Para artistas que tienen su propio ingeniero de mezcla</div>
                     </td>
                     <td>$700.00</td>
                 </tr>
 
                 <tr onclick="mostrarInfo('EXCLUSIVA + MASTER', 'Composición original desde cero, mezcla de stems y transferencia total de derechos comerciales.', '$650.00')">
-                    <td>Beat Exclusivo + Masterización</td><td>$650.00</td>
+                    <td><b>Beat Exclusivo + Masterización</b></td><td>$650.00</td>
                 </tr>
 
                 <tr onclick="mostrarInfo('LICENCIA EXCLUSIVA', 'Composición de beat original y contrato con cesión total de derechos comerciales.', '$500.00')">
-                    <td>Beat Licencia Exclusiva</td><td>$500.00</td>
+                    <td><b>Beat Licencia Exclusiva</b></td><td>$500.00</td>
                 </tr>
 
                 <tr onclick="mostrarInfo('LIMITADA + MASTER', 'Composición desde cero, mezcla de stems y contrato de licencia hasta 20,000 reproducciones.', '$350.00')">
-                    <td>Beat Licencia Limitada + Master</td><td>$350.00</td>
+                    <td><b>Beat Licencia Limitada + Master</b></td><td>$350.00</td>
                 </tr>
 
                 <tr onclick="mostrarInfo('LICENCIA LIMITADA', 'Composición instrumental original con contrato de licencia hasta 15,000 reproducciones.', '$200.00')">
-                    <td>Beat Licencia Limitada</td><td>$200.00</td>
+                    <td><b>Beat Licencia Limitada</b></td><td>$200.00</td>
                 </tr>
             </tbody>
         </table>
@@ -729,7 +907,7 @@
 
     <div class="ep-container">
         <h2 style="text-align: center; color: var(--rojo-studio); font-family: 'Impact'; letter-spacing: 3px; font-size: 2.2rem; margin-bottom: 5px;">PAQUETES EP & ÁLBUM</h2>
-        <p style="text-align: center; color: #888; font-size: 0.95rem; margin-bottom: 30px;">Producción integral de nivel discográfico para proyectos serios</p>
+        <p style="text-align: center; color: #ddd; font-size: 0.95rem; margin-bottom: 30px; text-shadow: 0 2px 4px rgba(0,0,0,0.9);">Producción integral de nivel discográfico para proyectos serios</p>
 
         <div class="ep-grid">
             <div class="ep-card">
@@ -848,7 +1026,7 @@
 
     <div class="calc-wrapper">
         <h3 class="calc-title"><i class="fas fa-sliders-h"></i> ARMA TU PROPIO PAQUETE</h3>
-        <p style="text-align: center; color: #888; margin-bottom: 30px; font-size: 0.95rem;">Selecciona los elementos y comprueba tu presupuesto en tiempo real</p>
+        <p style="text-align: center; color: #ddd; margin-bottom: 30px; font-size: 0.95rem;">Selecciona los elementos y comprueba tu presupuesto en tiempo real</p>
 
         <div class="calc-step">
             <div class="calc-step-title">1. Elige tu Beat / Instrumental</div>
@@ -937,7 +1115,7 @@
 <div id="reglas" class="seccion-pagina">
     <div class="faq-container">
         <h2 style="text-align: center; color: var(--rojo-studio); font-family: 'Impact'; letter-spacing: 3px; font-size: 2.3rem; margin-bottom: 10px;">REGLAS DE SESIÓN</h2>
-        <p style="text-align: center; color: #888; margin-bottom: 30px; font-size: 0.95rem;">Para mantener el mejor ambiente y la máxima calidad sonora, consulta nuestras 6 normas de estudio:</p>
+        <p style="text-align: center; color: #ddd; margin-bottom: 30px; font-size: 0.95rem; text-shadow: 0 2px 4px rgba(0,0,0,0.9);">Para mantener el mejor ambiente y la máxima calidad sonora, consulta nuestras 6 normas de estudio:</p>
 
         <div class="rules-grid">
             <div class="rule-card">
@@ -1105,7 +1283,7 @@
                 </div>
             </div>
 
-            <p style="margin-top:20px;">Benito Juárez Nte 9, San Benjamin, Ecatepec.<br>WhatsApp: 53 3316 7500</p>
+            <p style="margin-top:20px; text-shadow: 0 2px 5px rgba(0,0,0,0.9);">Benito Juárez Nte 9, San Benjamin, Ecatepec.<br>WhatsApp: 53 3316 7500</p>
         </div>
 
         <div>
@@ -1128,6 +1306,7 @@
     </div>
 </div>
 
+<!-- PLANTILLA IMPRIMIBLE: PDF 100% DISTRIBUIDO Y ALINEADO EN TODA LA HOJA CARTA -->
 <div id="print-sheet">
     <div class="pdf-header">
         <div class="pdf-title">
@@ -1136,102 +1315,117 @@
             <p><b>WhatsApp:</b> +52 55 3316 7500 • <b>Instagram:</b> @jhonwayne.mp3</p>
         </div>
         <div>
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=85x85&data=https%3A%2F%2Fwa.me%2F525533167500" alt="QR WhatsApp" style="width:75px; height:75px;">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=https%3A%2F%2Fwa.me%2F525533167500" alt="QR WhatsApp" style="width:72px; height:72px;">
         </div>
     </div>
 
     <div class="pdf-grid-columns">
         <div class="pdf-col">
-            <div class="pdf-section-title">1. TARIFAS Y PAQUETES</div>
+            <div class="pdf-section-title">1. TARIFAS Y PAQUETES OFICIALES</div>
             <table class="pdf-table">
                 <thead>
                     <tr>
-                        <th style="width: 38%;">Servicio</th>
-                        <th style="width: 42%;">Detalle</th>
-                        <th style="width: 20%;">Costo</th>
+                        <th style="width: 38%;">Paquete / Servicio</th>
+                        <th style="width: 44%;">Incluye</th>
+                        <th style="width: 18%;">Costo</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><b class="pdf-badge-morado">★ PAQUETE ESTRELLA</b></td>
-                        <td>Beat Limitado + Cabina (1:30h) + Master</td>
+                        <td>Beat Limitado + Cabina (1:30h) + Master Pro</td>
                         <td><b>$500 MXN</b></td>
                     </tr>
                     <tr>
                         <td><b class="pdf-badge-morado">★ MÁS VENDIDO</b></td>
-                        <td>Beat Exclusivo + Cabina (1:30h) + Master</td>
+                        <td>Beat Exclusivo + Cabina (1:30h) + Master Pro</td>
                         <td><b>$850 MXN</b></td>
                     </tr>
                     <tr>
                         <td><b>Exclusiva + Grabación</b></td>
                         <td>Beat Exclusivo + 1:30h cabina (Sin Master)</td>
-                        <td>$700 MXN</td>
+                        <td><b>$700 MXN</b></td>
                     </tr>
                     <tr>
                         <td><b>Exclusiva + Master</b></td>
-                        <td>Beat Exclusivo + Masterización de pistas</td>
-                        <td>$650 MXN</td>
+                        <td>Beat Exclusivo + Mezcla y Master de Stems</td>
+                        <td><b>$650 MXN</b></td>
                     </tr>
                     <tr>
                         <td><b>Licencia Exclusiva</b></td>
-                        <td>Beat con 100% de derechos comerciales</td>
-                        <td>$500 MXN</td>
+                        <td>Beat original con 100% derechos comerciales</td>
+                        <td><b>$500 MXN</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>Limitada + Master</b></td>
+                        <td>Beat Licencia Limitada (20k) + Master Digital</td>
+                        <td><b>$350 MXN</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>Licencia Limitada</b></td>
+                        <td>Instrumental original (hasta 15k repros)</td>
+                        <td><b>$200 MXN</b></td>
                     </tr>
                     <tr>
                         <td><b>PACK EP (3 Tracks)</b></td>
                         <td>3 Beats Exclusivos + 6h Cabina + Master + Stems</td>
-                        <td>$1,999 MXN</td>
+                        <td><b>$1,999 MXN</b></td>
                     </tr>
                     <tr>
                         <td><b>PACK ÁLBUM (5 Tracks)</b></td>
                         <td>5 Beats Exclusivos + 10h Cabina + Master + Stems</td>
-                        <td>$3,499 MXN</td>
+                        <td><b>$3,499 MXN</b></td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
         <div class="pdf-col">
-            <div class="pdf-section-title">2. REGLAMENTO DE CABINA</div>
+            <div class="pdf-section-title">2. REGLAMENTO DE CABINA Y SESIÓN</div>
             <div class="pdf-rules-container">
                 <div class="pdf-rule-item">
                     <i class="fas fa-hand-holding-usd"></i>
                     <div class="pdf-rule-content">
-                        <b>1. Anticipo del 50%:</b> Turnos apartados con el 50% vía transferencia o depósito OXXO. El restante se liquida al llegar al estudio.
+                        <b>1. Anticipo del 50%:</b> Fechas se apartan con 50% vía transferencia u OXXO. El 50% restante se liquida al iniciar la sesión.
                     </div>
                 </div>
                 <div class="pdf-rule-item">
                     <i class="fas fa-clock"></i>
                     <div class="pdf-rule-content">
-                        <b>2. Puntualidad:</b> Tu turno inicia a la hora agendada. Se cuentan con 15 minutos de tolerancia; pasado ese lapso el tiempo transcurrido no es recuperable.
+                        <b>2. Puntualidad:</b> Tu turno inicia a la hora agendada. Contamos con 15 minutos de tolerancia; pasado ese lapso el tiempo no es recuperable.
                     </div>
                 </div>
                 <div class="pdf-rule-item">
                     <i class="fas fa-users-slash"></i>
                     <div class="pdf-rule-content">
-                        <b>3. Acompañantes:</b> Máximo 2 personas de apoyo por sesión para resguardar la acústica, concentración y rendimiento en cabina.
+                        <b>3. Acompañantes:</b> Máximo 2 acompañantes por sesión para cuidar la acústica, concentración y flujo de trabajo en cabina.
                     </div>
                 </div>
                 <div class="pdf-rule-item">
                     <i class="fas fa-file-audio"></i>
                     <div class="pdf-rule-content">
-                        <b>4. Entrega de Pistas:</b> Envío previo por Drive/WhatsApp o en USB en formato WAV/MP3 320kbps. Traer letra estructurada agiliza las tomas.
+                        <b>4. Entrega de Pistas:</b> Enviar pistas por Drive/WhatsApp o USB (WAV/MP3). Traer letra escrita agiliza las tomas en cabina.
                     </div>
                 </div>
                 <div class="pdf-rule-item">
                     <i class="fas fa-smoking-ban"></i>
                     <div class="pdf-rule-content">
-                        <b>5. Cuidado de Equipos:</b> Sin bebidas destapadas en consolas. Estrictamente prohibido fumar o vapear dentro de la cabina.
+                        <b>5. Cuidado de Equipos:</b> Sin bebidas destapadas cerca de consolas. Estrictamente prohibido fumar o vapear dentro de la cabina.
                     </div>
                 </div>
                 <div class="pdf-rule-item">
                     <i class="fas fa-calendar-alt"></i>
                     <div class="pdf-rule-content">
-                        <b>6. Reagendas:</b> Avisa con al menos 24 horas de antelación para conservar tu anticipo (válido por una ocasión). Mismo día pierde anticipo.
+                        <b>6. Reagendas:</b> Avisar con mínimo 24 horas de anticipación (válido 1 vez). Cancelaciones el mismo día pierden el anticipo.
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="pdf-extra-banner">
+        <div><b>EQUIPO PRO:</b> Microfonía Sennheiser • Interfaz Focusrite • Antares Auto-Tune Pro • Suite FabFilter & Waves</div>
+        <div><b>PROGRAMA VIP:</b> ¡Graba 5 temas y tu 6ta canción tiene <b>50% OFF</b>!</div>
     </div>
 
     <div class="pdf-footer">
@@ -1240,7 +1434,7 @@
     </div>
 </div>
 
-<footer style="text-align:center; padding:40px; color:#444; font-size:0.8rem;">© 2026 Star Music Record Studio - Haciendo Ruido</footer>
+<footer style="text-align:center; padding:40px; color:#ccc; font-size:0.8rem; text-shadow: 0 2px 4px rgba(0,0,0,0.9);">© 2026 Star Music Record Studio - Haciendo Ruido</footer>
 
 <div id="miModal" class="modal">
     <div class="modal-contenido">
@@ -1257,7 +1451,7 @@
     <div class="modal-contenido">
         <span onclick="cerrarModalQR()" class="btn-cerrar-modal">×</span>
         <h2 style="color: var(--rojo-studio); margin-bottom:10px;"><i class="fas fa-qrcode"></i> PASE DIGITAL</h2>
-        <p style="font-size:0.9rem; color:#aaa; margin:0 0 20px;">Escanea con tu celular para conectar de inmediato con Star Music</p>
+        <p style="font-size:0.9rem; color:#ddd; margin:0 0 20px;">Escanea con tu celular para conectar de inmediato con Star Music</p>
         
         <div class="qr-tabs">
             <button class="qr-tab-btn active" id="tab-wa" onclick="cambiarQR('wa')"><i class="fab fa-whatsapp"></i> WhatsApp</button>
@@ -1268,22 +1462,50 @@
             <img id="qr-main-img" src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https%3A%2F%2Fwa.me%2F525533167500" alt="Código QR Star Music">
         </div>
 
-        <p id="qr-instruction" style="font-size:0.85rem; color:#ccc; margin-top:15px;">Apunta tu cámara para chatear y agendar por WhatsApp</p>
+        <p id="qr-instruction" style="font-size:0.85rem; color:#eee; margin-top:15px;">Apunta tu cámara para chatear y agendar por WhatsApp</p>
     </div>
 </div>
 
 <script>
+    let currentVideoFormat = '';
+    function actualizarFondoAnimado() {
+        const videoElement = document.getElementById('bg-video');
+        if (!videoElement) return;
+
+        const esCelular = window.innerWidth <= 768 || window.innerHeight > window.innerWidth;
+        const nuevoFormato = esCelular ? '9-16' : '16-9';
+        const archivoVideo = esCelular ? 'animacion-logo-9-16.mp4' : 'animacion-logo-16-9.mp4';
+
+        if (currentVideoFormat !== nuevoFormato) {
+            currentVideoFormat = nuevoFormato;
+            videoElement.src = archivoVideo;
+            videoElement.play().catch(() => {
+                document.body.addEventListener('touchstart', () => videoElement.play(), { once: true });
+                document.body.addEventListener('click', () => videoElement.play(), { once: true });
+            });
+        }
+    }
+
+    window.addEventListener('resize', actualizarFondoAnimado);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        actualizarFondoAnimado();
+        calcularPresupuesto();
+
+        let bar = document.getElementById('p-bar');
+        let loader = document.getElementById('loader');
+        bar.style.width = '100%';
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 60);
+        }, 40);
+    });
+
     function updateClock() { const now = new Date(); document.getElementById('clock-display').innerText = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0') + ":" + now.getSeconds().toString().padStart(2, '0'); }
     setInterval(updateClock, 1000); updateClock();
-
-    window.onload = () => {
-        let bar = document.getElementById('p-bar'); let width = 0;
-        let interval = setInterval(() => {
-            if (width >= 100) { clearInterval(interval); setTimeout(() => { document.getElementById('loader').style.display='none'; document.body.style.overflow='auto'; }, 500); }
-            else { width += 10; bar.style.width = width + '%'; }
-        }, 50);
-        calcularPresupuesto();
-    };
 
     const spotlight = document.getElementById('spotlight');
     window.addEventListener('mousemove', (e) => {
@@ -1311,7 +1533,9 @@
         } catch(e) {}
     }
 
-    function descargarFichaPDF() { window.print(); }
+    function descargarFichaPDF() {
+        window.print();
+    }
 
     function toggleMenuMovil() {
         const menu = document.getElementById('nav-links-menu');
